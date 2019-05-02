@@ -44,7 +44,7 @@ module Alf
       describe "on a negated OR" do
         let(:p){ !(Predicate.coerce(x: 2) | Predicate.coerce(y: 3)) }
 
-        pending("NNF would make constant_variables smarter"){
+        skip("NNF would make constant_variables smarter"){
           it{ should eq(AttrList[:x, :y]) }
         }
       end

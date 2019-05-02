@@ -6,11 +6,11 @@ shared_examples_for "a predicate AST node" do
   it{ should be_a(Alf::Predicate::Expr) }
 
   specify{
-    (subject.tautology? == subject.is_a?(Alf::Predicate::Tautology)).should be_true
+    (subject.tautology? == subject.is_a?(Alf::Predicate::Tautology)).should be_truthy
   }
 
   specify{
-    (subject.contradiction? == subject.is_a?(Alf::Predicate::Contradiction)).should be_true
+    (subject.contradiction? == subject.is_a?(Alf::Predicate::Contradiction)).should be_truthy
   }
 
   specify{

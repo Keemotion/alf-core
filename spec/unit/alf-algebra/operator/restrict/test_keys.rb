@@ -7,7 +7,7 @@ module Alf
 
       context 'when the restriction does not touches existing keys' do
         let(:operand){
-          an_operand.with_heading(id: Fixnum, name: String).with_keys([:id])
+          an_operand.with_heading(id: Integer, name: String).with_keys([:id])
         }
         let(:op){
           a_lispy.restrict(operand, lambda{ true })
@@ -21,7 +21,7 @@ module Alf
 
       context 'when the restriction touches part of a key' do
         let(:operand){
-          an_operand.with_heading(id: Fixnum, name: String).with_keys([:id, :name])
+          an_operand.with_heading(id: Integer, name: String).with_keys([:id, :name])
         }
         let(:op){
           a_lispy.restrict(operand, id: 12)
@@ -35,7 +35,7 @@ module Alf
 
       context 'when the restriction touches a full key' do
         let(:operand){
-          an_operand.with_heading(id: Fixnum, name: String).with_keys([:id, :name])
+          an_operand.with_heading(id: Integer, name: String).with_keys([:id, :name])
         }
         let(:op){
           a_lispy.restrict(operand, id: 12, name: "Smith")

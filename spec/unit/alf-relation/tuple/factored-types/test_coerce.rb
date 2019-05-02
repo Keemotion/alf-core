@@ -31,7 +31,7 @@ module Alf
     end
 
     context 'from a Tuple whose declared type hides the compatibility' do
-      let(:type) { Tuple[price: Fixnum] }
+      let(:type) { Tuple[price: Integer] }
       let(:tuple){ Tuple[price: Numeric].new(price: 12) }
 
       it{ should eq(type.new(price: 12))}

@@ -13,7 +13,7 @@ module Alf
     context 'with a Hash' do
       let(:arg){ {:foo => 20} }
 
-      it{ should eq(Heading.new foo: Fixnum) }
+      it{ should eq(Heading.new foo: Integer) }
     end
 
     context 'with an array of hashes' do
@@ -22,5 +22,5 @@ module Alf
       it{ should eq(Heading.new foo: Numeric) }
     end
 
-  end 
+  end
 end

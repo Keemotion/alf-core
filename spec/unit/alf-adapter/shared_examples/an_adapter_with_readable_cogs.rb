@@ -14,7 +14,7 @@ shared_examples_for "an adapter with readable cogs" do
 
     it 'respond true to known cogs' do
       readable_cogs.each do |cog_name|
-        connection.knows?(cog_name).should be_true
+        connection.knows?(cog_name).should be_truthy
       end
     end
   end

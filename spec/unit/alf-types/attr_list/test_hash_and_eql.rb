@@ -12,35 +12,35 @@ module Alf
       let(:left){ AttrList[] }
       let(:right){ AttrList[] }
 
-      it{ should be_true }
+      it{ should be_truthy }
     end
 
     context "when the same lists in same order" do
       let(:left){ AttrList[:a, :b] }
       let(:right){ AttrList[:a, :b] }
 
-      it{ should be_true }
+      it{ should be_truthy }
     end
 
     context "when the same lists in different order" do
       let(:left){ AttrList[:a, :b] }
       let(:right){ AttrList[:b, :a] }
 
-      it{ should be_true }
+      it{ should be_truthy }
     end
 
     context "when not the same lists" do
       let(:left){ AttrList[:a, :b] }
       let(:right){ AttrList[:b, :c] }
 
-      it{ should be_false }
+      it{ should be_falsey }
     end
 
     context "when disjoint" do
       let(:left){ AttrList[:a, :b] }
       let(:right){ AttrList[:c, :d] }
 
-      it{ should be_false }
+      it{ should be_falsey }
     end
 
   end

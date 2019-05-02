@@ -20,7 +20,7 @@ module Alf
         let(:predicate){ Predicate.eq(:foo => 1) }
 
         it 'requests the deletion on :suppliers' do
-          pending "need for Predicate.in" do
+          skip "need for Predicate.in" do
             subject
           end
         end

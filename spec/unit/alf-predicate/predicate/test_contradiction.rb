@@ -8,19 +8,19 @@ module Alf
       context "tautology" do
         subject{ Predicate.tautology }
 
-        it{ should be_false }
+        it{ should be_falsey }
       end
 
       context "contradiction" do
         subject{ Predicate.contradiction }
 
-        it{ should be_true }
+        it{ should be_truthy }
       end
 
       context "identifier" do
         subject{ Predicate.identifier(:x) }
 
-        it{ should be_false }
+        it{ should be_falsey }
       end
 
     end

@@ -13,14 +13,14 @@ module Alf
         let(:left) { Predicate.coerce(:x => 2) }
         let(:right){ Predicate.coerce(:x => 2) }
 
-        it{ should be_true }
+        it{ should be_truthy }
       end
 
       describe "on non equal predicates" do
         let(:left) { Predicate.coerce(:x => 2) }
         let(:right){ Predicate.coerce(:x => 3) }
 
-        it{ should be_false }
+        it{ should be_falsey }
       end
 
     end

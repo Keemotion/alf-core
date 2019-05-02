@@ -9,13 +9,13 @@ module Alf
     context 'when included' do
       let(:attribute){ :id }
 
-      it{ should be_true }
+      it{ should be_truthy }
     end
 
     context 'when not included' do
       let(:attribute){ :notthatone }
 
-      it{ should be_false }
+      it{ should be_falsey }
     end
 
   end

@@ -9,7 +9,7 @@ module Alf
         TupleComputation[big?: ->{}, who: ->{}]
       }
 
-      it{ should be_false }
+      it{ should be_falsey }
     end
 
     context 'when empty' do
@@ -17,7 +17,7 @@ module Alf
         TupleComputation[{}]
       }
 
-      it{ should be_true }
+      it{ should be_truthy }
     end
 
   end

@@ -7,7 +7,7 @@ module Alf
         an_operand.with_heading(:id => Integer, :name => String)
       }
 
-      let(:op){ 
+      let(:op){
         a_lispy.intersect(left, right)
       }
       subject{ op.heading }
@@ -25,7 +25,7 @@ module Alf
 
       context 'when non-disjoint headings' do
         let(:right){
-          an_operand.with_heading(:id => Fixnum, :foo => String)
+          an_operand.with_heading(:id => Integer, :foo => String)
         }
         let(:expected){
           Heading[:id => Integer, :name => String, :foo => String]

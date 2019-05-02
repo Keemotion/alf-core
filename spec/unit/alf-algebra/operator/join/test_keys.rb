@@ -3,7 +3,7 @@ module Alf
   module Algebra
     describe Join, 'keys' do
 
-      let(:op){ 
+      let(:op){
         a_lispy.join(left, right)
       }
       subject{ op.keys }
@@ -34,7 +34,7 @@ module Alf
         }
 
         it {
-          pending "join key inference could be smarter" do
+          skip "join key inference could be smarter" do
             should eq(expected)
           end
         }

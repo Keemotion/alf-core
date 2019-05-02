@@ -16,7 +16,7 @@ module Alf
 
       context 'when the initial ordering covers a key' do
         let(:operand){
-          an_operand.with_heading(id: Fixnum, name: String).with_keys([:id])
+          an_operand.with_heading(id: Integer, name: String).with_keys([:id])
         }
         let(:ordering){
           Ordering.new([[:id, :desc]])
@@ -30,7 +30,7 @@ module Alf
 
       context 'when the initial ordering does not cover a key' do
         let(:operand){
-          an_operand.with_heading(id: Fixnum, name: String).with_keys([:id, :name])
+          an_operand.with_heading(id: Integer, name: String).with_keys([:id, :name])
         }
         let(:ordering){
           Ordering.new([[:name, :desc]])
@@ -44,7 +44,7 @@ module Alf
 
       context 'when no key' do
         let(:operand){
-          an_operand.with_heading(id: Fixnum, name: String)
+          an_operand.with_heading(id: Integer, name: String)
         }
         let(:ordering){
           Ordering.new([[:name, :desc]])

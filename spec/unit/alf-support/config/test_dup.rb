@@ -30,9 +30,9 @@ module Alf
         end
 
         it 'should keep the semantics of Proc options' do
-          subject.aproc?.should be_true
+          subject.aproc?.should be_truthy
           subject.ready = true
-          subject.aproc?.should be_false
+          subject.aproc?.should be_falsey
         end
       end
 
@@ -48,8 +48,8 @@ module Alf
           lambda{
             subject.ready = true
           }.should_not raise_error
-          subject.ready?.should be_true
-          config.ready?.should be_false
+          subject.ready?.should be_truthy
+          config.ready?.should be_falsey
         end
       end
 

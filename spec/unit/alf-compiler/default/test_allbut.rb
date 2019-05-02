@@ -18,7 +18,7 @@ module Alf
         it 'has a Clip sub-cog' do
           subject.operand.should be_a(Engine::Clip)
           subject.operand.attributes.should eq(AttrList[:a])
-          subject.operand.allbut.should be_true
+          subject.operand.allbut.should be_truthy
         end
 
         it 'has the corect sub-sub cog' do
@@ -52,7 +52,7 @@ module Alf
         it 'has a Clip cog' do
           subject.should be_a(Engine::Clip)
           subject.attributes.should eq(AttrList[:a])
-          subject.allbut.should be_true
+          subject.allbut.should be_truthy
         end
 
         it 'has the correct sub cog' do

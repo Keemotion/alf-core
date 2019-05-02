@@ -4,7 +4,7 @@ module Alf
     describe Hierarchize do
 
       let(:type){
-        Relation.type(id: Fixnum, parent: Fixnum, name: String){|r| {subs: r} }
+        Relation.type(id: Integer, parent: Integer, name: String){|r| {subs: r} }
       }
 
       let(:operand){[
@@ -40,7 +40,7 @@ module Alf
         # take tuples
         got = x.to_a.sort{|t,u| t[:id] <=> u[:id] }
         exp = y.to_a.sort{|t,u| t[:id] <=> u[:id] }
-        
+
         # compare attributes
         got.zip(exp) do |e,f|
           [:id, :parent, :name].each do |a|
@@ -59,7 +59,7 @@ module Alf
       end
 
       it 'has pair-wise equal tuples' do
-        are_equal(resulting_relation, expected).should be_true
+        are_equal(resulting_relation, expected).should be_truthy
       end
 
       it 'computes expected relation' do

@@ -45,7 +45,7 @@ module Alf
         }
 
         it 'yields the block' do
-          subject.ready?.should be_true
+          subject.ready?.should be_truthy
         end
       end
 
@@ -53,7 +53,7 @@ module Alf
         subject{ conf_subclass.new }
 
         it 'uses default values' do
-          subject.ready?.should be_false
+          subject.ready?.should be_falsey
         end
       end
 

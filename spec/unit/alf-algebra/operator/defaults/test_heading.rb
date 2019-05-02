@@ -10,7 +10,7 @@ module Alf
       subject{ op.heading }
 
       context '--no-strict' do
-        let(:op){ 
+        let(:op){
           a_lispy.defaults(operand, {:id => lambda{12}})
         }
         let(:expected){
@@ -18,7 +18,7 @@ module Alf
         }
 
         it {
-          pending "type inference on expressions not implemented" do
+          skip "type inference on expressions not implemented" do
             should eq(expected)
           end
         }
@@ -27,7 +27,7 @@ module Alf
       end
 
       context '--strict' do
-        let(:op){ 
+        let(:op){
           a_lispy.defaults(operand, {:id => lambda{12}}, :strict => true)
         }
         let(:expected){
@@ -35,7 +35,7 @@ module Alf
         }
 
         it {
-          pending "type inference on expressions not implemented" do
+          skip "type inference on expressions not implemented" do
             should eq(expected)
           end
         }

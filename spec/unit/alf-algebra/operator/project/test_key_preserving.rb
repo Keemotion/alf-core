@@ -11,19 +11,19 @@ module Alf
       subject{ op.key_preserving? }
 
       context 'when conserving at least one key' do
-        let(:op){ 
+        let(:op){
           a_lispy.project(operand, [:id, :status])
         }
 
-        it { should be_true }
+        it { should be_truthy }
       end
 
       context 'when projecting all keys away' do
-        let(:op){ 
+        let(:op){
           a_lispy.project(operand, [:status])
         }
 
-        it { should be_false }
+        it { should be_falsey }
       end
 
       context 'when the operand is a restriction on the key' do
@@ -38,7 +38,7 @@ module Alf
           a_lispy.project(a_lispy.restrict(operand, sid: 1), [:sid])
         }
 
-        it { should be_true }
+        it { should be_truthy }
       end
 
       context 'when a key is projected due to a constant restriction' do
@@ -50,7 +50,7 @@ module Alf
           a_lispy.project(a_lispy.restrict(operand, sid: 1), [:pid])
         }
 
-        it { should be_true }
+        it { should be_truthy }
       end
 
     end

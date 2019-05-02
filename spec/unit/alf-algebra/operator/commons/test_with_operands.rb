@@ -20,13 +20,13 @@ module Alf
       it "replaces the operands but keeps params unchanged" do
         subject.operands.first.should be(operand_2)
         subject.attributes.should eq(AttrList[:foo])
-        subject.allbut.should be_true
+        subject.allbut.should be_truthy
       end
 
       it "keeps the original unchanged" do
         operator.operands.first.should be(operand_1)
         subject.attributes.should eq(AttrList[:foo])
-        subject.allbut.should be_true
+        subject.allbut.should be_truthy
       end
 
       it 'does not keep computed heading from the original' do

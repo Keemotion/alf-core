@@ -14,7 +14,7 @@ module Alf
 
     context 'with proper type inference' do
       it{
-        pending "type inference on expressions not implemented" do
+        skip "type inference on expressions not implemented" do
           should eq(Heading[:big? => Boolean, :who => String])
         end
       }

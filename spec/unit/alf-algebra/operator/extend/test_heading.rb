@@ -17,8 +17,8 @@ module Alf
           Heading[:name => String, :computed => Integer]
         }
 
-        it { 
-          pending "type inference on expressions not implemented" do
+        it {
+          skip "type inference on expressions not implemented" do
             should eq(expected)
           end
         }

@@ -4,14 +4,14 @@ module Alf
 
     subject{ keys.any?{|k| (k & [:name]).empty? } }
 
-    let(:keys) { 
+    let(:keys) {
       Keys[ [:a], [:name], [:last, :name] ]
     }
-    let(:expected) { 
+    let(:expected) {
       Keys[ [:a] ]
     }
 
-    it{ should be_true }
+    it{ should be_truthy }
 
   end
 end

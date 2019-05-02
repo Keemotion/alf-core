@@ -5,7 +5,7 @@ module Alf
     subject{ type.coerce(tuples) }
 
     context 'on single attributes' do
-      let(:type)    { Relation[name: String,  status: Fixnum]  }
+      let(:type)    { Relation[name: String,  status: Integer]  }
       let(:expected){ Relation(name: "Smith", status: 20)      }
       let(:tuples){
         [ {'name' => "Smith", 'status' => "20"} ]
@@ -39,9 +39,9 @@ module Alf
       it 'coerces the tuples as correct instances' do
         subject.all?{|t|
           puts t.class unless t.is_a?(tuple_type)
-          (tuple_type === t).should be_true
+          (tuple_type === t).should be_truthy
           t.should be_a(tuple_type)
-        }.should be_true
+        }.should be_truthy
       end
     end
 

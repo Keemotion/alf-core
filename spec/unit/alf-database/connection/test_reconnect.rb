@@ -23,7 +23,7 @@ module Alf
 
         it 'should close the underlying connection' do
           subject
-          @closed.should be_true
+          @closed.should be_truthy
         end
       end
 
@@ -32,7 +32,7 @@ module Alf
 
         it 'should not close the underlying connection' do
           subject
-          @closed.should be_false
+          @closed.should be_falsey
         end
       end
 

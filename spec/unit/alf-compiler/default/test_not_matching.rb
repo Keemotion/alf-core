@@ -30,7 +30,7 @@ module Alf
       end
 
       it 'has the correct predicate' do
-        subject.predicate.should be_false
+        subject.predicate.should be_falsey
       end
 
     end

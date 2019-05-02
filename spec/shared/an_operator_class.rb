@@ -40,10 +40,10 @@ shared_examples_for "An operator class" do
 
   it "should implement unary? and binary? consistently" do
     op = operator_class
-    (op.nullary? || op.unary? || op.binary?).should be_true
-    (op.nullary? && op.unary?).should be_false
-    (op.nullary? && op.binary?).should be_false
-    (op.unary? && op.binary?).should be_false
+    (op.nullary? || op.unary? || op.binary?).should be_truthy
+    (op.nullary? && op.unary?).should be_falsey
+    (op.nullary? && op.binary?).should be_falsey
+    (op.unary? && op.binary?).should be_falsey
   end
 
 end

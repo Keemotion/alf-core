@@ -8,7 +8,7 @@ module Alf
       context 'with the result is not empty' do
         subject{ conn.assert!{ suppliers } }
 
-        it{ should be_true }
+        it{ should be_truthy }
       end
 
       context 'with the result is empty' do

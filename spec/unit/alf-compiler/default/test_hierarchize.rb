@@ -8,7 +8,7 @@ module Alf
       }
 
       let(:operand){
-        an_operand.with_heading(id: Fixnum, parent: Integer).with_keys([:id])
+        an_operand.with_heading(id: Integer, parent: Integer).with_keys([:id])
       }
 
       let(:expr){

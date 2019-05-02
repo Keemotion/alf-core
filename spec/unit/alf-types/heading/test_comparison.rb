@@ -40,14 +40,8 @@ module Alf
       it{ should eq(0) }
     end
 
-    context 'with a partial sub heading' do
-      let(:other){ Heading.new(name: String, status: Fixnum, active: Boolean) }
-
-      it{ should eq(1) }
-    end
-
     context 'with a full sub heading' do
-      let(:other){ Heading.new(name: String, status: Fixnum, active: TrueClass) }
+      let(:other){ Heading.new(name: String, status: Integer, active: TrueClass) }
 
       it{ should eq(1) }
     end
@@ -65,19 +59,13 @@ module Alf
     end
 
     context 'with a mixed heading' do
-      let(:other){ Heading.new(name: Object, status: Fixnum, active: Boolean) }
+      let(:other){ Heading.new(name: Object, status: Integer, active: Boolean) }
 
-      it{ should be_nil }
+      it{ should eq(-1) }
     end
 
     context 'when RVAs are present' do
       let(:heading){ Heading.new(prices: Relation[price: Numeric]) }
-
-      context 'with a sub-heading' do
-        let(:other){ Heading.new(prices: Relation[price: Float]) }
-
-        it{ should eq(1) }
-      end
 
       context 'with a super-heading' do
         let(:other){ Heading.new(prices: Relation[price: Object]) }

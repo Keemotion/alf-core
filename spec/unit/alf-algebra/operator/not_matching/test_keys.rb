@@ -4,13 +4,13 @@ module Alf
     describe NotMatching, 'keys' do
 
       let(:left){
-        an_operand.with_heading(:id => Fixnum, :name => String).with_keys([:id])
+        an_operand.with_heading(:id => Integer, :name => String).with_keys([:id])
       }
       let(:right){
         an_operand.with_heading(:id => Integer, :foo => String)
       }
 
-      let(:op){ 
+      let(:op){
         a_lispy.not_matching(left, right)
       }
       subject{ op.keys }

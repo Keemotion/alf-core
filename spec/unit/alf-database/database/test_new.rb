@@ -16,7 +16,7 @@ module Alf
       end
 
       it 'uses default options' do
-        subject.schema_cache?.should be_true
+        subject.schema_cache?.should be_truthy
       end
     end
 
@@ -28,7 +28,7 @@ module Alf
       end
 
       it 'uses default options' do
-        subject.schema_cache?.should be_true
+        subject.schema_cache?.should be_truthy
       end
     end
 
@@ -36,7 +36,7 @@ module Alf
       subject{ Database.new(adapter, schema_cache: false) }
 
       it 'set the options correctly' do
-        subject.schema_cache?.should be_false
+        subject.schema_cache?.should be_falsey
       end
     end
 

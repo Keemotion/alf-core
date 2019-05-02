@@ -3,7 +3,7 @@ shared_examples_for "A valid type implementation" do
   it 'should have exemplars available' do
     type.exemplars.should_not be_empty
     type.exemplars.each do |value|
-      (type === value).should be_true
+      (type === value).should be_truthy
     end
   end
 

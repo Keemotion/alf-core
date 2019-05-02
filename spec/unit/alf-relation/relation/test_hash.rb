@@ -9,19 +9,19 @@ module Alf
     context 'on purely equal relation' do
       let(:other){ Relation[id: Integer].coerce(id: 12) }
 
-      it{ should be_true }
+      it{ should be_truthy }
     end
 
     context 'on equal relation but a subtype' do
-      let(:other){ Relation[id: Fixnum].coerce(id: 12) }
+      let(:other){ Relation[id: Integer].coerce(id: 12) }
 
-      it{ should be_true }
+      it{ should be_truthy }
     end
 
     context 'on equal relation but a supertype' do
       let(:other){ Relation[id: Numeric].coerce(id: 12) }
 
-      it{ should be_true }
+      it{ should be_truthy }
     end
 
   end

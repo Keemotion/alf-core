@@ -15,7 +15,7 @@ module Alf
 
       it 'should close the physical connection' do
         subject
-        @seen.should be_true
+        @seen.should be_truthy
       end
 
       it 'should close the connection itself' do

@@ -13,7 +13,7 @@ module Alf
     describe 'on a tuple factored through coercion' do
       let(:tuple){ Tuple.coerce(status: 12) }
 
-      it{ should eq(Heading.new(status: Fixnum)) }
+      it{ should eq(Heading.new(status: Integer)) }
     end
 
   end
