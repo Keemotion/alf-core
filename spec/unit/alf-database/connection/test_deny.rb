@@ -18,7 +18,7 @@ module Alf
       context 'with the result is empty' do
         subject{ conn.deny!{ restrict(suppliers, ->{false}) } }
 
-        it{ should be_true }
+        it{ should be_truthy }
       end
 
       context 'with an error message' do

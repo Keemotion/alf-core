@@ -15,11 +15,11 @@ module Alf
       subject{ signature.option_parser(receiver) }
 
       specify "expected" do
-        opt = OptionParser.new 
+        opt = OptionParser.new
         opt.on("--allbut"){ receiver.send(:allbut=,true) }
         opt.on("--name=NAME"){|val| receiver.send(:name=,val) }
         opt.parse!(["--allbut","--name=world"])
-        receiver.allbut.should be_true
+        receiver.allbut.should be_truthy
         receiver.name.should eq(:world)
       end
 
@@ -27,7 +27,7 @@ module Alf
 
       it "should install option values correctly" do
         subject.parse!(["--allbut","--name=world"])
-        receiver.allbut.should be_true
+        receiver.allbut.should be_truthy
         receiver.name.should eq(:world)
       end
 

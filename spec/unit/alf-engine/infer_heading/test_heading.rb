@@ -10,19 +10,19 @@ module Alf
       context 'on a single tuple' do
         let(:tuple){ {id: 1, name: "Jones"} }
 
-        it{ should eq(Heading.new(id: Fixnum, name: String)) }
+        it{ should eq(Heading.new(id: Integer, name: String)) }
       end
 
       context 'on a tuple with tuple-valued attribute' do
         let(:tuple){ {id: 1, hobby: Tuple(name: "Programming")} }
 
-        it{ should eq(Heading.new(id: Fixnum, hobby: Tuple[name: String])) }
+        it{ should eq(Heading.new(id: Integer, hobby: Tuple[name: String])) }
       end
 
       context 'on a tuple with relation-valued attribute' do
         let(:tuple){ {id: 1, hobby: Relation(name: "Programming")} }
 
-        it{ should eq(Heading.new(id: Fixnum, hobby: Relation[name: String])) }
+        it{ should eq(Heading.new(id: Integer, hobby: Relation[name: String])) }
       end
 
     end

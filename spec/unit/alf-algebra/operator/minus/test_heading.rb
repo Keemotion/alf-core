@@ -4,19 +4,19 @@ module Alf
     describe Minus, 'heading' do
 
       let(:left){
-        an_operand.with_heading(:id => Fixnum, :name => String)
+        an_operand.with_heading(:id => Integer, :name => String)
       }
       let(:right){
         an_operand.with_heading(:id => Integer, :name => String)
       }
 
-      let(:op){ 
+      let(:op){
         a_lispy.minus(left, right)
       }
       subject{ op.heading }
 
       let(:expected){
-        Heading[:id => Fixnum, :name => String]
+        Heading[:id => Integer, :name => String]
       }
 
       it { should eq(expected) }

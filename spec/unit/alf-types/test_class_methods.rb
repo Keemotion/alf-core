@@ -10,8 +10,8 @@ module Alf
       end
 
       it 'works with related types' do
-        common_super_type(Fixnum, Integer).should eq(Integer)
-        common_super_type(Fixnum, Float).should eq(Numeric)
+        common_super_type(Integer, Integer).should eq(Integer)
+        common_super_type(Integer, Float).should eq(Numeric)
       end
 
       it 'works with true/false/boolean classes' do
@@ -22,7 +22,7 @@ module Alf
       end
 
       it 'fallbacks to Object' do
-        common_super_type(Fixnum, String).should eq(Object)
+        common_super_type(Integer, String).should eq(Object)
       end
 
       it 'works nicely on same relation types' do
@@ -32,7 +32,7 @@ module Alf
       end
 
       it 'works nicely on compatible relation types' do
-        left  = Relation[pid: Fixnum]
+        left  = Relation[pid: Integer]
         right = Relation[pid: Integer]
         common_super_type(left, right).should eq(right)
       end
@@ -44,7 +44,7 @@ module Alf
       end
 
       it 'works nicely on compatible relation types' do
-        left  = Tuple[pid: Fixnum]
+        left  = Tuple[pid: Integer]
         right = Tuple[pid: Integer]
         common_super_type(left, right).should eq(right)
       end

@@ -7,13 +7,13 @@ module Alf
     context 'on a single' do
       let(:selector){ Selector.coerce(:name) }
 
-      it { should be_false }
+      it { should be_falsey }
     end
 
     context 'on a composite' do
       let(:selector){ Selector.coerce([:a, :name]) }
 
-      it { should be_true }
+      it { should be_truthy }
     end
 
   end

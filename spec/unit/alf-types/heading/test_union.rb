@@ -18,16 +18,16 @@ module Alf
     end
 
     it "should work compute supertype on non-disjoint headings" do
-      h1 = Heading[:age => Fixnum, :name => String]
+      h1 = Heading[:age => Integer, :name => String]
       h2 = Heading[:age => Integer]
       (h1 + h2).should eq(Heading[:age => Integer, :name => String])
     end
 
     it "should be aliased as join" do
-      h1 = Heading[:age => Fixnum, :name => String]
+      h1 = Heading[:age => Integer, :name => String]
       h2 = Heading[:age => Integer]
       h1.join(h2).should eq(Heading[:age => Integer, :name => String])
     end
 
-  end 
+  end
 end

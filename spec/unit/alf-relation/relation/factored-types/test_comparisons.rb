@@ -2,9 +2,8 @@ require 'spec_helper'
 module Alf
   describe Relation, '<=>' do
 
-    let(:type)     { Relation[name: String, status: Integer] }
-    let(:supertype){ Relation[name: String, status: Numeric] }
-    let(:subtype)  { Relation[name: String, status: Fixnum]  }
+    let(:type) { Relation[name: String, status: Integer] }
+    let(:supertype) { Relation[name: String, status: Numeric] }
 
     subject{ type <=> other }
 
@@ -26,12 +25,6 @@ module Alf
       it{ should eq(0) }
     end
 
-    context 'on a sub type' do
-      let(:other){ subtype }
-
-      it{ should eq(1) }
-    end
-
     context 'on a super type' do
       let(:other){ supertype }
 
@@ -41,27 +34,23 @@ module Alf
     context 'the shortcuts' do
 
       it 'the > shortcut classifies correctly' do
-        (supertype > supertype).should be_false
-        (supertype > type).should be_true
-        (supertype > subtype).should be_true
+        (supertype > supertype).should be_falsey
+        (supertype > type).should be_truthy
       end
 
       it 'the >= shortcut classifies correctly' do
-        (supertype >= supertype).should be_true
-        (supertype >= type).should be_true
-        (supertype >= subtype).should be_true
+        (supertype >= supertype).should be_truthy
+        (supertype >= type).should be_truthy
       end
 
       it 'the < shortcut classifies correctly' do
-        (supertype < supertype).should be_false
-        (supertype < type).should be_false
-        (supertype < subtype).should be_false
+        (supertype < supertype).should be_falsey
+        (supertype < type).should be_falsey
       end
 
       it 'the <= shortcut classifies correctly' do
-        (supertype <= supertype).should be_true
-        (supertype <= type).should be_false
-        (supertype <= subtype).should be_false
+        (supertype <= supertype).should be_truthy
+        (supertype <= type).should be_falsey
       end
     end
 

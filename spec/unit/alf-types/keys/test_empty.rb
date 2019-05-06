@@ -7,13 +7,13 @@ module Alf
     context 'on empty Keys' do
       let(:keys){ Keys.new [] }
 
-      it{ should be_true }
+      it{ should be_truthy }
     end
 
     context 'on non empty Keys' do
       let(:keys){ Keys.new [ AttrList[:a] ] }
 
-      it{ should be_false }
+      it{ should be_falsey }
     end
 
   end

@@ -25,7 +25,7 @@ module Alf
 
       context 'with some subtypes' do
         let(:right){
-          an_operand.with_heading(:id => Fixnum, :name => String)
+          an_operand.with_heading(:id => Integer, :name => String)
         }
 
         it { should eq(expected) }

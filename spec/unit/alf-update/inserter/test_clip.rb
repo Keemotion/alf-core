@@ -10,7 +10,7 @@ module Alf
       subject{ insert(expr, inserted) }
 
       it 'requests the insertion of the tuples on :suppliers' do
-        pending "defaults" do
+        skip "defaults" do
           subject
           db_context.requests.should eq([ [:insert, :suppliers, expected] ])
         end

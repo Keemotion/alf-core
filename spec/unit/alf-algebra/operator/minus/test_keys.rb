@@ -4,13 +4,13 @@ module Alf
     describe Minus, 'keys' do
 
       let(:left){
-        an_operand.with_heading(:id => Fixnum, :name => String).with_keys([ :id ])
+        an_operand.with_heading(:id => Integer, :name => String).with_keys([ :id ])
       }
       let(:right){
         an_operand.with_heading(:id => Integer, :name => String)
       }
 
-      let(:op){ 
+      let(:op){
         a_lispy.minus(left, right)
       }
       subject{ op.keys }

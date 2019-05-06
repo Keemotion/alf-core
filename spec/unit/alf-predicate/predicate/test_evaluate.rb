@@ -13,13 +13,13 @@ module Alf
         context 'on a matching tuple' do
           let(:scope){ Support::TupleScope.new(:name => "foo") }
 
-          it{ should be_true }
+          it{ should be_truthy }
         end
 
         context 'on a non-matching tuple' do
           let(:scope){ Support::TupleScope.new(:name => "bar") }
 
-          it{ should be_false }
+          it{ should be_falsey }
         end
       end
 
@@ -31,13 +31,13 @@ module Alf
         context 'on a matching tuple' do
           let(:scope){ Support::TupleScope.new(:name => "foo") }
 
-          it{ should be_true }
+          it{ should be_truthy }
         end
 
         context 'on a non-matching tuple' do
           let(:scope){ Support::TupleScope.new(:name => "bar") }
 
-          it{ should be_false }
+          it{ should be_falsey }
         end
       end
 
@@ -49,19 +49,19 @@ module Alf
         describe "on x == 2" do
           let(:scope){ Support::TupleScope.new(:x => 2) }
 
-          it{ should be_true }
+          it{ should be_truthy }
         end
 
         describe "on x == 1" do
           let(:scope){ Support::TupleScope.new(:x => 1) }
 
-          it{ should be_true }
+          it{ should be_truthy }
         end
 
         describe "on x == 3" do
           let(:scope){ Support::TupleScope.new(:x => 3) }
 
-          it{ should be_false }
+          it{ should be_falsey }
         end
       end
 

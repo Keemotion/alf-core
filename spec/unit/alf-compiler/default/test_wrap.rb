@@ -26,7 +26,7 @@ module Alf
       end
 
       it 'has the correct allbut' do
-        subject.allbut.should be_true
+        subject.allbut.should be_truthy
       end
 
       it 'has the correct sub-cog' do

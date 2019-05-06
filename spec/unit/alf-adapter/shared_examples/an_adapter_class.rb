@@ -4,7 +4,7 @@ shared_examples_for "an adapter class" do
 
     it 'returns true on recognized connection specifications' do
       recognized_conn_specs.each do |c|
-        adapter_class.recognizes?(c).should be_true
+        adapter_class.recognizes?(c).should be_truthy
       end
     end
   end

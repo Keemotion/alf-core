@@ -17,7 +17,7 @@ module Alf
         it { should be_a(Summarize) }
 
         it 'is !allbut by default' do
-          subject.allbut.should be_false
+          subject.allbut.should be_falsey
         end
       end # --no-allbut
 
@@ -27,7 +27,7 @@ module Alf
         it { should be_a(Summarize) }
 
         it 'is allbut' do
-          subject.allbut.should be_true
+          subject.allbut.should be_truthy
         end
       end # --allbut
 

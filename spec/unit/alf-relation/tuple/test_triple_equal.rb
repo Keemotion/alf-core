@@ -13,7 +13,7 @@ module Alf
         type.new(price: 12.0)
       }
 
-      it{ should be_true }
+      it{ should be_truthy }
     end
 
     context 'when applied to a most specific tuple than declared' do
@@ -26,7 +26,7 @@ module Alf
       }
 
       it{
-        pending("most-specific types not implemented"){ should be_true }
+        skip("most-specific types not implemented"){ should be_truthy }
       }
     end
 
@@ -38,7 +38,7 @@ module Alf
         type.new(:default => nil)
       }
 
-      it{ should be_true }
+      it{ should be_truthy }
     end
 
   end

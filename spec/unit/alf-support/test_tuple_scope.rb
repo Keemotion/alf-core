@@ -7,8 +7,8 @@ module Alf
 
       it "should install methods properly" do
         scope.__set_tuple(:hello => "a", :world => "b")
-        scope.respond_to?(:hello).should be_true
-        scope.respond_to?(:world).should be_true
+        scope.respond_to?(:hello).should be_truthy
+        scope.respond_to?(:world).should be_truthy
       end
 
       it "should behave correctly" do
@@ -22,12 +22,12 @@ module Alf
 
       it "should allow instance evaluating on exprs" do
         scope.__set_tuple(:tested => 1)
-        scope.evaluate{ tested < 1 }.should be_false
+        scope.evaluate{ tested < 1 }.should be_falsey
       end
 
       it "should support an attribute called :path" do
         scope.__set_tuple(:path => 1)
-        scope.evaluate{ path < 1 }.should be_false
+        scope.evaluate{ path < 1 }.should be_falsey
       end
 
       it "should support calling Tuple and Relation" do

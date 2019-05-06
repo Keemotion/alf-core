@@ -60,7 +60,7 @@ module Alf
       }
 
       it 'should sort correctly' do
-        pending{
+        skip{
           tuples.sort(&subject).should eq(expected)
         }
       end

@@ -20,7 +20,7 @@ module Alf
         let(:predicate){ Predicate.eq(:location => "London") }
 
         it 'requests the deletion on :suppliers' do
-          pending "need for Predicate#rename" do
+          skip "need for Predicate#rename" do
             subject
           end
         end

@@ -19,7 +19,7 @@ module Alf
     end
 
     context 'with non disjoint headings and sub types' do
-      let(:left) { Heading[:id => Fixnum,  :name => String] }
+      let(:left) { Heading[:id => Integer,  :name => String] }
       let(:right){ Heading[:id => Integer, :status => Integer] }
 
       it { should eq(Heading[:id => Integer]) }

@@ -3,7 +3,7 @@ module Alf
   module Engine
     describe TypeSafe do
 
-      let(:heading){ Heading.new(name: String, status: Fixnum) }
+      let(:heading){ Heading.new(name: String, status: Integer) }
       let(:cog){ TypeSafe.new(tuples, TypeCheck.new(heading, false)) }
 
       context 'when all valid tuples' do

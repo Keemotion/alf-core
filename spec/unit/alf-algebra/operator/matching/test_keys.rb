@@ -3,14 +3,14 @@ module Alf
   module Algebra
     describe Matching, 'keys' do
 
-      let(:op){ 
+      let(:op){
         a_lispy.matching(left, right)
       }
       subject{ op.keys }
 
       context 'when matching does not occurs on a right key' do
         let(:left){
-          an_operand.with_heading(:id => Fixnum, :name => String).with_keys([ :id ])
+          an_operand.with_heading(:id => Integer, :name => String).with_keys([ :id ])
         }
         let(:right){
           an_operand.with_heading(:id => Integer, :foo => String).with_keys([ :foo ])
@@ -25,7 +25,7 @@ module Alf
 
       context 'when matching does occur on a right key' do
         let(:left){
-          an_operand.with_heading(:id => Fixnum, :name => String).with_keys([ :name ])
+          an_operand.with_heading(:id => Integer, :name => String).with_keys([ :name ])
         }
         let(:right){
           an_operand.with_heading(:id => Integer, :foo => String).with_keys([ :id ])
