@@ -38,9 +38,9 @@ module Alf
       end
 
       context "with a File" do
-        let(:input){ Path.here.open('r') }
+        let(:input){ Path.file.open('r') }
         it 'should set the path correctly' do
-          subject.path.should eq(Path.here)
+          subject.path.should eq(Path.file)
         end
         after{ input.close rescue nil }
       end
