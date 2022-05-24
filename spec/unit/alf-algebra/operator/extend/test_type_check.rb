@@ -6,7 +6,7 @@ module Alf
       subject{ op.type_check }
 
       context 'when ok' do
-        let(:op){ 
+        let(:op){
           extend(suppliers, foo: 12)
         }
 
@@ -14,26 +14,26 @@ module Alf
       end
 
       context 'when clash attribute' do
-        let(:op){ 
+        let(:op){
           extend(suppliers, sid: ->{}, foo: 12)
         }
 
         it 'should raise an error' do
-          lambda{
+          expect(lambda{
             subject
-          }.should raise_error(TypeCheckError, /cannot override `sid`/)
+          }).to raise_error(TypeCheckError, /cannot override `sid`/)
         end
       end
 
       context 'when unexisting attributes' do
-        let(:op){ 
+        let(:op){
           extend(suppliers, sid: ->{}, name: ->{}, bar: String)
         }
 
         it 'should raise an error' do
-          lambda{
+          expect(lambda{
             subject
-          }.should raise_error(TypeCheckError, /cannot override `sid`,`name`/)
+          }).to raise_error(TypeCheckError, /cannot override `sid`,`name`/)
         end
       end
 

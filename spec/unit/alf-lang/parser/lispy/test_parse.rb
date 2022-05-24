@@ -9,12 +9,12 @@ module Alf
 
           it 'allows parsing predicate expressions' do
             p = lispy.parse{ eq(:x, 1) & neq(:y, 2) }
-            p.should be_a(Alf::Predicate)
+            expect(p).to be_kind_of(Alf::Predicate)
           end
 
           it 'allows parsing relational expressions' do
             p = lispy.parse{ project(:suppliers, [:sid]) }
-            p.should be_a(Algebra::Project)
+            expect(p).to be_kind_of(Algebra::Project)
           end
         end
 
@@ -23,12 +23,12 @@ module Alf
 
           it 'allows parsing predicate expressions' do
             p = lispy.parse{ eq(:x, 1) & neq(:y, 2) }
-            p.should be_a(Alf::Predicate)
+            expect(p).to be_kind_of(Alf::Predicate)
           end
 
           it 'deeply binds parsed relational expressions' do
             p = lispy.parse{ project(:suppliers, [:sid]) }
-            p.should be_a(Algebra::Project)
+            expect(p).to be_kind_of(Algebra::Project)
           end
         end
 

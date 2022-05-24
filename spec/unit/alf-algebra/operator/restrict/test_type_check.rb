@@ -6,7 +6,7 @@ module Alf
       subject{ op.type_check }
 
       context 'when ok' do
-        let(:op){ 
+        let(:op){
           restrict(suppliers, city: 'London')
         }
 
@@ -14,14 +14,14 @@ module Alf
       end
 
       context 'when no such attribute' do
-        let(:op){ 
+        let(:op){
           restrict(suppliers, foo: 'London')
         }
 
         it 'should raise an error' do
-          lambda{
+          expect(lambda{
             subject
-          }.should raise_error(TypeCheckError, /no such attribute `foo`/)
+          }).to raise_error(TypeCheckError, /no such attribute `foo`/)
         end
       end
 
@@ -30,14 +30,14 @@ module Alf
           pred = Predicate.eq(city: "London")
           pred = pred | (Predicate.neq(foo: "Paris") & Predicate.neq(bar: "Paris"))
         }
-        let(:op){ 
+        let(:op){
           restrict(suppliers, pred)
         }
 
         it 'should raise an error' do
-          lambda{
+          expect(lambda{
             subject
-          }.should raise_error(TypeCheckError, /no such attributes `foo`,`bar`/)
+          }).to raise_error(TypeCheckError, /no such attributes `foo`,`bar`/)
         end
       end
 

@@ -6,7 +6,7 @@ module Alf
       subject{ op.type_check }
 
       context 'when ok' do
-        let(:op){ 
+        let(:op){
           page(suppliers, [], 1, page_size: 12)
         }
 
@@ -14,7 +14,7 @@ module Alf
       end
 
       context 'when negative page index' do
-        let(:op){ 
+        let(:op){
           page(suppliers, [], -1, page_size: 12)
         }
 
@@ -22,26 +22,26 @@ module Alf
       end
 
       context 'when invalid ordering' do
-        let(:op){ 
+        let(:op){
           page(suppliers, [[:sid, :asc], [:foo, :asc], [:bar, :asc]], 2)
         }
 
         it 'should raise an error' do
-          lambda{
+          expect(lambda{
             subject
-          }.should raise_error(TypeCheckError, /no such attributes `foo`,`bar`/)
+          }).to raise_error(TypeCheckError, /no such attributes `foo`,`bar`/)
         end
       end
 
       context 'when negative page_size' do
-        let(:op){ 
+        let(:op){
           page(suppliers, [[:sid, :asc]], 2, page_size: -4)
         }
 
         it 'should raise an error' do
-          lambda{
+          expect(lambda{
             subject
-          }.should raise_error(TypeCheckError, /invalid page size `-4`/)
+          }).to raise_error(TypeCheckError, /invalid page size `-4`/)
         end
       end
 

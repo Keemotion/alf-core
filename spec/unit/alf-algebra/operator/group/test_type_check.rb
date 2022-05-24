@@ -6,7 +6,7 @@ module Alf
       subject{ op.type_check }
 
       context 'when ok' do
-        let(:op){ 
+        let(:op){
           group(suppliers, [:status, :city], :extra)
         }
 
@@ -14,7 +14,7 @@ module Alf
       end
 
       context 'when ok (allowed overriding)' do
-        let(:op){ 
+        let(:op){
           group(suppliers, [:status, :city], :status)
         }
 
@@ -22,26 +22,26 @@ module Alf
       end
 
       context 'when no such attributes' do
-        let(:op){ 
+        let(:op){
           group(suppliers, [:status, :foo, :bar], :extra)
         }
 
         it 'should raise an error' do
-          lambda{
+          expect(lambda{
             subject
-          }.should raise_error(TypeCheckError, /no such attributes `foo`,`bar`/)
+          }).to raise_error(TypeCheckError, /no such attributes `foo`,`bar`/)
         end
       end
 
       context 'when diasllowed overriding' do
-        let(:op){ 
+        let(:op){
           group(suppliers, [:status, :city], :name)
         }
 
         it 'should raise an error' do
-          lambda{
+          expect(lambda{
             subject
-          }.should raise_error(TypeCheckError, /cannot override `name`/)
+          }).to raise_error(TypeCheckError, /cannot override `name`/)
         end
       end
 

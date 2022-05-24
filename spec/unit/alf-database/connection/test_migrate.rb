@@ -19,7 +19,7 @@ module Alf
 
       it 'should delegate the call' do
         subject
-        @seen_opts.should be(@original_opts)
+        expect(@seen_opts).to be(@original_opts)
       end
 
     end

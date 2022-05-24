@@ -4,7 +4,7 @@ module Alf
     describe Take do
 
       it 'should work on an empty operand' do
-        Take.new(Leaf.new([]), 1, 1).to_a.should eq([])
+        expect(Take.new(Leaf.new([]), 1, 1).to_a).to eq([])
       end
 
       it 'should filter according to the offset' do
@@ -15,7 +15,7 @@ module Alf
         exp = [
           {:name => "Smith"}
         ]
-        Take.new(rel, 1, 10).to_a.should eq(exp)
+        expect(Take.new(rel, 1, 10).to_a).to eq(exp)
       end
 
       it 'should filter according to the limit (1/2)' do
@@ -27,7 +27,7 @@ module Alf
           {:name => "Jones"},
           {:name => "Smith"}
         ]
-        Take.new(rel, 0, 2).to_a.should eq(exp)
+        expect(Take.new(rel, 0, 2).to_a).to eq(exp)
       end
 
       it 'should filter according to the limit (2/2)' do
@@ -38,7 +38,7 @@ module Alf
         exp = [
           {:name => "Jones"},
         ]
-        Take.new(rel, 0, 1).to_a.should eq(exp)
+        expect(Take.new(rel, 0, 1).to_a).to eq(exp)
       end
 
     end

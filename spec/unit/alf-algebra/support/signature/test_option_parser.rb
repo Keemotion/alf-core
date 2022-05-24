@@ -19,16 +19,16 @@ module Alf
         opt.on("--allbut"){ receiver.send(:allbut=,true) }
         opt.on("--name=NAME"){|val| receiver.send(:name=,val) }
         opt.parse!(["--allbut","--name=world"])
-        receiver.allbut.should be_truthy
-        receiver.name.should eq(:world)
+        expect(receiver.allbut).to be_truthy
+        expect(receiver.name).to eq(:world)
       end
 
       it { should be_a(OptionParser) }
 
       it "should install option values correctly" do
         subject.parse!(["--allbut","--name=world"])
-        receiver.allbut.should be_truthy
-        receiver.name.should eq(:world)
+        expect(receiver.allbut).to be_truthy
+        expect(receiver.name).to eq(:world)
       end
 
     end

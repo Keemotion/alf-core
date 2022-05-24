@@ -4,7 +4,7 @@ module Alf
     describe Config, "helpers" do
 
       let(:config_class){
-        Class.new(Config){ 
+        Class.new(Config){
           option :ready, Boolean, true
           option :hello, String, "world"
         }
@@ -22,9 +22,9 @@ module Alf
         before do
           obj.extend(subject)
         end
-        
+
         it 'delegates when included in an object' do
-          obj.ready?.should eq(true)
+          expect(obj.ready?).to eq(true)
         end
       end
 

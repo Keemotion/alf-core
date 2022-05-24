@@ -7,11 +7,11 @@ module Alf
         let(:scope){ TupleScope.new(:a => 1, :b => 2) }
 
         it "delegates to the tuple" do
-          scope[:a].should == 1
+          expect(scope[:a]).to eq(1)
         end
 
         it "return nil on unexisting" do
-          scope[:c].should be_nil
+          expect(scope[:c]).to be_nil
         end
       end
 

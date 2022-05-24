@@ -16,16 +16,16 @@ module Alf
         end
 
         it 'installs class-level methods' do
-          clazz.should respond_to(:integer)
+          expect(clazz).to respond_to(:integer)
         end
 
         it 'add the class to the registered elements' do
-          clazz.registered.should eq([Integer])
-          clazz.all.should eq([Integer])
+          expect(clazz.registered).to eq([Integer])
+          expect(clazz.all).to eq([Integer])
         end
 
         it 'calls the listeners' do
-          seen.should eq([[:integer, Integer]])
+          expect(seen).to eq([[:integer, Integer]])
         end
       end
 
@@ -35,15 +35,15 @@ module Alf
         end
 
         it 'installs class-level methods' do
-          clazz.should respond_to(:hello)
+          expect(clazz).to respond_to(:hello)
         end
 
         it 'maintain the registered elements' do
-          clazz.registered.should eq([[:hello, Integer]])
+          expect(clazz.registered).to eq([[:hello, Integer]])
         end
 
         it 'calls the listeners' do
-          seen.should eq([[:hello, Integer]])
+          expect(seen).to eq([[:hello, Integer]])
         end
       end
 
@@ -54,7 +54,7 @@ module Alf
         it 'calls the listener with registered components at listening time' do
           seen = []
           clazz.listen{|n,c| seen << [n,c] }
-          seen.should eq([[:integer, Integer]])
+          expect(seen).to eq([[:integer, Integer]])
         end
       end
 

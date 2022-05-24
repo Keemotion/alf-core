@@ -10,7 +10,7 @@ module Alf
 
       let(:operand){ an_operand }
 
-      before{ 
+      before{
         signature.install
       }
       subject{
@@ -18,7 +18,7 @@ module Alf
       }
 
       context "on a signature with arguments only" do
-        let(:signature){ 
+        let(:signature){
           Signature.new(FakeOp) do |s|
             s.argument :proj, AttrList
           end
@@ -26,20 +26,20 @@ module Alf
         let(:args){ [ [operand], ["hello", "world"] ] }
 
         it 'should return the receiver' do
-          subject.should eq(receiver)
+          expect(subject).to eq(receiver)
         end
 
         it "should set the operands" do
-          subject.operands.should eq([operand])
+          expect(subject.operands).to eq([operand])
         end
 
         it 'should set the arguments' do
-          subject.proj.should eq(AttrList[:hello, :world]) 
+          expect(subject.proj).to eq(AttrList[:hello, :world])
         end
       end # arguments only
 
       context "with default values for arguments" do
-        let(:signature){ 
+        let(:signature){
           Signature.new(FakeOp) do |s|
             s.argument :attrname, AttrName, :autonum
           end
@@ -49,7 +49,7 @@ module Alf
           let(:args){ [[operand], "hello"] }
 
           it 'should not use the default value' do
-            subject.attrname.should eq(:hello) 
+            expect(subject.attrname).to eq(:hello)
           end
         end
 
@@ -57,7 +57,7 @@ module Alf
           let(:args){ [[operand]] }
 
           it 'should use the default value' do
-            subject.attrname.should eq(:autonum) 
+            expect(subject.attrname).to eq(:autonum)
           end
         end
       end # default values for arguments
@@ -74,7 +74,7 @@ module Alf
           let(:args){ [[operand], [:hello, :world]] }
 
           it 'should use the default values for options' do
-            subject.allbut.should eql(false)
+            expect(subject.allbut).to eql(false)
           end
         end
 
@@ -82,7 +82,7 @@ module Alf
           let(:args){ [[operand], [:hello, :world], {:allbut => true}] }
 
           it 'should not use the default values for options' do
-            subject.allbut.should eql(true)
+            expect(subject.allbut).to eql(true)
           end
         end
       end # signature with options

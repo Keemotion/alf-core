@@ -20,7 +20,7 @@ module Alf
 
       it 'delegates the call to the connection' do
         subject
-        @seen.should eq([:suppliers, tuples])
+        expect(@seen).to eq([:suppliers, tuples])
       end
 
     end

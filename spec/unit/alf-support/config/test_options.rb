@@ -11,7 +11,7 @@ module Alf
       }
 
       it 'should contain the options' do
-        conf.options.should eq([
+        expect(conf.options).to eq([
           [:ready, Boolean, false],
           [:hello, String, "world"]
         ])

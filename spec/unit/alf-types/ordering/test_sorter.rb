@@ -20,7 +20,7 @@ module Alf
       }
 
       it 'should sort correctly' do
-        tuples.sort(&subject).should eq(expected)
+        expect(tuples.sort(&subject)).to eq(expected)
       end
     end
 
@@ -40,7 +40,7 @@ module Alf
       }
 
       it 'should sort correctly' do
-        tuples.sort(&subject).should eq(expected)
+        expect(tuples.sort(&subject)).to eq(expected)
       end
     end
 
@@ -61,7 +61,7 @@ module Alf
 
       it 'should sort correctly' do
         skip{
-          tuples.sort(&subject).should eq(expected)
+          expect(tuples.sort(&subject)).to eq(expected)
         }
       end
     end

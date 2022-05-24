@@ -4,8 +4,8 @@ module Alf
     describe Clip do
 
       it 'should work on an empty operand' do
-        Clip.new([], AttrList[:name], true).to_a.should eq([])
-        Clip.new([], AttrList[:name], false).to_a.should eq([])
+        expect(Clip.new([], AttrList[:name], true).to_a).to eq([])
+        expect(Clip.new([], AttrList[:name], false).to_a).to eq([])
       end
 
       let(:operand){[
@@ -18,7 +18,7 @@ module Alf
           {:name => "Jones"},
           {:name => "Smith"}
         ]
-        Clip.new(operand, AttrList[:name], false).to_a.should eq(exp)
+        expect(Clip.new(operand, AttrList[:name], false).to_a).to eq(exp)
       end
 
       it 'should allow allbut clipping' do
@@ -26,7 +26,7 @@ module Alf
           {:city => "London"},
           {:city => "Paris"}
         ]
-        Clip.new(operand, AttrList[:name], true).to_a.should eq(exp)
+        expect(Clip.new(operand, AttrList[:name], true).to_a).to eq(exp)
       end
 
     end

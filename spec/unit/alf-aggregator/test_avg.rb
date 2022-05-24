@@ -4,19 +4,19 @@ module Alf
     describe Avg do
 
       let(:rel){[
-        {:qty => 10}, 
+        {:qty => 10},
         {:qty => 1}
       ]}
 
       it 'should work when used standalone' do
-        Avg.new{ qty }.aggregate(rel).should eq(5.5)
+        expect(Avg.new{ qty }.aggregate(rel)).to eq(5.5)
       end
 
       it 'should install factory methods' do
-        Aggregator.avg{ qty }.should be_a(Avg)
-        Aggregator.avg{ qty }.aggregate(rel).should eq(5.5)
+        expect(Aggregator.avg{ qty }).to be_kind_of(Avg)
+        expect(Aggregator.avg{ qty }.aggregate(rel)).to eq(5.5)
       end
 
     end
   end
-end 
+end

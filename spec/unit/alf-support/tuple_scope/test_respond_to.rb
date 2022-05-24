@@ -9,9 +9,9 @@ module Alf
         it_behaves_like "A scope"
 
         it 'responds to [], to_s and inspect' do
-          scope.respond_to?(:[]).should be_truthy
-          scope.respond_to?(:to_s).should be_truthy
-          scope.respond_to?(:inspect).should be_truthy
+          expect(scope.respond_to?(:[])).to be_truthy
+          expect(scope.respond_to?(:to_s)).to be_truthy
+          expect(scope.respond_to?(:inspect)).to be_truthy
         end
       end
 
@@ -21,7 +21,7 @@ module Alf
         it_behaves_like "A scope"
 
         it 'responds to tuple keys' do
-          scope.respond_to?(:hello).should be_truthy
+          expect(scope.respond_to?(:hello)).to be_truthy
         end
       end
 
@@ -31,7 +31,7 @@ module Alf
         it_behaves_like "A scope"
 
         it "responds to helpers' methods" do
-          scope.respond_to?(:hello).should be_truthy
+          expect(scope.respond_to?(:hello)).to be_truthy
         end
       end
 

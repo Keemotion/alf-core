@@ -10,29 +10,29 @@ module Alf
     }
 
     specify "with :sid => :name" do
-      rel.to_hash(:sid => :name).should eq('S1' => 'Jones', 'S2' => 'Blake')
+      expect(rel.to_hash(:sid => :name)).to eq('S1' => 'Jones', 'S2' => 'Blake')
     end
 
     specify "with :sid => :city" do
-      rel.to_hash(:sid => :city).should eq('S1' => 'London', 'S2' => 'London')
+      expect(rel.to_hash(:sid => :city)).to eq('S1' => 'London', 'S2' => 'London')
     end
 
     specify "with :city => :sid" do
-      lambda{
+      expect(lambda{
         rel.to_hash(:city => :sid)
-      }.should raise_error(/Key expected for `city`, divergence found on `London`/)
+      }).to raise_error(/Key expected for `city`, divergence found on `London`/)
     end
 
     specify "with :city => :status" do
-      rel.to_hash(:city => :status).should eq('London' => 20)
+      expect(rel.to_hash(:city => :status)).to eq('London' => 20)
     end
 
     specify "with [:sid, :name] => :status" do
-      rel.to_hash([:sid, :name] => :status).should eq(['S1', 'Jones'] => 20, ['S2', 'Blake'] => 20)
+      expect(rel.to_hash([:sid, :name] => :status)).to eq(['S1', 'Jones'] => 20, ['S2', 'Blake'] => 20)
     end
 
     specify "with :sid => [:name, :status]" do
-      rel.to_hash(:sid => [:name, :status]).should eq('S1' => ['Jones', 20], 'S2' => ['Blake', 20])
+      expect(rel.to_hash(:sid => [:name, :status])).to eq('S1' => ['Jones', 20], 'S2' => ['Blake', 20])
     end
 
   end

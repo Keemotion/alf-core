@@ -10,7 +10,7 @@ module Alf
         with_csv(proc_io, row_sep: "\n") do |csv|
           csv << ["Smith", 20, "London"]
         end
-        @seen.should eq("Smith,20,London\n")
+        expect(@seen).to eq("Smith,20,London\n")
       end
 
     end

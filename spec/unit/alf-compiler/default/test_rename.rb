@@ -14,15 +14,15 @@ module Alf
       it_should_behave_like "a traceable compiled"
 
       it 'has a Rename cog' do
-        subject.should be_a(Engine::Rename)
+        expect(subject).to be_kind_of(Engine::Rename)
       end
 
       it 'has the correct rename attributes' do
-        subject.renaming.should eq(Renaming[a: :b])
+        expect(subject.renaming).to eq(Renaming[a: :b])
       end
 
       it 'has the correct sub-cog' do
-        subject.operand.should be(leaf)
+        expect(subject.operand).to be(leaf)
       end
 
     end

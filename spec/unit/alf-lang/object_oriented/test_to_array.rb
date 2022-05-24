@@ -10,33 +10,33 @@ module Alf
         it 'yields the block with a ToArray' do
           seen = nil
           to_array{|x| seen = x}
-          seen.should be_a(Engine::ToArray)
+          expect(seen).to be_kind_of(Engine::ToArray)
         end
 
         it 'returns the block result' do
-          to_array{|x| 12}.should eq(12)
+          expect(to_array{|x| 12}).to eq(12)
         end
 
         it 'sets the ordering correctly' do
           to_array(:sort => ordering){|x|
-            x.ordering.should eq(ordering)
+            expect(x.ordering).to eq(ordering)
           }
         end
       end
 
       context 'without a block' do
         it 'returns an array' do
-          to_array.should be_a(Array)
+          expect(to_array).to be_kind_of(Array)
         end
 
         it 'respect the specified ordering' do
           expected = supplier_names.sort.reverse
           got      = to_array(:sort => ordering).map{|t| t[:name]}
-          got.should eq(expected)
+          expect(got).to eq(expected)
 
           expected = supplier_names.sort
           got      = to_array(:sort => [:name]).map{|t| t[:name]}
-          got.should eq(expected)
+          expect(got).to eq(expected)
         end
       end
 

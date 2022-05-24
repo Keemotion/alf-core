@@ -10,7 +10,7 @@ module Alf
 
       it 'requests the deletion on :suppliers' do
         subject
-        db_context.requests.should eq([ [:delete, :suppliers, predicate] ])
+        expect(db_context.requests).to eq([ [:delete, :suppliers, predicate] ])
       end
 
     end

@@ -10,11 +10,11 @@ module Alf
     subject{ type }
 
     it 'returns the expected type' do
-      subject.should eq(Relation[heading])
+      expect(subject).to eq(Relation[heading])
     end
 
     it 'memoizes used instance' do
-      subject.should be(type)
+      expect(subject).to be(type)
     end
 
   end

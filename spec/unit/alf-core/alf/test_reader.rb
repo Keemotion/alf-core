@@ -6,16 +6,16 @@ describe Alf, 'reader' do
   end
 
   it 'supports a simple String' do
-    reader(File.expand_path('../example.rash', __FILE__)).should be_a(Alf::Reader)
+    expect(reader(File.expand_path('../example.rash', __FILE__))).to be_kind_of(Alf::Reader)
   end
 
   it 'supports a Path' do
-    reader(Path.dir/'example.rash').should be_a(Alf::Reader) 
+    expect(reader(Path.dir/'example.rash')).to be_kind_of(Alf::Reader)
   end
 
   it 'supports a File' do
     (Path.dir/'example.rash').open('r') do |file|
-      reader(file).should be_a(Alf::Reader)
+      expect(reader(file)).to be_kind_of(Alf::Reader)
     end
   end
 

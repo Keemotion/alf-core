@@ -31,7 +31,7 @@ module Alf
         }
 
         it 'outputs as expected' do
-          subject.should eq(expected.gsub(/\s/,""))
+          expect(subject).to eq(expected.gsub(/\s/,""))
         end
       end
 
@@ -41,7 +41,7 @@ module Alf
         let(:input){ Relation(sub: Relation(id: [1, 2])) }
 
         it 'outputs as expected' do
-          subject.should match(/<td>\s*<table>/)
+          expect(subject).to match(/<td>\s*<table>/)
         end
       end
 

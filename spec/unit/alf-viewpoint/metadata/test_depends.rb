@@ -9,7 +9,7 @@ module Alf
         subject{ metadata.depends(a: [1, 2]) }
 
         it 'sets dependencies' do
-          subject.dependencies.should eq(a: [1, 2])
+          expect(subject.dependencies).to eq(a: [1, 2])
         end
       end
 
@@ -19,7 +19,7 @@ module Alf
         subject{ metadata.depends(b: [3, 4]) }
 
         it 'sets dependencies' do
-          subject.dependencies.should eq(a: [1, 2], b: [3, 4])
+          expect(subject.dependencies).to eq(a: [1, 2], b: [3, 4])
         end
       end
 
@@ -29,7 +29,7 @@ module Alf
         subject{ metadata.depends(a: [1, 2], c: [5, 6]) }
 
         it 'sets dependencies' do
-          subject.dependencies.should eq(a: [1, 2], b: [3, 4], c: [5, 6])
+          expect(subject.dependencies).to eq(a: [1, 2], b: [3, 4], c: [5, 6])
         end
       end
 
@@ -39,9 +39,9 @@ module Alf
         subject{ metadata.depends(a: [1, 3]) }
 
         it 'raises an error' do
-          lambda{
+          expect(lambda{
             subject
-          }.should raise_error("Composition conflict on `a`: [1, 2] vs. [1, 3]")
+          }).to raise_error("Composition conflict on `a`: [1, 2] vs. [1, 3]")
         end
       end
 

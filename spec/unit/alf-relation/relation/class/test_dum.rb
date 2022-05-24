@@ -7,12 +7,12 @@ module Alf
     subject{ type.dum }
 
     it 'returns a Relation' do
-      subject.should be_a(type)
-      subject.should be_a(Relation)
+      expect(subject).to be_kind_of(type)
+      expect(subject).to be_kind_of(Relation)
     end
 
     it 'is empty' do
-      subject.should be_empty
+      expect(subject).to be_empty
     end
 
   end

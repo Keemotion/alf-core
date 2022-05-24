@@ -28,7 +28,7 @@ module Alf
       let(:expr){ ->{ hello } }
 
       it 'uses the expected binding' do
-        subject.should eq("world")
+        expect(subject).to eq("world")
       end
     end
 

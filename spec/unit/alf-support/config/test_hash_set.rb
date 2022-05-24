@@ -19,12 +19,12 @@ module Alf
         let(:value){ true }
 
         it 'should return the value' do
-          subject.should eq(value)
+          expect(subject).to eq(value)
         end
 
         it 'should set the value' do
           subject
-          config.ready?.should eq(true)
+          expect(config.ready?).to eq(true)
         end
       end
 
@@ -33,12 +33,12 @@ module Alf
         let(:value){ ["bar"] }
 
         it 'should return the value' do
-          subject.should eq(value)
+          expect(subject).to eq(value)
         end
 
         it 'should set the value' do
           subject
-          config.preferences.should eq(["bar"])
+          expect(config.preferences).to eq(["bar"])
         end
       end
 
@@ -52,7 +52,7 @@ module Alf
 
         it 'should merge the values' do
           subject
-          config.preferences.should eq(["foo", "bar"])
+          expect(config.preferences).to eq(["foo", "bar"])
         end
       end
 

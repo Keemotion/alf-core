@@ -15,12 +15,12 @@ module Alf
         it_should_behave_like "a traceable compiled"
 
         it 'has a Take cog' do
-          subject.should be_a(Engine::Take)
+          expect(subject).to be_kind_of(Engine::Take)
         end
 
         it 'has the correct take attributes' do
-          subject.offset.should eq(10)
-          subject.limit.should eq(20)
+          expect(subject.offset).to eq(10)
+          expect(subject.limit).to eq(20)
         end
       end
 

@@ -22,7 +22,7 @@ module Alf
         }
 
         it 'outputs as expected' do
-          subject.should eq(expected)
+          expect(subject).to eq(expected)
         end
       end
 
@@ -38,7 +38,7 @@ module Alf
         }
 
         it 'outputs as expected' do
-          subject.should eq(expected)
+          expect(subject).to eq(expected)
         end
       end
 

@@ -15,7 +15,7 @@ shared_examples_for 'an uncached connection method' do
     cached.send(connection_method, *args) do |res|
       seen = res
     end
-    seen.should eq(args)
+    expect(seen).to eq(args)
   end
 
 end

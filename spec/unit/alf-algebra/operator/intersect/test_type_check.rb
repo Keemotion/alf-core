@@ -6,7 +6,7 @@ module Alf
       subject{ op.type_check }
 
       context 'when ok' do
-        let(:op){ 
+        let(:op){
           intersect(suppliers, suppliers)
         }
 
@@ -14,14 +14,14 @@ module Alf
       end
 
       context 'when heading mismatch' do
-        let(:op){ 
+        let(:op){
           intersect(suppliers, supplies)
         }
 
         it 'should raise an error' do
-          lambda{
+          expect(lambda{
             subject
-          }.should raise_error(TypeCheckError, /heading mismatch/)
+          }).to raise_error(TypeCheckError, /heading mismatch/)
         end
       end
 

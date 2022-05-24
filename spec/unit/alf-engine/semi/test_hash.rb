@@ -21,15 +21,15 @@ module Alf
             {:sid => 'S1', :city => 'London'},
             {:sid => 'S3', :city => 'Paris'}
           ]
-          Semi::Hash.new(suppliers, statuses, true).to_a.should eq(expected)
+          expect(Semi::Hash.new(suppliers, statuses, true).to_a).to eq(expected)
         end
 
         it 'should return whole operand against DEE' do
-          Semi::Hash.new(suppliers, [{}], true).to_a.should eq(suppliers)
+          expect(Semi::Hash.new(suppliers, [{}], true).to_a).to eq(suppliers)
         end
 
         it 'should return an empty operand against DUM' do
-          Semi::Hash.new(suppliers, [], true).to_a.should eq([])
+          expect(Semi::Hash.new(suppliers, [], true).to_a).to eq([])
         end
 
       end # matching mode
@@ -40,15 +40,15 @@ module Alf
           expected =  [
             {:sid => 'S2', :city => 'Paris'},
           ]
-          Semi::Hash.new(suppliers, statuses, false).to_a.should eq(expected)
+          expect(Semi::Hash.new(suppliers, statuses, false).to_a).to eq(expected)
         end
 
         it 'should return whole operand against DUM' do
-          Semi::Hash.new(suppliers, [], false).to_a.should eq(suppliers)
+          expect(Semi::Hash.new(suppliers, [], false).to_a).to eq(suppliers)
         end
 
         it 'should return an empty operand against DEE' do
-          Semi::Hash.new(suppliers, [{}], false).to_a.should eq([])
+          expect(Semi::Hash.new(suppliers, [{}], false).to_a).to eq([])
         end
 
       end # non matching mode

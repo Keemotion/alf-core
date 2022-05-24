@@ -5,18 +5,18 @@ module Alf
     let(:adapter){ Adapter.new(nil) }
 
     after do
-      subject.adapter.should be_a(Adapter)
+      expect(subject.adapter).to be_kind_of(Adapter)
     end
 
     context 'on a single adapter' do
       subject{ Database.new(adapter) }
 
       it 'uses the specified adapter' do
-        subject.adapter.should be(adapter)
+        expect(subject.adapter).to be(adapter)
       end
 
       it 'uses default options' do
-        subject.schema_cache?.should be_truthy
+        expect(subject.schema_cache?).to be_truthy
       end
     end
 
@@ -24,11 +24,11 @@ module Alf
       subject{ Database.new(Path.dir) }
 
       it 'coerces the adapter' do
-        subject.adapter.should be_a(Adapter::Folder)
+        expect(subject.adapter).to be_kind_of(Adapter::Folder)
       end
 
       it 'uses default options' do
-        subject.schema_cache?.should be_truthy
+        expect(subject.schema_cache?).to be_truthy
       end
     end
 
@@ -36,7 +36,7 @@ module Alf
       subject{ Database.new(adapter, schema_cache: false) }
 
       it 'set the options correctly' do
-        subject.schema_cache?.should be_falsey
+        expect(subject.schema_cache?).to be_falsey
       end
     end
 
@@ -44,8 +44,8 @@ module Alf
       subject{ Database.new(adapter){|d| @seen = d } }
 
       it 'yields the block' do
-        subject.should be_a(Database)
-        @seen.should be_a(Database::Options)
+        expect(subject).to be_kind_of(Database)
+        expect(@seen).to be_kind_of(Database::Options)
       end
     end
 

@@ -20,19 +20,19 @@ module Alf
       it{ should be_a(Engine::Hierarchize) }
 
       it 'should have correct id list' do
-        subject.id.should eq(AttrList[:id])
+        expect(subject.id).to eq(AttrList[:id])
       end
 
       it 'should have correct parent list' do
-        subject.parent.should eq(AttrList[:parent])
+        expect(subject.parent).to eq(AttrList[:parent])
       end
 
       it 'should have correct children name' do
-        subject.children.should eq(:as)
+        expect(subject.children).to eq(:as)
       end
 
       it 'has the correct sub-cog' do
-        subject.operand.should be(leaf)
+        expect(subject.operand).to be(leaf)
       end
 
     end

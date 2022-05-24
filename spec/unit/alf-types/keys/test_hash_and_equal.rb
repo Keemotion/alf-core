@@ -5,7 +5,7 @@ module Alf
     subject{ left == right }
 
     after do
-      (left.hash == right.hash).should be_truthy if subject
+      expect((left.hash == right.hash)).to be_truthy if subject
     end
 
     context 'on empty Keys' do

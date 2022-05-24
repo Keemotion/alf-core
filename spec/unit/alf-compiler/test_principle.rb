@@ -93,7 +93,7 @@ module Alf
     context 'on a direct cog-proxied operand' do
       # the first compiler takes care of compiling the stuff, by simple
       # delegation to to_cog of the operand
-      
+
       let(:expr){
         an_operand(cog)
       }
@@ -101,7 +101,7 @@ module Alf
       it{ should be(cog) }
 
       it 'should have expected compiler' do
-        subject.compiler.should be(dedicated)
+        expect(subject.compiler).to be(dedicated)
       end
     end
 
@@ -116,16 +116,16 @@ module Alf
       it{ should be_a(DedicatedCog) }
 
       it 'should have correct expr' do
-        subject.expr.should be(expr)
+        expect(subject.expr).to be(expr)
       end
 
       it 'should have expected compiler' do
-        subject.compiler.should be(dedicated)
+        expect(subject.compiler).to be(dedicated)
       end
 
       it 'should have correct operand' do
-        subject.operand.should be(cog)
-        subject.operand.compiler.should be(dedicated)
+        expect(subject.operand).to be(cog)
+        expect(subject.operand.compiler).to be(dedicated)
       end
     end
 
@@ -140,15 +140,15 @@ module Alf
       it{ should be_a(DedicatedCog) }
 
       it 'should have correct expr' do
-        subject.expr.should be(expr)
+        expect(subject.expr).to be(expr)
       end
 
       it 'should have correct operands' do
-        subject.operands.should eq([cog, cog2])
+        expect(subject.operands).to eq([cog, cog2])
       end
 
       it 'should have expected compiler' do
-        subject.compiler.should be(dedicated)
+        expect(subject.compiler).to be(dedicated)
       end
     end
 
@@ -161,15 +161,15 @@ module Alf
       it{ should be_a(DedicatedCog) }
 
       it 'has the sort as sub-cog' do
-        subject.operand.should be_a(Engine::Sort)
+        expect(subject.operand).to be_kind_of(Engine::Sort)
       end
 
       it 'has the cog as sub-sub operand' do
-        subject.operand.operand.should be(cog)
+        expect(subject.operand.operand).to be(cog)
       end
 
       it 'should have expected compiler' do
-        subject.compiler.should be(dedicated)
+        expect(subject.compiler).to be(dedicated)
       end
     end
 
@@ -185,11 +185,11 @@ module Alf
       it{ should be_a(Engine::Rename) }
 
       it 'should have the cog as operand' do
-        subject.operand.should be(cog)
+        expect(subject.operand).to be(cog)
       end
 
       it 'should have expected compiler' do
-        subject.compiler.should be(default)
+        expect(subject.compiler).to be(default)
       end
     end
 
@@ -205,11 +205,11 @@ module Alf
       it{ should be_a(Engine::Unwrap) }
 
       it 'should have the cog as operand' do
-        subject.operand.should be(cog)
+        expect(subject.operand).to be(cog)
       end
 
       it 'should have expected compilers' do
-        subject.compiler.should be(default)
+        expect(subject.compiler).to be(default)
       end
     end
 
@@ -225,11 +225,11 @@ module Alf
       it{ should be_a(Engine::Ungroup) }
 
       it 'should have the cog as operand' do
-        subject.operand.should be(cog)
+        expect(subject.operand).to be(cog)
       end
 
       it 'should have expected compilers' do
-        subject.compiler.should be(default)
+        expect(subject.compiler).to be(default)
       end
     end
 
@@ -249,22 +249,22 @@ module Alf
       it{ should be_a(DedicatedCog) }
 
       it 'should have correct traceability' do
-        subject.expr.should be(expr)
+        expect(subject.expr).to be(expr)
       end
 
       it 'should have expected compiler' do
-        subject.compiler.should be(dedicated)
+        expect(subject.compiler).to be(dedicated)
       end
 
       it 'should have correct sub-cog' do
-        subject.operand.should be_a(DedicatedCog)
-        subject.operand.expr.should be(subexpr)
-        subject.operand.compiler.should be(dedicated)
+        expect(subject.operand).to be_kind_of(DedicatedCog)
+        expect(subject.operand.expr).to be(subexpr)
+        expect(subject.operand.compiler).to be(dedicated)
       end
 
       it 'should have correct sub-sub-cog' do
-        subject.operand.operand.should be(cog)
-        subject.operand.operand.compiler.should be(dedicated)
+        expect(subject.operand.operand).to be(cog)
+        expect(subject.operand.operand.compiler).to be(dedicated)
       end
     end
 
@@ -300,18 +300,18 @@ module Alf
       it{ should be_a(Engine::Join) }
 
       it 'should have correct expr' do
-        subject.expr.should be(expr)
+        expect(subject.expr).to be(expr)
       end
 
       it 'should have correct sub-cogs' do
-        subject.left.should be_a(DedicatedCog)
-        subject.right.should be_a(DedicatedCog)
+        expect(subject.left).to be_kind_of(DedicatedCog)
+        expect(subject.right).to be_kind_of(DedicatedCog)
       end
 
       it 'should have expected compilers' do
-        subject.compiler.should be(default)
-        subject.left.compiler.should be(compilo1)
-        subject.right.compiler.should be(compilo2)
+        expect(subject.compiler).to be(default)
+        expect(subject.left.compiler).to be(compilo1)
+        expect(subject.right.compiler).to be(compilo2)
       end
     end
 
@@ -324,7 +324,7 @@ module Alf
       it{ should be_a(DedicatedCog) }
 
       it 'should reuse the compilation result' do
-        subject.left.should be(subject.right)
+        expect(subject.left).to be(subject.right)
       end
     end
 

@@ -8,7 +8,7 @@ module Alf
           {:id => 0},
           {:id => 1}
         ]
-        Generator.new(:id, 0, 1, 2).to_a.should eq(exp)
+        expect(Generator.new(:id, 0, 1, 2).to_a).to eq(exp)
       end
 
       it 'should allow specifying an offset, step and count' do
@@ -17,7 +17,7 @@ module Alf
           {:id => 15},
           {:id => 20}
         ]
-        Generator.new(:id, 10, 5, 3).to_a.should eq(exp)
+        expect(Generator.new(:id, 10, 5, 3).to_a).to eq(exp)
       end
 
     end

@@ -6,7 +6,7 @@ module Alf
       subject{ op.type_check }
 
       context 'when ok' do
-        let(:op){ 
+        let(:op){
           autonum(suppliers, :auto)
         }
 
@@ -14,14 +14,14 @@ module Alf
       end
 
       context 'when name clash' do
-        let(:op){ 
+        let(:op){
           autonum(suppliers, :name)
         }
 
         it 'should raise an error' do
-          lambda{
+          expect(lambda{
             subject
-          }.should raise_error(TypeCheckError, /cannot override `name`/)
+          }).to raise_error(TypeCheckError, /cannot override `name`/)
         end
       end
 

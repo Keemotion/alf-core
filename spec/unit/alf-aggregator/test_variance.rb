@@ -4,7 +4,7 @@ module Alf
     describe Variance do
 
       let(:rel){[
-        {:qty => 10}, 
+        {:qty => 10},
         {:qty => 20},
         {:qty => 30},
         {:qty => 40}
@@ -16,14 +16,14 @@ module Alf
       }
 
       it 'should work when used standalone' do
-        Variance.new{ qty }.aggregate(rel).should eq(expected)
+        expect(Variance.new{ qty }.aggregate(rel)).to eq(expected)
       end
 
       it 'should install factory methods' do
-        Aggregator.variance{ qty }.should be_a(Variance)
-        Aggregator.variance{ qty }.aggregate(rel).should eq(expected)
+        expect(Aggregator.variance{ qty }).to be_kind_of(Variance)
+        expect(Aggregator.variance{ qty }.aggregate(rel)).to eq(expected)
       end
 
     end
   end
-end 
+end

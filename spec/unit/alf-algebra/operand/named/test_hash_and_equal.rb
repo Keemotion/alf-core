@@ -11,20 +11,20 @@ module Alf
         context '==' do
 
           it 'recognizes same operands' do
-            op1.should eq(op1)
-            op1.should eq(Named.new(:foo))
+            expect(op1).to eq(op1)
+            expect(op1).to eq(Named.new(:foo))
           end
 
           it 'distinguises other operands' do
-            op1.should_not eq(nil)
-            op1.should_not eq(Named.new(:foo, :bar))
+            expect(op1).to_not eq(nil)
+            expect(op1).to_not eq(Named.new(:foo, :bar))
           end
         end
 
         context 'hash' do
 
           it 'it the same on same operands' do
-            op1.hash.should eq(Named.new(:foo).hash)
+            expect(op1.hash).to eq(Named.new(:foo).hash)
           end
         end
 
@@ -37,13 +37,13 @@ module Alf
           }
 
           it 'should lead to expected hash' do
-            h.size.should eq(3)
+            expect(h.size).to eq(3)
           end
 
           it 'should behave as expected' do
-            h[op1].should eq(1)
-            h[Named.new(:foo)].should eq(1)
-            h[Named.new(:foo, :bar)].should eq(3)
+            expect(h[op1]).to eq(1)
+            expect(h[Named.new(:foo)]).to eq(1)
+            expect(h[Named.new(:foo, :bar)]).to eq(3)
           end
         end
 

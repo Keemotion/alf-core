@@ -12,7 +12,7 @@ module Alf
         }
 
         it 'simply let the tuples pass' do
-          cog.to_a.should eq(tuples)
+          expect(cog.to_a).to eq(tuples)
         end
       end
 
@@ -22,9 +22,9 @@ module Alf
         }
 
         it 'raises a TypeCheckError' do
-          lambda{
+          expect(lambda{
             cog.to_a
-          }.should raise_error(TypeCheckError, /Jones/)
+          }).to raise_error(TypeCheckError, /Jones/)
         end
       end
 

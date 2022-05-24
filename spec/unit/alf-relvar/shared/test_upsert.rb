@@ -22,8 +22,8 @@ module Alf
 
       it 'delegates an update to the connection' do
         subject
-        @method.should eq(:update)
-        @seen.should eq([tuples])
+        expect(@method).to eq(:update)
+        expect(@seen).to eq([tuples])
       end
     end
 
@@ -32,8 +32,8 @@ module Alf
 
       it 'delegates an insert to the connection' do
         subject
-        @method.should eq(:insert)
-        @seen.should eq([tuples])
+        expect(@method).to eq(:insert)
+        expect(@seen).to eq([tuples])
       end
     end
 

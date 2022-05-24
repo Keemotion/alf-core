@@ -15,7 +15,7 @@ module Alf
         let(:arg){ true }
 
         specify{
-          subject.expr.should be_a(Tautology)
+          expect(subject.expr).to be_kind_of(Tautology)
         }
       end
 
@@ -23,7 +23,7 @@ module Alf
         let(:arg){ false }
 
         specify{
-          subject.expr.should be_a(Contradiction)
+          expect(subject.expr).to be_kind_of(Contradiction)
         }
       end
 
@@ -31,8 +31,8 @@ module Alf
         let(:arg){ :status }
 
         specify{
-          subject.expr.should be_a(Identifier)
-          subject.expr.name.should eq(arg)
+          expect(subject.expr).to be_kind_of(Identifier)
+          expect(subject.expr.name).to eq(arg)
         }
       end
 
@@ -40,8 +40,8 @@ module Alf
         let(:arg){ lambda{ status == 10 } }
 
         specify{
-          subject.expr.should be_a(Native)
-          subject.to_proc.should be(arg)
+          expect(subject.expr).to be_kind_of(Native)
+          expect(subject.to_proc).to be(arg)
         }
       end
 
@@ -49,9 +49,9 @@ module Alf
         let(:arg){ "status == 10" }
 
         it 'raises an error' do
-          lambda{
+          expect(lambda{
             subject
-          }.should raise_error(ArgumentError)
+          }).to raise_error(ArgumentError)
         end
       end
 
@@ -59,8 +59,8 @@ module Alf
         let(:arg){ {status: 10} }
 
         specify{
-          subject.expr.should be_a(Eq)
-          subject.expr.should eq([:eq, [:identifier, :status], [:literal, 10]])
+          expect(subject.expr).to be_kind_of(Eq)
+          expect(subject.expr).to eq([:eq, [:identifier, :status], [:literal, 10]])
         }
       end
 
@@ -68,8 +68,8 @@ module Alf
         let(:arg){ Tuple(status: 10) }
 
         specify{
-          subject.expr.should be_a(Eq)
-          subject.expr.should eq([:eq, [:identifier, :status], [:literal, 10]])
+          expect(subject.expr).to be_kind_of(Eq)
+          expect(subject.expr).to eq([:eq, [:identifier, :status], [:literal, 10]])
         }
       end
 
@@ -77,7 +77,7 @@ module Alf
         let(:arg){ {status: 10, name: "Jones"} }
 
         specify{
-          subject.should eq(Predicate.eq(status: 10) & Predicate.eq(name: "Jones"))
+          expect(subject).to eq(Predicate.eq(status: 10) & Predicate.eq(name: "Jones"))
         }
       end
 
@@ -85,7 +85,7 @@ module Alf
         let(:arg){ Tuple(status: 10, name: "Jones") }
 
         specify{
-          subject.should eq(Predicate.eq(status: 10) & Predicate.eq(name: "Jones"))
+          expect(subject).to eq(Predicate.eq(status: 10) & Predicate.eq(name: "Jones"))
         }
       end
 
@@ -93,7 +93,7 @@ module Alf
         let(:arg){ Relation::DUM }
 
         specify{
-          subject.should eq(Predicate.contradiction)
+          expect(subject).to eq(Predicate.contradiction)
         }
       end
 
@@ -101,7 +101,7 @@ module Alf
         let(:arg){ Relation::DEE }
 
         specify{
-          subject.should eq(Predicate.tautology)
+          expect(subject).to eq(Predicate.tautology)
         }
       end
 
@@ -109,7 +109,7 @@ module Alf
         let(:arg){ Relation(status: [10, 20]) }
 
         specify{
-          subject.should eq(Predicate.in(:status, [10, 20]))
+          expect(subject).to eq(Predicate.in(:status, [10, 20]))
         }
       end
 
@@ -123,7 +123,7 @@ module Alf
         }
 
         specify{
-          subject.should eq(expected)
+          expect(subject).to eq(expected)
         }
       end
 

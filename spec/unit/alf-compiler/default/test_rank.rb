@@ -15,12 +15,12 @@ module Alf
         it_should_behave_like "a traceable compiled"
 
         it 'has a Rank::Cesure cog' do
-          subject.should be_a(Engine::Rank::Cesure)
+          expect(subject).to be_kind_of(Engine::Rank::Cesure)
         end
 
         it 'has the correct parameters' do
-          subject.by.should eq(AttrList[:a])
-          subject.as.should eq(:foo)
+          expect(subject.by).to eq(AttrList[:a])
+          expect(subject.as).to eq(:foo)
         end
       end
 

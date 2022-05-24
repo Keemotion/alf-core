@@ -10,7 +10,7 @@ module Alf
         let(:signature){ Signature.new(clazz) }
         it{ should eq({}) }
         specify{
-          lambda{ subject }.should_not raise_error
+          expect(lambda{ subject }).to_not raise_error
         }
       end
 
@@ -29,24 +29,24 @@ module Alf
         it "should have arguments installed as attr accessors" do
           subject
           inst = clazz.new
-          inst.should respond_to(:attrname)
+          expect(inst).to respond_to(:attrname)
           inst.send(:"attrname=", :hello)
-          inst.attrname.should eq(:hello)
+          expect(inst.attrname).to eq(:hello)
         end
 
         it "should have options installed as attr accessors" do
           subject
           inst = clazz.new
-          inst.should respond_to(:allbut)
+          expect(inst).to respond_to(:allbut)
           inst.send(:"allbut=", true)
-          inst.allbut.should be_truthy
+          expect(inst.allbut).to be_truthy
         end
 
         it "should apply auto-coercion" do
           subject
           inst = clazz.new
           inst.send(:"allbut=", "true")
-          inst.allbut.should be_truthy
+          expect(inst.allbut).to be_truthy
         end
 
       end

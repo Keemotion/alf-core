@@ -7,11 +7,11 @@ module Alf
     subject{ type.to_ruby_literal }
 
     it 'should be human friendly' do
-      subject.should eq("Alf::Tuple[{:name => String, :status => Integer}]")
+      expect(subject).to eq("Alf::Tuple[{:name => String, :status => Integer}]")
     end
 
     it 'should allow eval roundtrip' do
-      ::Kernel.eval(subject).should eq(type)
+      expect(::Kernel.eval(subject)).to eq(type)
     end
 
   end

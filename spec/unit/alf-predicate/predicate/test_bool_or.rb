@@ -8,7 +8,7 @@ module Alf
       subject{ left | right }
 
       before do
-        subject.should be_a(Predicate)
+        expect(subject).to be_kind_of(Predicate)
       end
 
       context 'with itself' do
@@ -27,7 +27,7 @@ module Alf
         let(:right){ Predicate.coerce(y: 3) }
 
         it 'should be a expected' do
-          subject.to_ruby_code.should eq("->(t){ (t.x == 2) || (t.y == 3) }")
+          expect(subject.to_ruby_code).to eq("->(t){ (t.x == 2) || (t.y == 3) }")
         end
       end
 

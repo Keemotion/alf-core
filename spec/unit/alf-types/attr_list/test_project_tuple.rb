@@ -1,6 +1,6 @@
 require 'spec_helper'
 module Alf
-  describe AttrList, "project_tuple" do 
+  describe AttrList, "project_tuple" do
 
     let(:key){ AttrList.new [:a, :b] }
     let(:tuple){ {:a => 1, :b => 2, :c => 3} }
@@ -23,8 +23,8 @@ module Alf
     specify "the documentation example" do
       list = AttrList.new([:name])
       tuple = {:name => "Jones", :city => "London"}
-      list.project_tuple(tuple).should eq({:name => "Jones"})
-      list.project_tuple(tuple, true).should eq({:city => "London"})
+      expect(list.project_tuple(tuple)).to eq({:name => "Jones"})
+      expect(list.project_tuple(tuple, true)).to eq({:city => "London"})
     end
 
   end

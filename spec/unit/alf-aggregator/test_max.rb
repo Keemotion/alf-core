@@ -4,20 +4,20 @@ module Alf
     describe Max do
 
       let(:rel){[
-        {:qty => 10}, 
+        {:qty => 10},
         {:qty => 0}
       ]}
 
       it 'should work when used standalone' do
-        Max.new{ qty }.aggregate([]).should eq(nil)
-        Max.new{ qty }.aggregate(rel).should eq(10)
+        expect(Max.new{ qty }.aggregate([])).to eq(nil)
+        expect(Max.new{ qty }.aggregate(rel)).to eq(10)
       end
 
       it 'should install factory methods' do
-        Aggregator.max{ qty }.should be_a(Max)
-        Aggregator.max{ qty }.aggregate(rel).should eq(10)
+        expect(Aggregator.max{ qty }).to be_kind_of(Max)
+        expect(Aggregator.max{ qty }.aggregate(rel)).to eq(10)
       end
 
     end
   end
-end 
+end

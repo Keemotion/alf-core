@@ -7,9 +7,9 @@ module Alf
       subject{ conn.migrate!(hello: "world") }
 
       it 'raises an NotSupportedError by default' do
-        lambda{
+        expect(lambda{
           subject
-        }.should raise_error(NotSupportedError)
+        }).to raise_error(NotSupportedError)
       end
 
     end

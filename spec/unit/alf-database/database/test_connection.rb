@@ -13,8 +13,8 @@ module Alf
     it{ should be_a(Database::Connection) }
 
     it 'sets a copy of the original options' do
-      subject.options.should be_a(Database::Options)
-      subject.options.should_not be(db.default_options)
+      expect(subject.options).to be_kind_of(Database::Options)
+      expect(subject.options).to_not be(db.default_options)
     end
 
   end

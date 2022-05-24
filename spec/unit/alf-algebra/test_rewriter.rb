@@ -15,13 +15,13 @@ module Alf
       subject{ rewriter.call(expr) }
 
       it 'returns an equal expression' do
-        subject.should eq(expr)
+        expect(subject).to eq(expr)
       end
 
       it 'makes a deep copy, up to leaf operands' do
-        subject.should_not be(expr)
-        subject.operand.should_not be(expr.operand)
-        subject.operand.operand.should be(expr.operand.operand)
+        expect(subject).to_not be(expr)
+        expect(subject.operand).to_not be(expr.operand)
+        expect(subject.operand.operand).to be(expr.operand.operand)
       end
 
     end

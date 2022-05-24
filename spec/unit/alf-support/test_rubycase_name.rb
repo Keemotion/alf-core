@@ -5,19 +5,19 @@ module Alf
     let(:tools){ Object.new.extend(Support) }
 
     it "should work on a Symbol" do
-      tools.rubycase_name(:Alf).should == :alf
+      expect(tools.rubycase_name(:Alf)).to eq(:alf)
     end
 
     it "should work on a String" do
-      tools.rubycase_name("HelloWorld").should == :hello_world
+      expect(tools.rubycase_name("HelloWorld")).to eq(:hello_world)
     end
 
     it "should work on a Class" do
-      tools.rubycase_name(String ).should == :string
+      expect(tools.rubycase_name(String )).to eq(:string)
     end
 
     it "should work on a Module" do
-      tools.rubycase_name(Algebra::NonRelational).should == :non_relational
+      expect(tools.rubycase_name(Algebra::NonRelational)).to eq(:non_relational)
     end
 
   end

@@ -14,23 +14,23 @@ module Alf
       it_should_behave_like "a traceable compiled"
 
       it 'has a Wrap cog' do
-        subject.should be_a(Engine::Wrap)
+        expect(subject).to be_kind_of(Engine::Wrap)
       end
 
       it 'has the correct wrapping' do
-        subject.attributes.should eq(AttrList[:foo, :bar])
+        expect(subject.attributes).to eq(AttrList[:foo, :bar])
       end
 
       it 'has the correct as' do
-        subject.as.should eq(:baz)
+        expect(subject.as).to eq(:baz)
       end
 
       it 'has the correct allbut' do
-        subject.allbut.should be_truthy
+        expect(subject.allbut).to be_truthy
       end
 
       it 'has the correct sub-cog' do
-        subject.operand.should be(leaf)
+        expect(subject.operand).to be(leaf)
       end
 
     end

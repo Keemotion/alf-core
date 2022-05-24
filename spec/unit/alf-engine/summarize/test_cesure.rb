@@ -19,18 +19,18 @@ module Alf
       let(:aggs){Summarization.new(
         :time_sum => Aggregator.sum{ time },
         :time_max => Aggregator.max{ time }
-      )} 
+      )}
 
       it 'should summarize as expected' do
         sum = Summarize::Cesure.new(input, AttrList[:a], aggs, false)
-        sum.to_a.should eq(expected)
+        expect(sum.to_a).to eq(expected)
       end
 
       it 'should support allbut summarization' do
         sum = Summarize::Cesure.new(input, AttrList[:time], aggs, true)
-        sum.to_a.should eq(expected)
+        expect(sum.to_a).to eq(expected)
       end
 
-    end 
+    end
   end
 end

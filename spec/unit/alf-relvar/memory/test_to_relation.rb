@@ -9,7 +9,7 @@ module Alf
       subject{ rv.to_relation }
 
       it 'is as expected' do
-        subject.should be(value)
+        expect(subject).to be(value)
       end
 
     end

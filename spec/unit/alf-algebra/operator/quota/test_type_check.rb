@@ -6,7 +6,7 @@ module Alf
       subject{ op.type_check }
 
       context 'when ok' do
-        let(:op){ 
+        let(:op){
           quota(supplies, [:sid], [[:sid, :asc]], :sum => sum{ qty })
         }
 
@@ -14,38 +14,38 @@ module Alf
       end
 
       context 'when unknown by' do
-        let(:op){ 
+        let(:op){
           quota(supplies, [:foo], [[:sid, :asc]], :sum => sum{ qty })
         }
 
         it 'should raise an error' do
-          lambda{
+          expect(lambda{
             subject
-          }.should raise_error(TypeCheckError, /no such attribute `foo`/)
+          }).to raise_error(TypeCheckError, /no such attribute `foo`/)
         end
       end
 
       context 'when invalid ordering' do
-        let(:op){ 
+        let(:op){
           quota(supplies, [:sid], [[:bar, :asc]], :sum => sum{ qty })
         }
 
         it 'should raise an error' do
-          lambda{
+          expect(lambda{
             subject
-          }.should raise_error(TypeCheckError, /no such attribute `bar`/)
+          }).to raise_error(TypeCheckError, /no such attribute `bar`/)
         end
       end
 
       context 'when name clash' do
-        let(:op){ 
+        let(:op){
           quota(supplies, [:sid], [[:sid, :asc]], :qty => sum{ qty })
         }
 
         it 'should raise an error' do
-          lambda{
+          expect(lambda{
             subject
-          }.should raise_error(TypeCheckError, /cannot override `qty`/)
+          }).to raise_error(TypeCheckError, /cannot override `qty`/)
         end
       end
 

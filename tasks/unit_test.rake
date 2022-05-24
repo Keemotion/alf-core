@@ -5,7 +5,7 @@ begin
     # Glob pattern to match files.
     t.pattern = "spec/unit/**/test_*.rb"
 
-    # Whether or not to fail Rake when an error occurs (typically when 
+    # Whether or not to fail Rake when an error occurs (typically when
     # examples fail).
     t.fail_on_error = true
 
@@ -17,19 +17,19 @@ begin
     t.verbose = true
 
     # Use rcov for code coverage?
-    t.rcov = false
+    # t.rcov = false
 
     # Path to rcov.
-    t.rcov_path = "rcov"
+    # t.rcov_path = "rcov"
 
     # Command line options to pass to rcov. See 'rcov --help' about this
-    t.rcov_opts = []
+    # t.rcov_opts = []
 
-    # Command line options to pass to ruby. See 'ruby --help' about this 
+    # Command line options to pass to ruby. See 'ruby --help' about this
     t.ruby_opts = []
 
     # Path to rspec
-    t.rspec_path = "rspec"
+    #t.rspec_path = "rspec"
 
     # Command line options to pass to rspec. See 'rspec --help' about this
     t.rspec_opts = ["--color", "--backtrace"]

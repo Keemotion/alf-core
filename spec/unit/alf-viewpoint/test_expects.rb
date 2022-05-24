@@ -11,7 +11,7 @@ module Alf
     }
 
     it 'populates metadata' do
-      viewpoint.metadata.expectations.should eq([1, 2, 3])
+      expect(viewpoint.metadata.expectations).to eq([1, 2, 3])
     end
 
   end

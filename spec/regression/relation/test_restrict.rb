@@ -13,7 +13,7 @@ module Alf
       subject{ arg.restrict(sid: 'S5') }
 
       it 'does not raise a TypeError' do
-        subject.should be_a(Relation)
+        expect(subject).to be_kind_of(Relation)
       end
     end
 

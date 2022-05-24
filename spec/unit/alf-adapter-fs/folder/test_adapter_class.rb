@@ -14,7 +14,7 @@ module Alf
       describe "recognizes?" do
 
         it 'is not be too permissive' do
-          Folder.recognizes?("not/an/existing/one").should be_falsey
+          expect(Folder.recognizes?("not/an/existing/one")).to be_falsey
         end
       end
 

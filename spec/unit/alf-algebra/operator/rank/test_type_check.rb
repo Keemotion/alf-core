@@ -6,7 +6,7 @@ module Alf
       subject{ op.type_check }
 
       context 'when ok' do
-        let(:op){ 
+        let(:op){
           rank(suppliers, [[:name, :asc]], :rank)
         }
 
@@ -14,26 +14,26 @@ module Alf
       end
 
       context 'when invalid ordering' do
-        let(:op){ 
+        let(:op){
           rank(suppliers, [[:foo, :asc]], :rank)
         }
 
         it 'should raise an error' do
-          lambda{
+          expect(lambda{
             subject
-          }.should raise_error(TypeCheckError, /no such attribute `foo`/)
+          }).to raise_error(TypeCheckError, /no such attribute `foo`/)
         end
       end
 
       context 'when name clash' do
-        let(:op){ 
+        let(:op){
           rank(suppliers, [[:name, :asc]], :name)
         }
 
         it 'should raise an error' do
-          lambda{
+          expect(lambda{
             subject
-          }.should raise_error(TypeCheckError, /cannot override `name`/)
+          }).to raise_error(TypeCheckError, /cannot override `name`/)
         end
       end
 

@@ -19,7 +19,7 @@ module Alf
       }
 
       it 'should have expected members' do
-        subject.should eq([:a_native_one, :restricted])
+        expect(subject).to eq([:a_native_one, :restricted])
       end
     end
 
@@ -49,7 +49,7 @@ module Alf
       }
 
       it 'should have inherited members' do
-        subject.should eq([:a_member, :another_member, :yet_another_one])
+        expect(subject).to eq([:a_member, :another_member, :yet_another_one])
       end
     end
 

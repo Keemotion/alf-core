@@ -9,8 +9,8 @@ module Alf
         let(:arg){ :suppliers }
 
         it 'coerces it as a named operand' do
-          subject.should be_a(Operand::Named)
-          subject.name.should eq(:suppliers)
+          expect(subject).to be_kind_of(Operand::Named)
+          expect(subject.name).to eq(:suppliers)
         end
       end
 
@@ -18,8 +18,8 @@ module Alf
         let(:arg){ {name: "Jones"} }
 
         it 'coerces it as a proxy operand on an array' do
-          subject.should be_a(Operand::Proxy)
-          subject.subject.should eq([ arg ])
+          expect(subject).to be_kind_of(Operand::Proxy)
+          expect(subject.subject).to eq([ arg ])
         end
       end
 
@@ -27,8 +27,8 @@ module Alf
         let(:arg){ Tuple(name: "Jones") }
 
         it 'coerces it as a proxy operand on an array' do
-          subject.should be_a(Operand::Proxy)
-          subject.subject.should eq([ arg ])
+          expect(subject).to be_kind_of(Operand::Proxy)
+          expect(subject.subject).to eq([ arg ])
         end
       end
 

@@ -6,16 +6,16 @@ describe Alf, '.database' do
   it{ should be_a(Alf::Database) }
 
   it 'coerces the adapter' do
-    subject.adapter.should be_a(Alf::Adapter::Folder)
+    expect(subject.adapter).to be_kind_of(Alf::Adapter::Folder)
   end
 
   it 'sets the options' do
-    subject.schema_cache?.should eq(false)
+    expect(subject.schema_cache?).to eq(false)
   end
 
   it 'yields the options to the block' do
     subject
-    @seen.should be_a(Alf::Database::Options)
+    expect(@seen).to be_kind_of(Alf::Database::Options)
   end
 
 end

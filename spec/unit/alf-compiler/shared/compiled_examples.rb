@@ -3,7 +3,7 @@ shared_examples_for 'a compiled' do
   it { should be_a(Alf::Compiler::Cog) }
 
   it 'should return self on to_cog' do
-    subject.to_cog.should be(subject)
+    expect(subject.to_cog).to be(subject)
   end
 
 end
@@ -13,12 +13,12 @@ shared_examples_for 'a traceable compiled' do
   it_should_behave_like "a compiled"
 
   def has_tracking!(compiled)
-    compiled.expr.should_not be_nil
+    expect(compiled.expr).to_not be_nil
     case compiled
     when Alf::Engine::Leaf
-      compiled.expr.should be_a(Alf::Algebra::Operand)
+      expect(compiled.expr).to be_kind_of(Alf::Algebra::Operand)
     when Alf::Engine::Cog
-      compiled.expr.should be_a(Alf::Algebra::Operand)
+      expect(compiled.expr).to be_kind_of(Alf::Algebra::Operand)
       extract_operands(compiled).each do |op|
         has_tracking!(op)
       end
@@ -34,7 +34,7 @@ shared_examples_for 'a traceable compiled' do
   end
 
   it 'should have the compiler' do
-    subject.compiler.should be(compiler)
+    expect(subject.compiler).to be(compiler)
   end
 
   it 'should have traceability all way down expression' do
@@ -46,17 +46,17 @@ end
 shared_examples_for "a compiled not reusing a sub Sort" do
 
   it 'has a Sort as sub-cog' do
-    subject.operand.should be_a(Alf::Engine::Sort)
-    subject.operand.ordering.should eq(ordering)
+    expect(subject.operand).to be_kind_of(Alf::Engine::Sort)
+    expect(subject.operand.ordering).to eq(ordering)
   end
 
   it 'has a Sort has sub-sub cog' do
-    subject.operand.operand.should be_a(Alf::Engine::Sort)
-    subject.operand.operand.ordering.should be(subordering)
+    expect(subject.operand.operand).to be_kind_of(Alf::Engine::Sort)
+    expect(subject.operand.operand.ordering).to be(subordering)
   end
 
   it 'has the leaf has sub-sub-sub cog' do
-    subject.operand.operand.operand.should be(leaf)
+    expect(subject.operand.operand.operand).to be(leaf)
   end
 
 end
@@ -64,12 +64,12 @@ end
 shared_examples_for "a compiled based on an added sub Sort" do
 
   it 'has a Sort as sub-cog' do
-    subject.operand.should be_a(Alf::Engine::Sort)
-    subject.operand.ordering.should eq(ordering)
+    expect(subject.operand).to be_kind_of(Alf::Engine::Sort)
+    expect(subject.operand.ordering).to eq(ordering)
   end
 
   it 'has the leaf has sub-sub cog' do
-    subject.operand.operand.should be(leaf)
+    expect(subject.operand.operand).to be(leaf)
   end
 
 end
@@ -77,12 +77,12 @@ end
 shared_examples_for "a compiled based on an added sub Sort with total ordering" do
 
   it 'has a Sort as sub-cog' do
-    subject.operand.should be_a(Alf::Engine::Sort)
-    subject.operand.ordering.should eq(total_ordering)
+    expect(subject.operand).to be_kind_of(Alf::Engine::Sort)
+    expect(subject.operand.ordering).to eq(total_ordering)
   end
 
   it 'has the leaf has sub-sub cog' do
-    subject.operand.operand.should be(leaf)
+    expect(subject.operand.operand).to be(leaf)
   end
 
 end
@@ -90,12 +90,12 @@ end
 shared_examples_for "a compiled based on an added reversed Sort" do
 
   it 'has a Sort as sub-cog' do
-    subject.operand.should be_a(Alf::Engine::Sort)
-    subject.operand.ordering.should eq(ordering.reverse)
+    expect(subject.operand).to be_kind_of(Alf::Engine::Sort)
+    expect(subject.operand.ordering).to eq(ordering.reverse)
   end
 
   it 'has the leaf has sub-sub cog' do
-    subject.operand.operand.should be(leaf)
+    expect(subject.operand.operand).to be(leaf)
   end
 
 end
@@ -103,9 +103,9 @@ end
 shared_examples_for "a compiled reusing a sub Sort" do
 
   it 'has the Sort as sub-cog' do
-    subject.operand.should be_a(Alf::Engine::Sort)
-    subject.operand.ordering.should be(subordering)
-    subject.operand.operand.should be(leaf)
+    expect(subject.operand).to be_kind_of(Alf::Engine::Sort)
+    expect(subject.operand.ordering).to be(subordering)
+    expect(subject.operand.operand).to be(leaf)
   end
 
 end

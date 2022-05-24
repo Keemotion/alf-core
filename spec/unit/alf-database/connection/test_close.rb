@@ -15,12 +15,12 @@ module Alf
 
       it 'should close the physical connection' do
         subject
-        @seen.should be_truthy
+        expect(@seen).to be_truthy
       end
 
       it 'should close the connection itself' do
         subject
-        conn.should be_closed
+        expect(conn).to be_closed
       end
 
     end

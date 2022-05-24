@@ -13,12 +13,12 @@ module Alf
 
       it "should wrap as expected" do
         wrap = Wrap.new(input, AttrList[:a, :b], :wrapped, false)
-        wrap.to_a.should eq(expected)
+        expect(wrap.to_a).to eq(expected)
       end
 
       it "should support allbut wrapping" do
         wrap = Wrap.new(input, AttrList[:c], :wrapped, true)
-        wrap.to_a.should eq(expected)
+        expect(wrap.to_a).to eq(expected)
       end
 
     end

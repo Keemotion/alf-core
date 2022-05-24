@@ -11,9 +11,9 @@ module Alf
         let(:h){ {schema_cache: "false", viewpoint: viewpoint} }
 
         it 'sets the options as expected' do
-          subject.schema_cache?.should eq(false)
-          subject.viewpoint.should be(viewpoint)
-          subject.viewpoint.should be(viewpoint)
+          expect(subject.schema_cache?).to eq(false)
+          expect(subject.viewpoint).to be(viewpoint)
+          expect(subject.viewpoint).to be(viewpoint)
         end
       end
 
@@ -21,9 +21,9 @@ module Alf
         let(:h){ {schema_cache: "false", viewpoint: viewpoint} }
 
         it 'sets the options as expected' do
-          subject.schema_cache?.should eq(false)
-          subject.viewpoint.should be(viewpoint)
-          subject.viewpoint.should be(viewpoint)
+          expect(subject.schema_cache?).to eq(false)
+          expect(subject.viewpoint).to be(viewpoint)
+          expect(subject.viewpoint).to be(viewpoint)
         end
       end
 
@@ -31,9 +31,9 @@ module Alf
         let(:h){ {nosuchone: "blah"} }
 
         it 'raises an error' do
-          lambda{
+          expect(lambda{
             subject
-          }.should raise_error(ConfigError, /No such option `nosuchone`/)
+          }).to raise_error(ConfigError, /No such option `nosuchone`/)
         end
       end
 
@@ -41,9 +41,9 @@ module Alf
         let(:h){ {schema_cache: "blah"} }
 
         it 'raises an error' do
-          lambda{
+          expect(lambda{
             subject
-          }.should raise_error(ConfigError, /Invalid option value `schema_cache`: `blah`/)
+          }).to raise_error(ConfigError, /Invalid option value `schema_cache`: `blah`/)
         end
       end
 
@@ -53,9 +53,9 @@ module Alf
         let(:h){ {hello_world: "blah"} }
 
         it 'raises an error' do
-          lambda{
+          expect(lambda{
             subject
-          }.should raise_error(ConfigError, /No such option `hello_world`/)
+          }).to raise_error(ConfigError, /No such option `hello_world`/)
         end
       end
 

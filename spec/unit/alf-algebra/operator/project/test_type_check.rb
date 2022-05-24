@@ -6,7 +6,7 @@ module Alf
       subject{ op.type_check }
 
       context 'when ok' do
-        let(:op){ 
+        let(:op){
           project(suppliers, [:sid, :name])
         }
 
@@ -14,26 +14,26 @@ module Alf
       end
 
       context 'when projectping unexisting attribute' do
-        let(:op){ 
+        let(:op){
           project(suppliers, [:sid, :unknown])
         }
 
         it 'should raise an error' do
-          lambda{
+          expect(lambda{
             subject
-          }.should raise_error(TypeCheckError, /no such attribute `unknown`/)
+          }).to raise_error(TypeCheckError, /no such attribute `unknown`/)
         end
       end
 
       context 'when projectping unexisting attributes' do
-        let(:op){ 
+        let(:op){
           project(suppliers, [:sid, :foo, :bar])
         }
 
         it 'should raise an error' do
-          lambda{
+          expect(lambda{
             subject
-          }.should raise_error(TypeCheckError, /no such attributes `foo`,`bar`/)
+          }).to raise_error(TypeCheckError, /no such attributes `foo`,`bar`/)
         end
       end
 

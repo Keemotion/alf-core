@@ -29,7 +29,7 @@ module Alf
       it{ should be_a(Renderer::Rash) }
 
       it 'should have correct options' do
-        subject.options.should eq(pretty: true)
+        expect(subject.options).to eq(pretty: true)
       end
     end
 

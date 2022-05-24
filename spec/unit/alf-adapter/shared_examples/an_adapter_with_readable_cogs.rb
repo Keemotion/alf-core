@@ -3,7 +3,7 @@ shared_examples_for "an adapter with readable cogs" do
   let(:connection){ adapter.connection }
 
   before do
-    connection.should be_a(Alf::Adapter::Connection)
+    expect(connection).to be_kind_of(Alf::Adapter::Connection)
   end
 
   after do
@@ -14,7 +14,7 @@ shared_examples_for "an adapter with readable cogs" do
 
     it 'respond true to known cogs' do
       readable_cogs.each do |cog_name|
-        connection.knows?(cog_name).should be_truthy
+        expect(connection.knows?(cog_name)).to be_truthy
       end
     end
   end
@@ -23,7 +23,7 @@ shared_examples_for "an adapter with readable cogs" do
 
     it 'returns a Cog instance' do
       readable_cogs.each do |cog_name|
-        connection.cog(nil, Alf::Algebra::Operand::Named.new(cog_name)).should be_a(Alf::Engine::Cog)
+        expect(connection.cog(nil, Alf::Algebra::Operand::Named.new(cog_name))).to be_kind_of(Alf::Engine::Cog)
       end
     end
   end

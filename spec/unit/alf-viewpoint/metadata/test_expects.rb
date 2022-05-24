@@ -9,7 +9,7 @@ module Alf
         subject{ metadata.expects([1, 2]) }
 
         it 'sets expectations' do
-          subject.expectations.should eq([1, 2])
+          expect(subject.expectations).to eq([1, 2])
         end
       end
 
@@ -19,7 +19,7 @@ module Alf
         subject{ metadata.expects([3, 4]) }
 
         it 'sets expectations' do
-          subject.expectations.should eq([1, 2, 3, 4])
+          expect(subject.expectations).to eq([1, 2, 3, 4])
         end
       end
 
@@ -29,7 +29,7 @@ module Alf
         subject{ metadata.expects([1, 4]) }
 
         it 'sets expectations' do
-          subject.expectations.should eq([1, 2, 4])
+          expect(subject.expectations).to eq([1, 2, 4])
         end
       end
 

@@ -10,7 +10,7 @@ module Alf
         it{ should be_a(Algebra::Operand::Named) }
 
         it 'has the expected name' do
-          subject.name.should eq(:suppliers)
+          expect(subject.name).to eq(:suppliers)
         end
       end
 

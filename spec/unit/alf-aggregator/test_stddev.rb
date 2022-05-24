@@ -4,7 +4,7 @@ module Alf
     describe Stddev do
 
       let(:rel){[
-        {:qty => 10}, 
+        {:qty => 10},
         {:qty => 20},
         {:qty => 30},
         {:qty => 40}
@@ -14,14 +14,14 @@ module Alf
       }
 
       it 'should work when used standalone' do
-        Stddev.new{ qty }.aggregate(rel).should eq(expected)
+        expect(Stddev.new{ qty }.aggregate(rel)).to eq(expected)
       end
 
       it 'should install factory methods' do
-        Aggregator.stddev{ qty }.should be_a(Stddev)
-        Aggregator.stddev{ qty }.aggregate(rel).should eq(expected)
+        expect(Aggregator.stddev{ qty }).to be_kind_of(Stddev)
+        expect(Aggregator.stddev{ qty }.aggregate(rel)).to eq(expected)
       end
 
     end
   end
-end 
+end

@@ -6,7 +6,7 @@ module Alf
       subject{ op.type_check }
 
       context 'when ok' do
-        let(:op){ 
+        let(:op){
           sort(suppliers, [:name, :asc])
         }
 
@@ -14,14 +14,14 @@ module Alf
       end
 
       context 'when no such attribute' do
-        let(:op){ 
+        let(:op){
           sort(suppliers, [:foo, :asc])
         }
 
         it 'should raise an error' do
-          lambda{
+          expect(lambda{
             subject
-          }.should raise_error(TypeCheckError, /no such attribute `foo`/)
+          }).to raise_error(TypeCheckError, /no such attribute `foo`/)
         end
       end
 

@@ -13,7 +13,7 @@ module Alf
         it{ should be_a(Defaults) }
 
         it 'is !strict by default' do
-          subject.strict.should be_falsey
+          expect(subject.strict).to be_falsey
         end
       end # --no-strict
 
@@ -23,7 +23,7 @@ module Alf
         it{ should be_a(Defaults) }
 
         it 'is strict' do
-          subject.strict.should be_truthy
+          expect(subject.strict).to be_truthy
         end
       end # --strict
 

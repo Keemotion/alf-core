@@ -14,15 +14,15 @@ module Alf
       it { should be_a(Page) }
 
       it 'should have correct ordering' do
-        subject.ordering.should eq(Ordering.coerce([[:name, :asc]]))
+        expect(subject.ordering).to eq(Ordering.coerce([[:name, :asc]]))
       end
 
       it 'should have correct page index' do
-        subject.page_index.should eq(2)
+        expect(subject.page_index).to eq(2)
       end
 
       it 'should have default page size' do
-        subject.page_size.should eq(25)
+        expect(subject.page_size).to eq(25)
       end
 
     end

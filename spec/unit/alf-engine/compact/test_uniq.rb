@@ -4,7 +4,7 @@ module Alf
     describe Compact::Uniq do
 
       it 'should work on an empty operand' do
-        Compact::Uniq.new([]).to_a.should eq([])
+        expect(Compact::Uniq.new([]).to_a).to eq([])
       end
 
       it 'should work when no duplicate is present' do
@@ -12,7 +12,7 @@ module Alf
           {:name => "Jones"},
           {:name => "Smith"}
         ]
-        Compact::Uniq.new(rel).to_a.should eq(rel)
+        expect(Compact::Uniq.new(rel).to_a).to eq(rel)
       end
 
       it 'should work when duplicates are present' do
@@ -25,7 +25,7 @@ module Alf
           {:name => "Jones"},
           {:name => "Smith"}
         ]
-        Compact::Uniq.new(rel).to_a.should eq(exp)
+        expect(Compact::Uniq.new(rel).to_a).to eq(exp)
       end
 
     end

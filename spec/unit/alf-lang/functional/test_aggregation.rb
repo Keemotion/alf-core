@@ -15,23 +15,23 @@ module Alf
 
       context 'on sum' do
         it "should have sum with immediate block" do
-          sum{|t| t.qty }.should be_a(Aggregator::Sum)
+          expect(sum{|t| t.qty }).to be_kind_of(Aggregator::Sum)
         end
 
         it "should have sum with a Proc" do
-          sum(->(t){ qty }).should be_a(Aggregator::Sum)
+          expect(sum(->(t){ qty })).to be_kind_of(Aggregator::Sum)
         end
       end
 
       context 'on concat' do
         it "should have concat with immediate block" do
-          concat{|t| t.name }.should be_a(Aggregator::Concat)
+          expect(concat{|t| t.name }).to be_kind_of(Aggregator::Concat)
         end
 
         it "should have sum with a Proc" do
           agg = concat(->(t){ t.name }, between: ', ')
-          agg.should be_a(Aggregator::Concat)
-          agg.options[:between].should eq(', ')
+          expect(agg).to be_kind_of(Aggregator::Concat)
+          expect(agg.options[:between]).to eq(', ')
         end
       end
 

@@ -9,9 +9,9 @@ module Alf
     }
 
     it "should not raise an error" do
-      ->{
+      expect(->{
         subject
-      }.should_not raise_error
+      }).to_not raise_error
     end
 
   end

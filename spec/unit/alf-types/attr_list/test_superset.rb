@@ -7,10 +7,10 @@ module Alf
       let(:right){ AttrList[:name, :id] }
 
       it 'returns true if non proper' do
-        left.superset?(right).should be_truthy
+        expect(left.superset?(right)).to be_truthy
       end
       it 'returns false if proper' do
-        left.superset?(right, true).should be_falsey
+        expect(left.superset?(right, true)).to be_falsey
       end
     end
 
@@ -19,10 +19,10 @@ module Alf
       let(:right){ AttrList[] }
 
       it 'returns true if non proper' do
-        left.superset?(right).should be_truthy
+        expect(left.superset?(right)).to be_truthy
       end
       it 'returns false if proper' do
-        left.superset?(right, true).should be_falsey
+        expect(left.superset?(right, true)).to be_falsey
       end
     end
 
@@ -31,8 +31,8 @@ module Alf
       let(:right){ AttrList[:name, :id] }
 
       it 'returns false' do
-        left.superset?(right).should be_falsey
-        left.superset?(right, true).should be_falsey
+        expect(left.superset?(right)).to be_falsey
+        expect(left.superset?(right, true)).to be_falsey
       end
     end
 
@@ -41,8 +41,8 @@ module Alf
       let(:right){ AttrList[:name] }
 
       it 'returns true' do
-        left.superset?(right).should be_truthy
-        left.superset?(right, true).should be_truthy
+        expect(left.superset?(right)).to be_truthy
+        expect(left.superset?(right, true)).to be_truthy
       end
     end
 

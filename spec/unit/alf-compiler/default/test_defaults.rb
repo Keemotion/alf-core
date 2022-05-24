@@ -12,11 +12,11 @@ module Alf
         it_should_behave_like "a traceable compiled"
 
         it 'has a Defaults cog' do
-          subject.should be_a(Engine::Defaults)
+          expect(subject).to be_kind_of(Engine::Defaults)
         end
 
         it 'has the correct defaults' do
-          subject.defaults.to_hash.should eq(b: 1)
+          expect(subject.defaults.to_hash).to eq(b: 1)
         end
       end
 
@@ -28,7 +28,7 @@ module Alf
         it_should_behave_like "the expected Defaults"
 
         it 'has the correct sub-cog' do
-          subject.operand.should be(leaf)
+          expect(subject.operand).to be(leaf)
         end
       end
 
@@ -40,8 +40,8 @@ module Alf
         it_should_behave_like "the expected Defaults"
 
         it 'has a Clip sub-sub cog' do
-          subject.operand.should be_a(Engine::Clip)
-          subject.operand.attributes.should eq(AttrList[:b])
+          expect(subject.operand).to be_kind_of(Engine::Clip)
+          expect(subject.operand.attributes).to eq(AttrList[:b])
         end
       end
 

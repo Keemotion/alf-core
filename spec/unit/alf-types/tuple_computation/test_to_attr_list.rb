@@ -7,8 +7,8 @@ module Alf
         :big? => lambda{ status > 20 },
         :who  => lambda{ "#{first} #{last}" }
       ].to_attr_list
-      list.should be_a(AttrList)
-      list.to_a.to_set.should eq([:big?, :who].to_set)
+      expect(list).to be_kind_of(AttrList)
+      expect(list.to_a.to_set).to eq([:big?, :who].to_set)
     end
 
   end

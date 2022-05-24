@@ -4,7 +4,7 @@ module Alf
     describe Defaults do
 
       it 'should work on an empty operand' do
-        Defaults.new(Leaf.new([]), TupleComputation[:id => 1]).to_a.should eq([])
+        expect(Defaults.new(Leaf.new([]), TupleComputation[:id => 1]).to_a).to eq([])
       end
 
       it 'should replace nil by the default value' do
@@ -16,7 +16,7 @@ module Alf
           {:name => "Jones"},
           {:name => "Smith"}
         ]
-        Defaults.new(rel, TupleComputation[:name => "Smith"]).to_a.should eq(exp)
+        expect(Defaults.new(rel, TupleComputation[:name => "Smith"]).to_a).to eq(exp)
       end
 
       it 'should add missing attributes and allow computations' do
@@ -29,7 +29,7 @@ module Alf
           {:name => "Smith", :up => "SMITH"}
         ]
         defs = TupleComputation[:up => lambda{ name.upcase }]
-        Defaults.new(rel, defs).to_a.should eq(exp)
+        expect(Defaults.new(rel, defs).to_a).to eq(exp)
       end
 
     end

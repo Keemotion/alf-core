@@ -13,13 +13,13 @@ module Alf
       it{ should be_a(Union) }
 
       specify{
-        subject.left.should eq(operand_1)
-        subject.right.should eq(operand_3)
+        expect(subject.left).to eq(operand_1)
+        expect(subject.right).to eq(operand_3)
       }
 
       specify{
-        operator.left.should eq(operand_1)
-        operator.right.should eq(operand_2)
+        expect(operator.left).to eq(operand_1)
+        expect(operator.right).to eq(operand_2)
       }
 
     end

@@ -13,7 +13,7 @@ module Alf
 
 
       it 'coerces attributes' do
-        subject.should eq(expected)
+        expect(subject).to eq(expected)
       end
     end
 
@@ -25,7 +25,7 @@ module Alf
       }
 
       it 'coerces the RVA as well' do
-        subject.should eq(expected)
+        expect(subject).to eq(expected)
       end
     end
 
@@ -37,11 +37,11 @@ module Alf
       }
 
       it 'coerces the tuples as correct instances' do
-        subject.all?{|t|
+        expect(subject.all?{|t|
           puts t.class unless t.is_a?(tuple_type)
-          (tuple_type === t).should be_truthy
-          t.should be_a(tuple_type)
-        }.should be_truthy
+          expect((tuple_type === t)).to be_truthy
+          expect(t).to be_kind_of(tuple_type)
+        }).to be_truthy
       end
     end
 

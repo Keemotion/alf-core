@@ -7,15 +7,15 @@ module Alf
         subject{ Metadata.new }
 
         it 'has empty expectations' do
-          subject.expectations.should eq([])
+          expect(subject.expectations).to eq([])
         end
 
         it 'has empty dependencies' do
-          subject.dependencies.should eq({})
+          expect(subject.dependencies).to eq({})
         end
 
         it 'has empty members' do
-          subject.members.should eq([])
+          expect(subject.members).to eq([])
         end
       end
 
@@ -23,15 +23,15 @@ module Alf
         subject{ Metadata.new([1], {:a => 2}, [:m]) }
 
         it 'has expected expectations' do
-          subject.expectations.should eq([1])
+          expect(subject.expectations).to eq([1])
         end
 
         it 'has expected dependencies' do
-          subject.dependencies.should eq({:a => 2})
+          expect(subject.dependencies).to eq({:a => 2})
         end
 
         it 'has expected members' do
-          subject.members.should eq([:m])
+          expect(subject.members).to eq([:m])
         end
       end
 

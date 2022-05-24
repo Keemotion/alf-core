@@ -10,11 +10,11 @@ module Alf
       let(:attr_list){ AttrList.new([]) }
 
       it 'splits as expected' do
-        subject.should eq([ Tuple[{}], type ])
+        expect(subject).to eq([ Tuple[{}], type ])
       end
 
       it 'reuses the initial instance' do
-        subject.last.should be(type)
+        expect(subject.last).to be(type)
       end
     end
 
@@ -22,7 +22,7 @@ module Alf
       let(:attr_list){ AttrList.new([:name]) }
 
       it 'splits as expected' do
-        subject.should eq([ Tuple[name: String], Tuple[status: Integer] ])
+        expect(subject).to eq([ Tuple[name: String], Tuple[status: Integer] ])
       end
     end
 

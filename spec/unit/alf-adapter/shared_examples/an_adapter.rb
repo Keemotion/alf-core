@@ -12,22 +12,22 @@ shared_examples_for "an adapter" do
 
     it 'yields a connection object' do
       subject
-      @seen.should be_a(Alf::Adapter::Connection)
+      expect(@seen).to be_kind_of(Alf::Adapter::Connection)
     end
 
     it 'closes the connection afterwards' do
       subject
-      @seen.should be_closed
+      expect(@seen).to be_closed
     end
 
     it 'closes the connection even in case of a failure' do
-      lambda{
+      expect(lambda{
         adapter.connect{|c|
           @seen = c
           raise ArgumentError, "connection closes on failure"
         }
-      }.should raise_error(ArgumentError, "connection closes on failure")
-      @seen.should be_closed
+      }).to raise_error(ArgumentError, "connection closes on failure")
+      expect(@seen).to be_closed
     end
   end
 

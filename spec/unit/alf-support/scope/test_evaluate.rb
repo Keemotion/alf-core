@@ -7,11 +7,11 @@ module Alf
         let(:scope) { Scope.new [ HelpersInScope ] }
 
         it 'has available helpers in scope' do
-          scope.evaluate{ hello(world) }.should eq("Hello world!")
+          expect(scope.evaluate{ hello(world) }).to eq("Hello world!")
         end
 
         it 'supports a string' do
-          scope.evaluate("hello(world)").should eq("Hello world!")
+          expect(scope.evaluate("hello(world)")).to eq("Hello world!")
         end
 
         it 'supports traceability on errors' do
@@ -19,7 +19,7 @@ module Alf
             scope.evaluate("no_such_one", "a file", 65)
             raise "Should not pass here"
           rescue NameError => ex
-            ex.backtrace.any?{|l| l =~ /a file:65/}.should be_truthy
+            expect(ex.backtrace.any?{|l| l =~ /a file:65/}).to be_truthy
           end
         end
       end
@@ -29,11 +29,11 @@ module Alf
         let(:scope){ Scope.new [ here ], Scope.new([ HelpersInScope ]) }
 
         it 'delegates to the parent' do
-          scope.evaluate{ hello(world) }.should eq("Hello world!")
+          expect(scope.evaluate{ hello(world) }).to eq("Hello world!")
         end
 
         it 'correctly respect the priorities' do
-          scope.evaluate{ hello(here) }.should eq("Hello here!")
+          expect(scope.evaluate{ hello(here) }).to eq("Hello here!")
         end
       end
 

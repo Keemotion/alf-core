@@ -5,7 +5,7 @@ module Alf
     subject{ heading.to_h }
 
     after do
-      subject.should eq(heading.to_hash)
+      expect(subject).to eq(heading.to_hash)
     end
 
     context 'on an empty heading' do
@@ -20,5 +20,5 @@ module Alf
       it{ should eq({:foo => :bar}) }
     end
 
-  end 
+  end
 end

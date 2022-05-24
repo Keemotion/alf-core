@@ -6,25 +6,25 @@ module Alf
     subject{ Relation.type(heading) }
 
     it 'returns a subclass' do
-      subject.should be_a(Class)
-      subject.superclass.should be(Alf::Relation)
+      expect(subject).to be_kind_of(Class)
+      expect(subject.superclass).to be(Alf::Relation)
     end
 
     it 'coerces the heading' do
-      subject.heading.should be_a(Heading)
+      expect(subject.heading).to be_kind_of(Heading)
     end
 
     it 'sets the heading correctly' do
-      subject.heading.to_hash.should eq(heading)
+      expect(subject.heading.to_hash).to eq(heading)
     end
 
     it 'supports a tuple type' do
-      Relation[Tuple[heading]].should eq(Relation[heading])
+      expect(Relation[Tuple[heading]]).to eq(Relation[heading])
     end
 
     it 'is aliased as []' do
-      Relation[heading].should be_a(Class)
-      Relation[heading].should eq(subject)
+      expect(Relation[heading]).to be_kind_of(Class)
+      expect(Relation[heading]).to eq(subject)
     end
 
   end

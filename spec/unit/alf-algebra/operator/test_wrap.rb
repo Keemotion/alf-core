@@ -14,7 +14,7 @@ module Alf
         it { should be_a(Wrap) }
 
         it 'should not be allbut' do
-          subject.allbut.should be_falsey
+          expect(subject.allbut).to be_falsey
         end
       end
 
@@ -24,7 +24,7 @@ module Alf
         it { should be_a(Wrap) }
 
         it 'should be allbut' do
-          subject.allbut.should be_truthy
+          expect(subject.allbut).to be_truthy
         end
       end
     end

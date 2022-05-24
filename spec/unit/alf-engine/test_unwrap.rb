@@ -12,7 +12,7 @@ module Alf
       ]}
 
       it "should unwrap as expected" do
-        Unwrap.new(input, :wrapped).to_a.should eq(expected)
+        expect(Unwrap.new(input, :wrapped).to_a).to eq(expected)
       end
 
     end

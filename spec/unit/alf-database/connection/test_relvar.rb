@@ -11,11 +11,11 @@ module Alf
         it{ should be_a(Relvar::Base) }
 
         it 'has the expected name' do
-          subject.expr.name.should eq(:suppliers)
+          expect(subject.expr.name).to eq(:suppliers)
         end
 
         it 'is bound to the serving connection' do
-          subject.connection!.should be(conn)
+          expect(subject.connection!).to be(conn)
         end
       end
 
@@ -25,7 +25,7 @@ module Alf
         it{ should be_a(Relvar::Virtual) }
 
         it 'has the expected expression' do
-          subject.expr.should be_a(Algebra::Project)
+          expect(subject.expr).to be_kind_of(Algebra::Project)
         end
       end
 

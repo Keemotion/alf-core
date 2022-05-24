@@ -16,9 +16,9 @@ module Alf
           it{ should eq(p.in(:z, [2]) & p.eq(:y, 3)) }
 
           specify "it should tag expressions correctly" do
-            subject.expr.should be_a(Sexpr)
-            subject.expr.should be_a(Expr)
-            subject.expr.should be_a(And)
+            expect(subject.expr).to be_kind_of(Sexpr)
+            expect(subject.expr).to be_kind_of(Expr)
+            expect(subject.expr).to be_kind_of(And)
           end
         end
 
@@ -26,9 +26,9 @@ module Alf
           let(:predicate){ p.in(:x, [2]) & p.native(lambda{}) }
 
           it 'raises an error' do
-            lambda{
+            expect(lambda{
               subject
-            }.should raise_error(NotSupportedError)
+            }).to raise_error(NotSupportedError)
           end
         end
 
@@ -36,7 +36,7 @@ module Alf
           let(:predicate){ p.eq(Factory.qualified_identifier(:t, :x), 3) }
 
           it 'renames correctly' do
-            subject.should eq(p.eq(Factory.qualified_identifier(:t, :z), 3))
+            expect(subject).to eq(p.eq(Factory.qualified_identifier(:t, :z), 3))
           end
         end
       end

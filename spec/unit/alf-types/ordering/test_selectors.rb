@@ -8,15 +8,15 @@ module Alf
       let(:ordering){ Ordering.new([[:a, :asc], [:b, :asc]]) }
 
       it "works as expected" do
-        subject.should eq([Alf::Selector[:a], Alf::Selector[:b]])
+        expect(subject).to eq([Alf::Selector[:a], Alf::Selector[:b]])
       end
     end
 
     context 'with complex attribute names' do
       let(:ordering){ Ordering.new([[:a, :asc], [[:b, :name], :asc]]) }
-      
+
       it "works as expected" do
-        subject.should eq([Alf::Selector[:a], Alf::Selector[[:b, :name]]])
+        expect(subject).to eq([Alf::Selector[:a], Alf::Selector[[:b, :name]]])
       end
     end
 

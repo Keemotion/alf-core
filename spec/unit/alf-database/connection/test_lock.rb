@@ -10,7 +10,7 @@ module Alf
 
         it 'delegates to the underlying connection' do
           subject
-          @seen.should be_truthy
+          expect(@seen).to be_truthy
         end
       end
 

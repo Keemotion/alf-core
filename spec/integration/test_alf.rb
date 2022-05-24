@@ -2,7 +2,7 @@ require 'spec_helper'
 describe Alf::Core do
 
   it "has a version number" do
-    Alf::Core.const_defined?(:VERSION).should be_truthy
+    expect(Alf::Core.const_defined?(:VERSION)).to be_truthy
   end
 
 end

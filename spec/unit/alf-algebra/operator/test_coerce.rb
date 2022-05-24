@@ -12,7 +12,7 @@ module Alf
       it { should be_a(Coerce) }
 
       it 'should be bound correctly' do
-        subject.coercions.should eq(Heading[:a => Integer, :b => Float])
+        expect(subject.coercions).to eq(Heading[:a => Integer, :b => Float])
       end
 
     end

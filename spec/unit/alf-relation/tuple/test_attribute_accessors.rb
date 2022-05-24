@@ -7,14 +7,14 @@ module Alf
         let(:tuple){ Tuple(:id => 1, :name => "Alf") }
 
         it 'has expected accessors' do
-          tuple.id.should eq(1)
-          tuple.name.should eq("Alf")
+          expect(tuple.id).to eq(1)
+          expect(tuple.name).to eq("Alf")
         end
 
         it 'does not confuse accessors and methods' do
-          lambda{
+          expect(lambda{
             tuple.id("hello")
-          }.should raise_error(NoMethodError)
+          }).to raise_error(NoMethodError)
         end
       end
 
@@ -22,12 +22,12 @@ module Alf
         let(:tuple){ Tuple(:size => 23, :map => "Alf") }
 
         it 'gives priority to attributes' do
-          tuple.size.should eq(23)
-          tuple.map.should eq("Alf")
+          expect(tuple.size).to eq(23)
+          expect(tuple.map).to eq("Alf")
         end
 
         it 'does not confuse accessors and methods' do
-          tuple.map{|x| "a value" }.should eq(["a value", "a value"])
+          expect(tuple.map{|x| "a value" }).to eq(["a value", "a value"])
         end
       end
 

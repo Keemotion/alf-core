@@ -8,7 +8,7 @@ module Alf
           let(:lispy){ Lispy.new([], 12) }
 
           it 'allows obtaining its connection' do
-            lispy.connection!.should eq(12)
+            expect(lispy.connection!).to eq(12)
           end
         end
 
@@ -16,9 +16,9 @@ module Alf
           let(:lispy){ Lispy.new }
 
           it 'raises when connection is used without being bound' do
-            lambda{
+            expect(lambda{
               lispy.connection!
-            }.should raise_error(UnboundError)
+            }).to raise_error(UnboundError)
           end
         end
 

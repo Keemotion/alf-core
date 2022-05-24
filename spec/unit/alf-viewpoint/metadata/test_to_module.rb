@@ -5,7 +5,7 @@ module Alf
 
       subject{ metadata.to_module }
 
-      let(:metadata) do 
+      let(:metadata) do
         @base  = base = viewpoint{ }
         @user  = user = viewpoint{ expects(base) }
         @util1 = util = viewpoint{ expects(base); depends(:user, user) }
@@ -15,21 +15,21 @@ module Alf
       end
 
       it 'should be a Module' do
-        subject.should be_a(Module)
+        expect(subject).to be_kind_of(Module)
       end
 
       it 'should include Alf::Viewpoint' do
-        subject.should include(Alf::Viewpoint)
+        expect(subject).to include(Alf::Viewpoint)
       end
 
       it 'should include util1' do
-        subject.should include(@util1)
+        expect(subject).to include(@util1)
       end
 
       it 'should have a user method' do
-        lambda{
+        expect(lambda{
           subject.parser.user
-        }.should_not raise_error
+        }).to_not raise_error
       end
 
     end

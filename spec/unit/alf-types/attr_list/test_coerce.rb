@@ -45,22 +45,22 @@ module Alf
     describe "when passed an unrecognized argument" do
       let(:arg){ false }
       specify{
-        lambda{ subject }.should raise_error(TypeError)
+        expect(lambda{ subject }).to raise_error(TypeError)
       }
     end
 
     describe 'the [] alias' do
 
       it 'allows an empty list' do
-        AttrList[].should eq(AttrList::EMPTY)
+        expect(AttrList[]).to eq(AttrList::EMPTY)
       end
 
       it 'allows a singleton literal list' do
-        AttrList[:name].should eq(AttrList.new([:name]))
+        expect(AttrList[:name]).to eq(AttrList.new([:name]))
       end
 
       it 'allows a non-empty literal list' do
-        AttrList[:name, :city].should eq(AttrList.new([:name, :city]))
+        expect(AttrList[:name, :city]).to eq(AttrList.new([:name, :city]))
       end
     end
 

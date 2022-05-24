@@ -14,15 +14,15 @@ module Alf
       it_should_behave_like "a traceable compiled"
 
       it 'is an Autonum cog' do
-        subject.should be_a(Engine::Autonum)
+        expect(subject).to be_kind_of(Engine::Autonum)
       end
 
       it 'has the correct autonum attribute name' do
-        subject.as.should eq(:foo)
+        expect(subject.as).to eq(:foo)
       end
 
       it 'has the correct sub-cog' do
-        subject.operand.should be(leaf)
+        expect(subject.operand).to be(leaf)
       end
 
     end

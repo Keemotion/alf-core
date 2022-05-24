@@ -14,20 +14,20 @@ module Alf
 
       specify "when associated" do
         r = Reader.reader('suppliers.rash')
-        r.should be_a(Reader::Rash)
+        expect(r).to be_kind_of(Reader::Rash)
       end
 
       specify "when not associated" do
-        lambda{ Reader.reader('.noone') }.should raise_error
+        expect(lambda{ Reader.reader('.noone') }).to raise_error(ArgumentError)
       end
 
       specify "when an IO" do
-        Reader.reader($stdin).should be_a(Reader::Rash)
+        expect(Reader.reader($stdin)).to be_kind_of(Reader::Rash)
       end
 
       specify "with options" do
         r = Reader.reader('suppliers.rash', {:hello => "world"})
-        r.options.should == {:hello => "world"}
+        expect(r.options).to eq({:hello => "world"})
       end
 
     end

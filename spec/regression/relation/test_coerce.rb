@@ -8,7 +8,7 @@ module Alf
       subject{ Relation.coerce(arg) }
 
       it 'works' do
-        subject.should be_a(Relation)
+        expect(subject).to be_kind_of(Relation)
       end
     end
 
@@ -16,7 +16,7 @@ module Alf
       subject{ Relation[sid: String, suppliers: Relation[{}]].coerce(arg) }
 
       it 'works' do
-        subject.should be_a(Relation)
+        expect(subject).to be_kind_of(Relation)
       end
     end
 

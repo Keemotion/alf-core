@@ -8,8 +8,8 @@ group :runtime do
 end
 
 group :test do
-  gem "rake", "~> 10.1"
-  gem "rspec", "~> 2.14"
+  gem "rake", "~> 13.0"
+  gem "rspec", "~> 3.0"
   gem "debug"
 end
 

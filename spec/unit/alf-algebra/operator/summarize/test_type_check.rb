@@ -6,7 +6,7 @@ module Alf
       subject{ op.type_check }
 
       context 'when ok' do
-        let(:op){ 
+        let(:op){
           summarize(supplies, [:sid], :sum => sum{ qty })
         }
 
@@ -14,26 +14,26 @@ module Alf
       end
 
       context 'when unknown by' do
-        let(:op){ 
+        let(:op){
           summarize(supplies, [:foo], :sum => sum{ qty })
         }
 
         it 'should raise an error' do
-          lambda{
+          expect(lambda{
             subject
-          }.should raise_error(TypeCheckError, /no such attribute `foo`/)
+          }).to raise_error(TypeCheckError, /no such attribute `foo`/)
         end
       end
 
       context 'when name clash' do
-        let(:op){ 
+        let(:op){
           summarize(supplies, [:sid], :qty => sum{ qty })
         }
 
         it 'should raise an error' do
-          lambda{
+          expect(lambda{
             subject
-          }.should raise_error(TypeCheckError, /cannot override `qty`/)
+          }).to raise_error(TypeCheckError, /cannot override `qty`/)
         end
       end
 

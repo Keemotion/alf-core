@@ -19,22 +19,22 @@ module Alf
       }
 
       it 'does not mix subclasses' do
-        conf1.new.should respond_to(:ready?)
-        conf2.new.should_not respond_to(:ready?)
-        conf1.new.should_not respond_to(:hello)
-        conf2.new.should respond_to(:hello)
+        expect(conf1.new).to respond_to(:ready?)
+        expect(conf2.new).to_not respond_to(:ready?)
+        expect(conf1.new).to_not respond_to(:hello)
+        expect(conf2.new).to respond_to(:hello)
       end
 
       it 'supports procs' do
-        conf1.new.which.should eq("foo")
+        expect(conf1.new.which).to eq("foo")
       end
 
       it 'executes proc in that context' do
-        conf1.new.cross.should eq("Foo")
+        expect(conf1.new.cross).to eq("Foo")
       end
 
       it 'does not confuse procs' do
-        conf1.new.done.should be_a(Proc)
+        expect(conf1.new.done).to be_kind_of(Proc)
       end
 
     end

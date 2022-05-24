@@ -9,11 +9,11 @@ module Alf
         let(:scope){ TupleScope.new(tuple) }
 
         it "delegates to_s to the tuple" do
-          scope.to_s.should eq(tuple.to_s)
+          expect(scope.to_s).to eq(tuple.to_s)
         end
 
         it "delegates to the tuple" do
-          scope.inspect.should eq(tuple.inspect)
+          expect(scope.inspect).to eq(tuple.inspect)
         end
       end
 

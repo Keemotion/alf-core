@@ -13,8 +13,8 @@ module Alf
         it{ should be_a(Generator) }
 
         it 'has specified size and name' do
-          subject.size.should eq(2)
-          subject.as.should eq(:id)
+          expect(subject.size).to eq(2)
+          expect(subject.as).to eq(:id)
         end
       end # size and name
 

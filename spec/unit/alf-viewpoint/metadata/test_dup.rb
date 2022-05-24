@@ -8,23 +8,23 @@ module Alf
       subject{ metadata.dup }
 
       it 'should be a different Metadata' do
-        subject.should be_a(Metadata)
-        subject.should_not be(metadata)
+        expect(subject).to be_kind_of(Metadata)
+        expect(subject).to_not be(metadata)
       end
 
       it 'should have different yet equal expectations' do
-        subject.expectations.should_not be(metadata.expectations)
-        subject.expectations.should eq(metadata.expectations)
+        expect(subject.expectations).to_not be(metadata.expectations)
+        expect(subject.expectations).to eq(metadata.expectations)
       end
 
       it 'should have different yet equal dependencies' do
-        subject.dependencies.should_not be(metadata.dependencies)
-        subject.dependencies.should eq(metadata.dependencies)
+        expect(subject.dependencies).to_not be(metadata.dependencies)
+        expect(subject.dependencies).to eq(metadata.dependencies)
       end
 
       it 'should have different yet equal members' do
-        subject.members.should_not be(metadata.members)
-        subject.members.should eq(metadata.members)
+        expect(subject.members).to_not be(metadata.members)
+        expect(subject.members).to eq(metadata.members)
       end
 
     end

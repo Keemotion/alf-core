@@ -9,7 +9,7 @@ module Alf
         let(:operand){ Named.new(:foo, self) }
 
         it 'returns the heading' do
-          subject.should eq("foo\n")
+          expect(subject).to eq("foo\n")
         end
 
       end

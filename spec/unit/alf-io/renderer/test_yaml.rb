@@ -15,7 +15,7 @@ module Alf
         let(:input){ Relation(id: [1, 2]) }
 
         it 'outputs as expected' do
-          ::YAML.load(subject).should eq([{"id" => 1}, {"id" => 2}])
+          expect(::YAML.load(subject)).to eq([{"id" => 1}, {"id" => 2}])
         end
       end
 
@@ -23,8 +23,8 @@ module Alf
         let(:input){ Relation(sid: "S1", parts: Relation(pid: ["P1", "P2"])) }
 
         it 'converts to arrays and hashes' do
-          subject.should_not =~ /Relation/
-          subject.should_not =~ /Tuple/
+          expect(subject).to_not match(/Relation/)
+          expect(subject).to_not match(/Tuple/)
         end
       end
 
@@ -41,8 +41,8 @@ module Alf
         let(:input){ Relation(value: adt.new) }
 
         it 'delegates to to_yaml' do
-          subject.should_not =~ /ruby\/object/
-          subject.should_not =~ /AUserDefinedClass/
+          expect(subject).to_not match(/ruby\/object/)
+          expect(subject).to_not match(/AUserDefinedClass/)
         end
       end
 

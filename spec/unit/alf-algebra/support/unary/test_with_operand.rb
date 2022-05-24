@@ -14,13 +14,13 @@ module Alf
       it{ should be_a(Extend) }
 
       specify{
-        subject.operand.should eq(operand_2)
-        subject.ext.should be(extension)
+        expect(subject.operand).to eq(operand_2)
+        expect(subject.ext).to be(extension)
       }
 
       specify{
-        operator.operand.should eq(operand_1)
-        operator.ext.should be(extension)
+        expect(operator.operand).to eq(operand_1)
+        expect(operator.ext).to be(extension)
       }
 
     end

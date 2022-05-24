@@ -5,7 +5,7 @@ module Alf
     subject{ Selection.coerce(arg) }
 
     before do
-      subject.should be_a(Selection)
+      expect(subject).to be_kind_of(Selection)
     end
 
     context 'with a Symbol' do

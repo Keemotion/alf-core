@@ -11,16 +11,16 @@ module Alf
     }
 
     it 'should be a Metadata instance' do
-      subject.should be_a(Viewpoint::Metadata)
+      expect(subject).to be_kind_of(Viewpoint::Metadata)
     end
 
     it 'should always be the same on the same viewpoint' do
-      subject.should be(viewpoint.metadata)
+      expect(subject).to be(viewpoint.metadata)
     end
 
     it 'should be different that metadata from other viewpoints' do
       other = Module.new{ include Viewpoint }
-      subject.should_not be(other.metadata)
+      expect(subject).to_not be(other.metadata)
     end
 
   end

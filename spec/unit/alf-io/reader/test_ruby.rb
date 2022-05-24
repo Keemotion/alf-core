@@ -18,8 +18,8 @@ module Alf
     }
 
     it "should be enumerable" do
-      reader.to_a.should eq(expected)
+      expect(reader.to_a).to eq(expected)
     end
-    
+
   end
 end

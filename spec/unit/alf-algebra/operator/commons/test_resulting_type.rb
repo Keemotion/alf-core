@@ -11,7 +11,7 @@ module Alf
         }
 
         it 'returns the expected type' do
-          subject.should eq(Relation[sid: String, name: String])
+          expect(subject).to eq(Relation[sid: String, name: String])
         end
       end
 

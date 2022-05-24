@@ -14,7 +14,7 @@ module Alf
       let(:input){ [{:id => 1},{:id => 2}] }
 
       it "read the lines as expected" do
-        subject.should eq(input)
+        expect(subject).to eq(input)
       end
     end
 
@@ -22,7 +22,7 @@ module Alf
       let(:input){ {:id => 1} }
 
       it "should yield the single Hash" do
-        subject.should eq([input])
+        expect(subject).to eq([input])
       end
     end
 

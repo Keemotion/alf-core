@@ -18,15 +18,15 @@ module Alf
       it_should_behave_like "a traceable compiled"
 
       it 'has a Filter cog' do
-        subject.should be_a(Engine::Filter)
+        expect(subject).to be_kind_of(Engine::Filter)
       end
 
       it 'has the correct predicate' do
-        subject.predicate.should be(predicate)
+        expect(subject.predicate).to be(predicate)
       end
 
       it 'has the correct sub-cog' do
-        subject.operand.should be(leaf)
+        expect(subject.operand).to be(leaf)
       end
 
     end

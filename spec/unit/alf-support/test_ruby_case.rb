@@ -5,11 +5,11 @@ module Alf
     let(:tools){ Object.new.extend(Support) }
 
     it "should work on one word" do
-      tools.ruby_case(:Alf).should == "alf"
+      expect(tools.ruby_case(:Alf)).to eq("alf")
     end
 
     it "should work on multiple words" do
-      tools.ruby_case(:HelloWorld).should == "hello_world"
+      expect(tools.ruby_case(:HelloWorld)).to eq("hello_world")
     end
 
   end

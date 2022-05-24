@@ -20,11 +20,11 @@ module Alf
             }
 
             before do
-              victim.should respond_to(method)
+              expect(victim).to respond_to(method)
             end
 
             it "should delegate it" do
-              subject.should eq("foo")
+              expect(subject).to eq("foo")
             end
           end
 
@@ -37,13 +37,13 @@ module Alf
             }
 
             before do
-              victim.should_not respond_to(method)
+              expect(victim).to_not respond_to(method)
             end
 
             it "should raise a NotSupportedError" do
-              lambda{
+              expect(lambda{
                 subject
-              }.should raise_error(NotSupportedError)
+              }).to raise_error(NotSupportedError)
             end
           end
         end

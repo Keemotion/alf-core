@@ -15,11 +15,11 @@ module Alf
         let(:input){ Relation(id: [1, 2]) }
 
         it 'outputs as expected' do
-          subject.should eq('[{"id":1},{"id":2}]' << "\n")
+          expect(subject).to eq('[{"id":1},{"id":2}]' << "\n")
         end
 
         it 'allows roundtripping' do
-          Relation(::JSON.parse(subject)).should eq(input)
+          expect(Relation(::JSON.parse(subject))).to eq(input)
         end
       end
 
@@ -29,11 +29,11 @@ module Alf
         let(:input){ {id: 1} }
 
         it 'outputs as expected' do
-          subject.should eq('{"id":1}' << "\n")
+          expect(subject).to eq('{"id":1}' << "\n")
         end
 
         it 'allows roundtripping' do
-          ::JSON.parse(subject).should eq({'id' => 1})
+          expect(::JSON.parse(subject)).to eq({'id' => 1})
         end
       end
 

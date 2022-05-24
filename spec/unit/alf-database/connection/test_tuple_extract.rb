@@ -9,9 +9,9 @@ module Alf
         subject{ conn.tuple_extract{ suppliers } }
 
         it 'raises a NoSuchTupleError' do
-          lambda{
+          expect(lambda{
             subject
-          }.should raise_error(NoSuchTupleError)
+          }).to raise_error(NoSuchTupleError)
         end
       end
 
@@ -19,9 +19,9 @@ module Alf
         subject{ conn.tuple_extract{ restrict(suppliers, ->{ false }) } }
 
         it 'raises a NoSuchTupleError' do
-          lambda{
+          expect(lambda{
             subject
-          }.should raise_error(NoSuchTupleError)
+          }).to raise_error(NoSuchTupleError)
         end
       end
 
@@ -29,7 +29,7 @@ module Alf
         subject{ conn.tuple_extract{ restrict(suppliers, ->{ sid == 'S1' }) } }
 
         it 'returns a Tuple instance' do
-          subject.should be_a(Tuple)
+          expect(subject).to be_kind_of(Tuple)
         end
       end
 

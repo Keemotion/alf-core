@@ -4,7 +4,7 @@ module Alf
     describe SetAttr do
 
       it 'should work on an empty operand' do
-        SetAttr.new(Leaf.new([]), TupleComputation[{}]).to_a.should eq([])
+        expect(SetAttr.new(Leaf.new([]), TupleComputation[{}]).to_a).to eq([])
       end
 
       it 'should allow implementing UPDATE' do
@@ -17,7 +17,7 @@ module Alf
           {:name => "SMITH"}
         ]
         comp = TupleComputation[:name => lambda{ name.upcase }]
-        SetAttr.new(rel, comp).to_a.should eq(exp)
+        expect(SetAttr.new(rel, comp).to_a).to eq(exp)
       end
 
       it 'should allow implementing EXTEND' do
@@ -30,7 +30,7 @@ module Alf
           {:name => "Smith", :up => "SMITH"}
         ]
         comp = TupleComputation[:up => lambda{ name.upcase }]
-        SetAttr.new(rel, comp).to_a.should eq(exp)
+        expect(SetAttr.new(rel, comp).to_a).to eq(exp)
       end
 
       it 'should support lambda of arity 1' do
@@ -43,7 +43,7 @@ module Alf
           {:name => "Smith", :up => "SMITH"}
         ]
         comp = TupleComputation[:up => lambda{|t| t.name.upcase }]
-        SetAttr.new(rel, comp).to_a.should eq(exp)
+        expect(SetAttr.new(rel, comp).to_a).to eq(exp)
       end
 
     end

@@ -7,12 +7,12 @@ module Alf
         Signature.new(nil){|s|
           s.argument :name, AttrName, :autonum
           s.option :allbut, Boolean, true, "Applies an allbut projection?"
-        }        
+        }
       }
 
       it "yields the signature" do
-        subject.arguments.should eql([[:name, AttrName, :autonum, nil]])
-        subject.options.should eql([[:allbut, Boolean, true, "Applies an allbut projection?"]])
+        expect(subject.arguments).to eql([[:name, AttrName, :autonum, nil]])
+        expect(subject.options).to eql([[:allbut, Boolean, true, "Applies an allbut projection?"]])
       end
 
     end

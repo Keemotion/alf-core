@@ -18,7 +18,7 @@ shared_examples_for "an unoptimizable expression for restrict" do
   # end
 
   specify "optimized is unchanged" do
-    optimized.should eq(restriction)
+    expect(optimized).to eq(restriction)
   end
 
 end

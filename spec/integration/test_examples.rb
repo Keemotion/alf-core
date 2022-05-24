@@ -28,9 +28,9 @@ Path.backfind("examples").glob("**/*.alf").each do |file|
       subject{
         example_db.query(source, example_path)
       }
-      
+
       it "should run without error" do
-        subject.should be_a(Relation)
+        expect(subject).to be_kind_of(Relation)
       end
     end
   end

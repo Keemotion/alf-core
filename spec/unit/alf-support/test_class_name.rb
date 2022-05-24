@@ -5,11 +5,11 @@ module Alf
     let(:tools){ Object.new.extend(Support) }
 
     it "should work on top-level namespaces" do
-      tools.class_name(Alf).should eq(:Alf)
+      expect(tools.class_name(Alf)).to eq(:Alf)
     end
 
     it "should work on non top-level namespaces" do
-      tools.class_name(Alf::Support).should eq(:Support)
+      expect(tools.class_name(Alf::Support)).to eq(:Support)
     end
 
   end

@@ -8,7 +8,7 @@ module Alf
 
       it 'yields the block' do
         subject
-        @seen.should be_truthy
+        expect(@seen).to be_truthy
       end
 
     end

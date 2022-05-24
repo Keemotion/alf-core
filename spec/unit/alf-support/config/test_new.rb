@@ -15,7 +15,7 @@ module Alf
         let(:h){ {ready: "true"} }
 
         it 'coerces them' do
-          subject.ready?.should eq(true)
+          expect(subject.ready?).to eq(true)
         end
       end
 
@@ -23,9 +23,9 @@ module Alf
         let(:h){ {nosuchone: "blah"} }
 
         it 'raises an error' do
-          lambda{
+          expect(lambda{
             subject
-          }.should raise_error(ConfigError, /No such option `nosuchone`/)
+          }).to raise_error(ConfigError, /No such option `nosuchone`/)
         end
       end
 
@@ -33,9 +33,9 @@ module Alf
         let(:h){ {ready: "blah"} }
 
         it 'raises an error' do
-          lambda{
+          expect(lambda{
             subject
-          }.should raise_error(ConfigError, /Invalid option value `ready`: `blah`/)
+          }).to raise_error(ConfigError, /Invalid option value `ready`: `blah`/)
         end
       end
 
@@ -45,7 +45,7 @@ module Alf
         }
 
         it 'yields the block' do
-          subject.ready?.should be_truthy
+          expect(subject.ready?).to be_truthy
         end
       end
 
@@ -53,7 +53,7 @@ module Alf
         subject{ conf_subclass.new }
 
         it 'uses default values' do
-          subject.ready?.should be_falsey
+          expect(subject.ready?).to be_falsey
         end
       end
 

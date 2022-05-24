@@ -23,13 +23,13 @@ module Alf
         it_should_behave_like "a traceable compiled"
 
         it 'has a Summarize' do
-          subject.should be_a(Engine::Summarize)
+          expect(subject).to be_kind_of(Engine::Summarize)
         end
 
         it 'has correct parameters' do
-          subject.by.should eq(by)
-          subject.summarization.should eq(summarization)
-          subject.allbut.should eq(allbut)
+          expect(subject.by).to eq(by)
+          expect(subject.summarization).to eq(summarization)
+          expect(subject.allbut).to eq(allbut)
         end
       end
 
@@ -37,13 +37,13 @@ module Alf
         let(:allbut){ true }
 
         it 'has a Summarize::Hash' do
-          subject.should be_a(Engine::Summarize::Hash)
+          expect(subject).to be_kind_of(Engine::Summarize::Hash)
         end
 
         it_should_behave_like "the expected Summarize"
 
         it 'has correct sub-cog' do
-          subject.operand.should be(leaf)
+          expect(subject.operand).to be(leaf)
         end
       end
 
@@ -55,7 +55,7 @@ module Alf
 
         context 'when not already ordered' do
           it 'has a Summarize::Cesure' do
-            subject.should be_a(Engine::Summarize::Cesure)
+            expect(subject).to be_kind_of(Engine::Summarize::Cesure)
           end
 
           it_should_behave_like "the expected Summarize"
@@ -72,7 +72,7 @@ module Alf
           }
 
           it 'has a Summarize::Cesure' do
-            subject.should be_a(Engine::Summarize::Cesure)
+            expect(subject).to be_kind_of(Engine::Summarize::Cesure)
           end
 
           it_should_behave_like "the expected Summarize"

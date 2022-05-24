@@ -4,7 +4,7 @@ module Alf
     describe Sort do
 
       it 'should work on an empty operand' do
-        Sort.new([], Ordering[[]]).to_a.should eq([])
+        expect(Sort.new([], Ordering[[]]).to_a).to eq([])
       end
 
       it 'should work with ascending' do
@@ -12,7 +12,7 @@ module Alf
           {:name => "Jones"},
           {:name => "Smith"}
         ]
-        Sort.new(rel, Ordering[[:name, :asc]]).to_a.should eq(rel)
+        expect(Sort.new(rel, Ordering[[:name, :asc]]).to_a).to eq(rel)
       end
 
       it 'should work with descending' do
@@ -24,7 +24,7 @@ module Alf
           {:name => "Smith"},
           {:name => "Jones"}
         ]
-        Sort.new(rel, Ordering[[:name, :desc]]).to_a.should eq(exp)
+        expect(Sort.new(rel, Ordering[[:name, :desc]]).to_a).to eq(exp)
       end
 
     end

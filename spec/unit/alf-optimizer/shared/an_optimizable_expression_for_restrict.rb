@@ -23,17 +23,17 @@ shared_examples_for "an optimizable expression for restrict" do
   # end
 
   specify "optimized leads to a restrict[initial[restrict[...]]]" do
-    optimized.should be_a(Alf::Algebra::Restrict)
-    middle.should be_a(subject.class)
-    inside.should be_a(Alf::Algebra::Restrict)
+    expect(optimized).to be_kind_of(Alf::Algebra::Restrict)
+    expect(middle).to be_kind_of(subject.class)
+    expect(inside).to be_kind_of(Alf::Algebra::Restrict)
   end
 
   specify "middle's signature is kept unchanged" do
-    middle.signature.collect_on(subject).should eq(subject.signature.collect_on(subject))
+    expect(middle.signature.collect_on(subject)).to eq(subject.signature.collect_on(subject))
   end
 
   specify "first restriction only applies on split attributes" do
-    optimized.predicate.free_variables.should eq(split_attributes)
+    expect(optimized.predicate.free_variables).to eq(split_attributes)
   end
 
 end

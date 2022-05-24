@@ -14,15 +14,15 @@ module Alf
       it_should_behave_like "a traceable compiled"
 
       it 'has a Coerce cog' do
-        subject.should be_a(Engine::Coerce)
+        expect(subject).to be_kind_of(Engine::Coerce)
       end
 
       it 'has the correct coercion heading' do
-        subject.coercions.should eq(Heading[a: String])
+        expect(subject.coercions).to eq(Heading[a: String])
       end
 
       it 'has the correct sub-cog' do
-        subject.operand.should be(leaf)
+        expect(subject.operand).to be(leaf)
       end
 
     end

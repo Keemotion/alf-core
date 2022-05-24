@@ -6,7 +6,7 @@ module Alf
       subject{ op.type_check }
 
       context 'when ok' do
-        let(:op){ 
+        let(:op){
           rename(suppliers, name: :sname)
         }
 
@@ -14,26 +14,26 @@ module Alf
       end
 
       context 'when invalid renaming' do
-        let(:op){ 
+        let(:op){
           rename(suppliers, foo: :bar)
         }
 
         it 'should raise an error' do
-          lambda{
+          expect(lambda{
             subject
-          }.should raise_error(TypeCheckError, /no such attribute `foo`/)
+          }).to raise_error(TypeCheckError, /no such attribute `foo`/)
         end
       end
 
       context 'when name clash' do
-        let(:op){ 
+        let(:op){
           rename(suppliers, name: :sid)
         }
 
         it 'should raise an error' do
-          lambda{
+          expect(lambda{
             subject
-          }.should raise_error(TypeCheckError, /cannot override `sid`/)
+          }).to raise_error(TypeCheckError, /cannot override `sid`/)
         end
       end
 

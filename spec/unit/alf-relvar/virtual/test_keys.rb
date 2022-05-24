@@ -13,7 +13,7 @@ module Alf
       subject{ rv.keys }
 
       it 'delegates to the expression' do
-        subject.should eq("some keys for aname")
+        expect(subject).to eq("some keys for aname")
       end
 
     end

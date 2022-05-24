@@ -15,11 +15,11 @@ module Alf
         let(:type_check){ TypeCheck.new(heading) }
 
         it 'accepts the valid tuple only' do
-          (type_check === tuple).should be_truthy
-          (type_check === missing).should be_falsey
-          (type_check === extra).should be_falsey
-          (type_check === mix).should be_falsey
-          (type_check === invalid).should be_falsey
+          expect((type_check === tuple)).to be_truthy
+          expect((type_check === missing)).to be_falsey
+          expect((type_check === extra)).to be_falsey
+          expect((type_check === mix)).to be_falsey
+          expect((type_check === invalid)).to be_falsey
         end
       end
 
@@ -27,11 +27,11 @@ module Alf
         let(:type_check){ TypeCheck.new(heading, false) }
 
         it 'accepts the valid tuple and its projections' do
-          (type_check === tuple).should be_truthy
-          (type_check === missing).should be_truthy
-          (type_check === extra).should be_falsey
-          (type_check === mix).should be_falsey
-          (type_check === invalid).should be_falsey
+          expect((type_check === tuple)).to be_truthy
+          expect((type_check === missing)).to be_truthy
+          expect((type_check === extra)).to be_falsey
+          expect((type_check === mix)).to be_falsey
+          expect((type_check === invalid)).to be_falsey
         end
       end
 
@@ -39,10 +39,10 @@ module Alf
         let(:type_check){ TypeCheck.new(heading) }
 
         it 'rejects them simply' do
-          (type_check === 12).should be_falsey
-          (type_check === nil).should be_falsey
-          (type_check === self).should be_falsey
-          (type_check === {'name' => 'Smith', 'status' => 20}).should be_falsey
+          expect((type_check === 12)).to be_falsey
+          expect((type_check === nil)).to be_falsey
+          expect((type_check === self)).to be_falsey
+          expect(type_check === {'name' => 'Smith', 'status' => 20}).to be_falsey
         end
       end
 
@@ -50,7 +50,7 @@ module Alf
         let(:type_check){ TypeCheck.new(heading) }
 
         it 'accepts it if valid' do
-          (type_check === Tuple(tuple)).should be_truthy
+          expect((type_check === Tuple(tuple))).to be_truthy
         end
       end
     end

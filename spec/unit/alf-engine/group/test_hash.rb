@@ -17,12 +17,12 @@ module Alf
 
         it 'should group specified attributes' do
           op = Group::Hash.new(operand, AttrList[:name], :suppliers, false)
-          op.to_set.should eq(expected)
+          expect(op.to_set).to eq(expected)
         end
 
         it 'should allow specifying allbut grouping' do
           op = Group::Hash.new(operand, AttrList[:city], :suppliers, true)
-          op.to_set.should eq(expected)
+          expect(op.to_set).to eq(expected)
         end
       end
 
@@ -41,7 +41,7 @@ module Alf
         it 'should not fail' do
           op = Group::Hash.new(operand, AttrList[:name], :suppliers, false)
           op.to_relation
-          op.to_set.should eq(expected)
+          expect(op.to_set).to eq(expected)
         end
       end
 

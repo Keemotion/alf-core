@@ -7,11 +7,11 @@ module Alf
         let(:scope){ TupleScope.new(:a => 1, :b => 2) }
 
         it "should allow a block" do
-          scope.evaluate{ a }.should == 1
+          expect(scope.evaluate{ a }).to eq(1)
         end
 
         it 'should resolve DUM and DEE correctly' do
-          scope.evaluate{ DUM }.should be_a(Relation)
+          expect(scope.evaluate{ DUM }).to be_kind_of(Relation)
         end
       end
 
@@ -19,7 +19,7 @@ module Alf
         let(:scope){ TupleScope.new({:who => "world"}, [ HelpersInScope ]) }
 
         it 'has available helpers in scope' do
-          scope.evaluate{ hello(who) }.should eq("Hello world!")
+          expect(scope.evaluate{ hello(who) }).to eq("Hello world!")
         end
       end
 
@@ -28,7 +28,7 @@ module Alf
         let(:scope){ TupleScope.new({:here => "here"}, [  ], parent) }
 
         it 'has parent helpers in scope' do
-          scope.evaluate{ hello(here) }.should eq("Hello here!")
+          expect(scope.evaluate{ hello(here) }).to eq("Hello here!")
         end
       end
 

@@ -6,11 +6,11 @@ module Alf
       it{ should be_a(Class) }
 
       it 'should have correct super class' do
-        subject.superclass.should be(Relation)
+        expect(subject.superclass).to be(Relation)
       end
 
       it 'should have correct heading' do
-        subject.heading.should eq(Heading[name: Integer, children: subject])
+        expect(subject.heading).to eq(Heading[name: Integer, children: subject])
       end
     end
 

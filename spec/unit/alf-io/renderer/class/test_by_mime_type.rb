@@ -8,9 +8,9 @@ module Alf
       }
 
       it 'should raise an error' do
-        lambda{
+        expect(lambda{
           subject
-        }.should raise_error(UnsupportedMimeTypeError, /No renderer for `no\/suchone`/)
+        }).to raise_error(UnsupportedMimeTypeError, /No renderer for `no\/suchone`/)
       end
     end
 
@@ -22,7 +22,7 @@ module Alf
       it{ should be_a(Renderer::CSV) }
 
       it 'should be wired correctly' do
-        subject.execute("").should eq("id;name\ncsv;CSV\n")
+        expect(subject.execute("")).to eq("id;name\ncsv;CSV\n")
       end
     end
 

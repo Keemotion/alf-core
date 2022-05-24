@@ -13,13 +13,13 @@ module Alf
         it_behaves_like 'A scope'
 
         it 'responds to the tuple keys' do
-          subject.respond_to?(:here).should be_truthy
-          subject.here.should eq("here")
+          expect(subject.respond_to?(:here)).to be_truthy
+          expect(subject.here).to eq("here")
         end
 
         it "responds to helper's methods" do
-          subject.respond_to?(:world).should be_truthy
-          subject.world.should eq('world')
+          expect(subject.respond_to?(:world)).to be_truthy
+          expect(subject.world).to eq('world')
         end
       end
 

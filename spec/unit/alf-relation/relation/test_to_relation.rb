@@ -7,7 +7,7 @@ module Alf
     subject{ rel.to_relation }
 
     it 'should return self' do
-      subject.object_id.should eq(rel.object_id)
+      expect(subject.object_id).to eq(rel.object_id)
     end
 
   end

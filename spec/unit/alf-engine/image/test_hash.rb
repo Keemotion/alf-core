@@ -30,7 +30,7 @@ module Alf
 
         it 'should group specified attributes' do
           op = Image::Hash.new(left, right, :img)
-          op.to_relation.should eq(expected)
+          expect(op.to_relation).to eq(expected)
         end
       end
 
@@ -48,11 +48,11 @@ module Alf
 
         it 'should not fail and behave as expected' do
           op = Image::Hash.new(left, right, :img)
-          op.to_relation.should eq(expected)
+          expect(op.to_relation).to eq(expected)
         end
       end
 
     end # Image::Hash
   end # module Engine
-end # module Alf    
+end # module Alf
 

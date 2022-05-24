@@ -10,9 +10,9 @@ module Alf
       }
 
       it 'should raise an error' do
-        lambda{
+        expect(lambda{
           subject
-        }.should raise_error(UnsupportedMimeTypeError, /No reader for `no\/suchone`/)
+        }).to raise_error(UnsupportedMimeTypeError, /No reader for `no\/suchone`/)
       end
     end
 
@@ -24,7 +24,7 @@ module Alf
       it{ should be_a(Reader::CSV) }
 
       it 'should be wired correctly' do
-        subject.input.should be(io)
+        expect(subject.input).to be(io)
       end
     end
 

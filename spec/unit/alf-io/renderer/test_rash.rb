@@ -17,7 +17,7 @@ module Alf
           let(:expected){ "{:id => 1}\n{:id => 2}\n" }
 
           it 'outputs as expected' do
-            subject.should eq(expected)
+            expect(subject).to eq(expected)
           end
         end
 
@@ -26,7 +26,7 @@ module Alf
           let(:expected){ "{:id => 1}\n" }
 
           it 'outputs as expected' do
-            subject.should eq(expected)
+            expect(subject).to eq(expected)
           end
         end
       end

@@ -17,22 +17,22 @@ module Alf
         subject{ config.dup }
 
         it 'should return a different instance' do
-          subject.should be_a(conf_subclass)
-          subject.should_not be(config)
+          expect(subject).to be_kind_of(conf_subclass)
+          expect(subject).to_not be(config)
         end
 
         it 'should dup all options while keeping them equal' do
           conf_subclass.options.each do |name,_,_|
             mine, yours = subject[name], config[name]
-            mine.should eq(yours)
-            mine.should_not be(yours) unless Boolean===mine
+            expect(mine).to eq(yours)
+            expect(mine).to_not be(yours) unless Boolean===mine
           end
         end
 
         it 'should keep the semantics of Proc options' do
-          subject.aproc?.should be_truthy
+          expect(subject.aproc?).to be_truthy
           subject.ready = true
-          subject.aproc?.should be_falsey
+          expect(subject.aproc?).to be_falsey
         end
       end
 
@@ -40,16 +40,16 @@ module Alf
         subject{ config.freeze.dup }
 
         it 'should return a non-frezed instance' do
-          subject.should be_a(conf_subclass)
-          subject.should_not be_frozen
+          expect(subject).to be_kind_of(conf_subclass)
+          expect(subject).to_not be_frozen
         end
 
         it 'allow modifying options on the new instance' do
-          lambda{
+          expect(lambda{
             subject.ready = true
-          }.should_not raise_error
-          subject.ready?.should be_truthy
-          config.ready?.should be_falsey
+          }).to_not raise_error
+          expect(subject.ready?).to be_truthy
+          expect(config.ready?).to be_falsey
         end
       end
 

@@ -9,7 +9,7 @@ module Alf
       subject{ rv.to_lispy }
 
       it 'delegates to the expression' do
-        subject.should eq("aname")
+        expect(subject).to eq("aname")
       end
 
     end

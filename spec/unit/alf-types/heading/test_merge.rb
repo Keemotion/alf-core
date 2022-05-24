@@ -8,7 +8,7 @@ module Alf
       let(:right){ Heading[:city => String] }
 
       it "computes the union" do
-        subject.should eq(Heading[:name => String, :city => String])
+        expect(subject).to eq(Heading[:name => String, :city => String])
       end
     end
 
@@ -17,7 +17,7 @@ module Alf
       let(:right){ Heading[:id => Integer, :name => Integer] }
 
       it "computes uses right on commons" do
-        subject.should eq(Heading[:id => Integer, :name => Integer])
+        expect(subject).to eq(Heading[:id => Integer, :name => Integer])
       end
     end
 

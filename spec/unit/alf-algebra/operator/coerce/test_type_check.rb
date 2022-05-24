@@ -6,7 +6,7 @@ module Alf
       subject{ op.type_check }
 
       context 'when ok' do
-        let(:op){ 
+        let(:op){
           coerce(suppliers, sid: Float)
         }
 
@@ -14,26 +14,26 @@ module Alf
       end
 
       context 'when unexisting attribute' do
-        let(:op){ 
+        let(:op){
           coerce(suppliers, sid: Float, unknown: String)
         }
 
         it 'should raise an error' do
-          lambda{
+          expect(lambda{
             subject
-          }.should raise_error(TypeCheckError, /no such attribute `unknown`/)
+          }).to raise_error(TypeCheckError, /no such attribute `unknown`/)
         end
       end
 
       context 'when unexisting attributes' do
-        let(:op){ 
+        let(:op){
           coerce(suppliers, sid: Float, foo: String, bar: String)
         }
 
         it 'should raise an error' do
-          lambda{
+          expect(lambda{
             subject
-          }.should raise_error(TypeCheckError, /no such attributes `foo`,`bar`/)
+          }).to raise_error(TypeCheckError, /no such attributes `foo`,`bar`/)
         end
       end
 

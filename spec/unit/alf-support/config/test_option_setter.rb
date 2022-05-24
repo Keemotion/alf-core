@@ -17,12 +17,12 @@ module Alf
         subject{ config.ready = true }
 
         it 'should return the value' do
-          subject.should eq(true)
+          expect(subject).to eq(true)
         end
 
         it 'should set the value' do
           subject
-          config.ready?.should eq(true)
+          expect(config.ready?).to eq(true)
         end
       end
 
@@ -30,12 +30,12 @@ module Alf
         subject{ config.ready = "true" }
 
         it 'returns the non-coerced value' do
-          subject.should eq("true")
+          expect(subject).to eq("true")
         end
 
         it 'should set the value' do
           subject
-          config.ready?.should eq(true)
+          expect(config.ready?).to eq(true)
         end
       end
 
@@ -43,12 +43,12 @@ module Alf
         subject{ config.which = "blah" }
 
         it 'should return the value' do
-          subject.should eq("blah")
+          expect(subject).to eq("blah")
         end
 
         it 'should set the value' do
           subject
-          config.which.should eq("blah")
+          expect(config.which).to eq("blah")
         end
       end
 
@@ -58,12 +58,12 @@ module Alf
         subject{ config.which = proc }
 
         it 'should return the value' do
-          subject.should be(proc)
+          expect(subject).to be(proc)
         end
 
         it 'should call the proc when option is get' do
           subject
-          config.which.should eq("blah")
+          expect(config.which).to eq("blah")
         end
       end
 

@@ -34,23 +34,23 @@ module Alf
     context 'the shortcuts' do
 
       it 'the > shortcut classifies correctly' do
-        (supertype > supertype).should be_falsey
-        (supertype > type).should be_truthy
+        expect((supertype > supertype)).to be_falsey
+        expect((supertype > type)).to be_truthy
       end
 
       it 'the >= shortcut classifies correctly' do
-        (supertype >= supertype).should be_truthy
-        (supertype >= type).should be_truthy
+        expect((supertype >= supertype)).to be_truthy
+        expect((supertype >= type)).to be_truthy
       end
 
       it 'the < shortcut classifies correctly' do
-        (supertype < supertype).should be_falsey
-        (supertype < type).should be_falsey
+        expect(supertype < supertype).to be_falsey
+        expect(supertype < type).to be_falsey
       end
 
       it 'the <= shortcut classifies correctly' do
-        (supertype <= supertype).should be_truthy
-        (supertype <= type).should be_falsey
+        expect(supertype <= supertype).to be_truthy
+        expect(supertype <= type).to be_falsey
       end
     end
 

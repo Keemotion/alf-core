@@ -17,7 +17,7 @@ module Alf
 
         it 'delegates the call to the connection' do
           subject
-          @seen.should eq([:suppliers, predicate])
+          expect(@seen).to eq([:suppliers, predicate])
         end
       end
 
@@ -26,7 +26,7 @@ module Alf
 
         it 'uses a tautology predicate' do
           subject
-          @seen.should eq([:suppliers, Predicate.tautology])
+          expect(@seen).to eq([:suppliers, Predicate.tautology])
         end
       end
 

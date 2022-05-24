@@ -19,7 +19,7 @@ module Alf
         who:  lambda{ "#{first} #{last}" }
       ]
       res = computation.call(last: "Jones", first: "Bill", status: 10)
-      res.should eq(big?: false, who: "Bill Jones")
+      expect(res).to eq(big?: false, who: "Bill Jones")
     end
 
     let(:scope){ Support::TupleScope.new(who: "alf") }

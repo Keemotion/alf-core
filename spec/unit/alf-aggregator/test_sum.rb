@@ -4,20 +4,20 @@ module Alf
     describe Sum do
 
       let(:rel){[
-        {:qty => 10}, 
+        {:qty => 10},
         {:qty => 20}
       ]}
 
       it 'should work when used standalone' do
-        Sum.new{ qty }.aggregate([]).should eq(0)
-        Sum.new{ qty }.aggregate(rel).should eq(30)
+        expect(Sum.new{ qty }.aggregate([])).to eq(0)
+        expect(Sum.new{ qty }.aggregate(rel)).to eq(30)
       end
 
       it 'should install factory methods' do
-        Aggregator.sum{ qty }.should be_a(Sum)
-        Aggregator.sum{ qty }.aggregate(rel).should eq(30)
+        expect(Aggregator.sum{ qty }).to be_kind_of(Sum)
+        expect(Aggregator.sum{ qty }.aggregate(rel)).to eq(30)
       end
 
     end
   end
-end 
+end

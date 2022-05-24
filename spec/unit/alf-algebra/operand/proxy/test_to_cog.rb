@@ -18,7 +18,7 @@ module Alf
           }
 
           before do
-            proxied.should respond_to(:to_cog)
+            expect(proxied).to respond_to(:to_cog)
           end
 
           it{ should eq(:compiled) }
@@ -32,7 +32,7 @@ module Alf
           it{ should be_a(Engine::Leaf) }
 
           it 'should be the correct proxy' do
-            subject.operand.should be(proxied)
+            expect(subject.operand).to be(proxied)
           end
         end
 

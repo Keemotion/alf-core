@@ -14,7 +14,7 @@ module Alf
       end
 
       before do
-        conn.should_not be_closed
+        expect(conn).to_not be_closed
         @closed = false
       end
 
@@ -23,7 +23,7 @@ module Alf
 
         it 'should close the underlying connection' do
           subject
-          @closed.should be_truthy
+          expect(@closed).to be_truthy
         end
       end
 
@@ -32,7 +32,7 @@ module Alf
 
         it 'should not close the underlying connection' do
           subject
-          @closed.should be_falsey
+          expect(@closed).to be_falsey
         end
       end
 

@@ -13,7 +13,7 @@ module Alf
       subject{ rv.heading }
 
       it 'delegates to the expression' do
-        subject.should eq("a heading for aname")
+        expect(subject).to eq("a heading for aname")
       end
 
     end

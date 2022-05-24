@@ -14,15 +14,15 @@ module Alf
       it_should_behave_like "a traceable compiled"
 
       it 'is a Generator cog' do
-        subject.should be_a(Engine::Generator)
+        expect(subject).to be_kind_of(Engine::Generator)
       end
 
       it 'has the correct generator attribute name' do
-        subject.as.should eq(:foo)
+        expect(subject.as).to eq(:foo)
       end
 
       it 'has the correct generator count' do
-        subject.count.should eq(100)
+        expect(subject.count).to eq(100)
       end
 
     end

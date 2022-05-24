@@ -5,7 +5,7 @@ module Alf
     subject{ left == right }
 
     after do
-      left.hash.should eq(right.hash) if subject
+      expect(left.hash).to eq(right.hash) if subject
     end
 
     context "when the same empty lists" do

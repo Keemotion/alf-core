@@ -4,7 +4,7 @@ module Alf
 
     it 'should raise a NotImplementedError if no source code' do
       expr = TupleExpression[lambda{status > 10}]
-      lambda{ expr.to_ruby_literal }.should raise_error(NotImplementedError)
+      expect(lambda{ expr.to_ruby_literal }).to raise_error(NotImplementedError)
     end
 
   end # TupleExpression

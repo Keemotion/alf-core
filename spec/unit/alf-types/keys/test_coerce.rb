@@ -32,7 +32,7 @@ module Alf
       subject{ Keys[ [:a, :b] ] }
 
       it 'should have correct AttrList lists' do
-        subject.to_a.should eq([ AttrList[:a, :b] ])
+        expect(subject.to_a).to eq([ AttrList[:a, :b] ])
       end
     end
 
@@ -40,7 +40,7 @@ module Alf
       subject{ Keys[] }
 
       it 'should have correct AttrList lists' do
-        subject.to_a.should eq([])
+        expect(subject.to_a).to eq([])
       end
     end
 
@@ -48,7 +48,7 @@ module Alf
       subject{ Keys[ [] ] }
 
       it 'should have correct AttrList lists' do
-        subject.to_a.should eq([ AttrList[] ])
+        expect(subject.to_a).to eq([ AttrList[] ])
       end
     end
 
@@ -56,7 +56,7 @@ module Alf
       subject{ Keys[ [:a], [] ] }
 
       it 'should have correct AttrList lists' do
-        subject.to_a.should eq([ AttrList[:a], AttrList[] ])
+        expect(subject.to_a).to eq([ AttrList[:a], AttrList[] ])
       end
     end
 

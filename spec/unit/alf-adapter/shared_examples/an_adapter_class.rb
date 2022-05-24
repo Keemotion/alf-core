@@ -4,7 +4,7 @@ shared_examples_for "an adapter class" do
 
     it 'returns true on recognized connection specifications' do
       recognized_conn_specs.each do |c|
-        adapter_class.recognizes?(c).should be_truthy
+        expect(adapter_class.recognizes?(c)).to be_truthy
       end
     end
   end
@@ -13,7 +13,7 @@ shared_examples_for "an adapter class" do
 
     it 'returns an instance on recognized connection specifications' do
       recognized_conn_specs.each do |c|
-        adapter_class.new(c).should be_a(adapter_class)
+        expect(adapter_class.new(c)).to be_kind_of(adapter_class)
       end
     end
   end

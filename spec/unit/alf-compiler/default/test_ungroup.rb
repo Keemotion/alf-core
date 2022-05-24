@@ -14,15 +14,15 @@ module Alf
       it_should_behave_like "a traceable compiled"
 
       it 'has a Ungroup cog' do
-        subject.should be_a(Engine::Ungroup)
+        expect(subject).to be_kind_of(Engine::Ungroup)
       end
 
       it 'has the correct ungrouping attribute' do
-        subject.attribute.should eq(:a)
+        expect(subject.attribute).to eq(:a)
       end
 
       it 'has the correct sub-cog' do
-        subject.operand.should be(leaf)
+        expect(subject.operand).to be(leaf)
       end
 
     end

@@ -25,8 +25,8 @@ module Alf
         it_should_behave_like "the expected Sort"
 
         it 'should add a Sort' do
-          subject.ordering.should be(ordering)
-          subject.operand.should be(leaf)
+          expect(subject.ordering).to be(ordering)
+          expect(subject.operand).to be(leaf)
         end
       end
 
@@ -43,8 +43,8 @@ module Alf
           it_should_behave_like "the expected Sort"
 
           it 'should reuse the cog itself' do
-            subject.operand.should be(leaf)
-            subject.ordering.should be(subordering)
+            expect(subject.operand).to be(leaf)
+            expect(subject.ordering).to be(subordering)
           end
         end
 
@@ -56,8 +56,8 @@ module Alf
           it_should_behave_like "the expected Sort"
 
           it 'should reuse the cog itself' do
-            subject.operand.should be(leaf)
-            subject.ordering.should be(subordering)
+            expect(subject.operand).to be(leaf)
+            expect(subject.ordering).to be(subordering)
           end
         end
 
@@ -69,9 +69,9 @@ module Alf
           it_should_behave_like "the expected Sort"
 
           it 'should add a Sort' do
-            subject.ordering.should be(ordering)
-            subject.operand.should be_a(Engine::Sort)
-            subject.operand.ordering.should be(subordering)
+            expect(subject.ordering).to be(ordering)
+            expect(subject.operand).to be_kind_of(Engine::Sort)
+            expect(subject.operand.ordering).to be(subordering)
           end
         end
       end

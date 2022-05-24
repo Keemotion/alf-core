@@ -3,13 +3,13 @@ module Alf
   describe AttrName, "coerce" do
 
     it 'should work on valid attribute names' do
-      AttrName.coerce("city").should eq(:city)
-      AttrName.coerce(:big?).should eq(:big?)
+      expect(AttrName.coerce("city")).to eq(:city)
+      expect(AttrName.coerce(:big?)).to eq(:big?)
     end
 
     it 'should raise ArgumentError otherwise' do
-      lambda{ AttrName.coerce("!123")  }.should raise_error(TypeError)
-      lambda{ AttrName.coerce(:'!123') }.should raise_error(TypeError)
+      expect(lambda{ AttrName.coerce("!123") }).to raise_error(TypeError)
+      expect(lambda{ AttrName.coerce(:'!123') }).to raise_error(TypeError)
     end
 
   end

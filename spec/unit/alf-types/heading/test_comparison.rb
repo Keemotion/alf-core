@@ -9,7 +9,7 @@ module Alf
     context 'with itself' do
       let(:other){ heading }
 
-      before{ heading.should eq(other) }
+      before{ expect(heading).to eq(other) }
 
       it{ should eq(0) }
     end
@@ -35,7 +35,7 @@ module Alf
     context 'with the same heading' do
       let(:other){ Heading.new(name: String, status: Integer, active: Boolean) }
 
-      before{ heading.should eq(other) }
+      before{ expect(heading).to eq(other) }
 
       it{ should eq(0) }
     end

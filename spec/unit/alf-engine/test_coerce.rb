@@ -4,7 +4,7 @@ module Alf
     describe Coerce do
 
       it 'should work on an empty operand' do
-        Coerce.new([], Heading[:price => Float]).to_a.should eq([])
+        expect(Coerce.new([], Heading[:price => Float]).to_a).to eq([])
       end
 
       let(:operand){[
@@ -18,7 +18,7 @@ module Alf
           {:name => "Smith", :price => -10.0}
         ]
         heading = Heading[:name => String, :price => Float]
-        Coerce.new(operand, heading).to_a.should eq(exp)
+        expect(Coerce.new(operand, heading).to_a).to eq(exp)
       end
 
       it 'should not project on the heading' do
@@ -27,7 +27,7 @@ module Alf
           {:name => "Smith", :price => -10.0}
         ]
         heading = Heading[:price => Float]
-        Coerce.new(operand, heading).to_a.should eq(exp)
+        expect(Coerce.new(operand, heading).to_a).to eq(exp)
       end
 
     end

@@ -4,7 +4,7 @@ module Alf
     describe Concat do
 
       it 'should work on no operand at all' do
-        Concat.new([]).to_a.should eq([])
+        expect(Concat.new([]).to_a).to eq([])
       end
 
       it 'should work with only one operand' do
@@ -12,7 +12,7 @@ module Alf
           {:name => "Jones"},
           {:name => "Smith"}
         ]
-        Concat.new([rel]).to_a.should eq(rel)
+        expect(Concat.new([rel]).to_a).to eq(rel)
       end
 
       it 'should work with multiple operands' do
@@ -30,7 +30,7 @@ module Alf
           {:name => "Jones"},
           {:name => "Clark"}
         ]
-        Concat.new([rel, rel2]).to_a.should eq(exp)
+        expect(Concat.new([rel, rel2]).to_a).to eq(exp)
       end
 
     end

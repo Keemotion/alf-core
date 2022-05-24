@@ -15,12 +15,12 @@ module Alf
         it_should_behave_like "a traceable compiled"
 
         it 'has a Take cog' do
-          subject.should be_a(Engine::Take)
+          expect(subject).to be_kind_of(Engine::Take)
         end
 
         it 'has the correct take attributes' do
-          subject.offset.should eq(40)
-          subject.limit.should eq(20)
+          expect(subject.offset).to eq(40)
+          expect(subject.limit).to eq(20)
         end
       end
 
@@ -33,8 +33,8 @@ module Alf
         it_should_behave_like "a compiled based on an added sub Sort"
 
         it "should have the expected Sort" do
-          subject.operand.should be_a(Engine::Sort)
-          subject.operand.ordering.should eq(ordering)
+          expect(subject.operand).to be_kind_of(Engine::Sort)
+          expect(subject.operand.ordering).to eq(ordering)
         end
       end
 

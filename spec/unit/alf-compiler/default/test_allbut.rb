@@ -12,17 +12,17 @@ module Alf
         it_should_behave_like "a traceable compiled"
 
         it 'has a Compact cog' do
-          subject.should be_a(Engine::Compact)
+          expect(subject).to be_kind_of(Engine::Compact)
         end
 
         it 'has a Clip sub-cog' do
-          subject.operand.should be_a(Engine::Clip)
-          subject.operand.attributes.should eq(AttrList[:a])
-          subject.operand.allbut.should be_truthy
+          expect(subject.operand).to be_kind_of(Engine::Clip)
+          expect(subject.operand.attributes).to eq(AttrList[:a])
+          expect(subject.operand.allbut).to be_truthy
         end
 
         it 'has the corect sub-sub cog' do
-          subject.operand.operand.should be(leaf)
+          expect(subject.operand.operand).to be(leaf)
         end
       end
 
@@ -50,13 +50,13 @@ module Alf
         it_should_behave_like "a traceable cog"
 
         it 'has a Clip cog' do
-          subject.should be_a(Engine::Clip)
-          subject.attributes.should eq(AttrList[:a])
-          subject.allbut.should be_truthy
+          expect(subject).to be_kind_of(Engine::Clip)
+          expect(subject.attributes).to eq(AttrList[:a])
+          expect(subject.allbut).to be_truthy
         end
 
         it 'has the correct sub cog' do
-          subject.operand.should be(leaf)
+          expect(subject.operand).to be(leaf)
         end
       end
 

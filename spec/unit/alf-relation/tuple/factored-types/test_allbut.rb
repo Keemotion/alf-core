@@ -10,7 +10,7 @@ module Alf
       let(:attr_list){ AttrList.new([]) }
 
       it 'allbuts as expected' do
-        subject.should be(type)
+        expect(subject).to be(type)
       end
     end
 
@@ -18,7 +18,7 @@ module Alf
       let(:attr_list){ AttrList.new([:name]) }
 
       it 'allbuts as expected' do
-        subject.should eq(Tuple[status: Integer])
+        expect(subject).to eq(Tuple[status: Integer])
       end
     end
 
@@ -26,7 +26,7 @@ module Alf
       let(:attr_list){ AttrList.new([:name, :status]) }
 
       it 'reuses the DUM class' do
-        subject.should be(Tuple::DUM.class)
+        expect(subject).to be(Tuple::DUM.class)
       end
     end
 

@@ -9,7 +9,7 @@ module Alf
         subject{ operand.to_relvar }
 
         it 'returns a base relvar' do
-          subject.should be_a(Relvar::Base)
+          expect(subject).to be_kind_of(Relvar::Base)
         end
 
       end

@@ -14,29 +14,29 @@ module Alf
     let(:rel3){ Relation.coerce(tuples[0..1]) }
 
     it "should have a cardinality method" do
-      rel1.cardinality.should == 3
+      expect(rel1.cardinality).to eq(3)
     end
 
     it "should have an empty? method" do
-      Alf::Relation::DUM.should be_empty
-      Alf::Relation::DEE.should_not be_empty
-      rel1.should_not be_empty
+      expect(Alf::Relation::DUM).to be_empty
+      expect(Alf::Relation::DEE).to_not be_empty
+      expect(rel1).to_not be_empty
     end
 
     it "should define == correctly" do
-      rel1.should eq(rel2)
-      rel2.should eq(rel1)
-      rel3.should_not eq(rel1)
+      expect(rel1).to eq(rel2)
+      expect(rel2).to eq(rel1)
+      expect(rel3).to_not eq(rel1)
     end
 
     it "should define eql? correctly" do
-      rel1.should eql(rel2)
-      rel2.should eql(rel1)
-      rel3.should_not eql(rel1)
+      expect(rel1).to eql(rel2)
+      expect(rel2).to eql(rel1)
+      expect(rel3).to_not eql(rel1)
     end
 
     it "should define hash correctly" do
-      rel1.hash.should eq(rel2.hash)
+      expect(rel1.hash).to eq(rel2.hash)
     end
 
     it "should allow putting them in hashes" do
@@ -44,8 +44,8 @@ module Alf
       h[rel1] = 1
       h[rel2] = 2
       h[rel3] = 3
-      h.size.should == 2
-      h[rel1].should == 2
+      expect(h.size).to eq(2)
+      expect(h[rel1]).to eq(2)
     end
 
     describe "rel1" do
@@ -57,9 +57,9 @@ module Alf
       subject{ Relation::DUM }
       it_should_behave_like "A value"
       specify{
-        subject.cardinality.should == 0
-        subject.to_a.should == []
-        subject.should be_empty
+        expect(subject.cardinality).to eq(0)
+        expect(subject.to_a).to eq([])
+        expect(subject).to be_empty
       }
     end
 
@@ -67,9 +67,9 @@ module Alf
       subject{ Relation::DEE }
       it_should_behave_like "A value"
       specify{
-        subject.cardinality.should == 1
-        subject.to_a.should == [{}]
-        subject.should_not be_empty
+        expect(subject.cardinality).to eq(1)
+        expect(subject.to_a).to eq([{}])
+        expect(subject).to_not be_empty
       }
     end
 

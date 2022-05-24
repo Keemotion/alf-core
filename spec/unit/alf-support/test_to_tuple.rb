@@ -11,18 +11,18 @@ module Alf
     end
 
     it 'returns a tuple already' do
-      to_tuple(name: "Alf").should eq(expected)
+      expect(to_tuple(name: "Alf")).to eq(expected)
     end
 
     it 'symbolizes keys' do
-      to_tuple('name' => "Alf").should eq(expected)
+      expect(to_tuple('name' => "Alf")).to eq(expected)
     end
 
     it 'supports a block that is delegated to remap' do
-      to_tuple('name' => "alf", 'version' => "foo"){|k,v|
-        k.should be_a(Symbol)
+      expect(to_tuple('name' => "alf", 'version' => "foo"){|k,v|
+        expect(k).to be_kind_of(Symbol)
         v.upcase
-      }.should eq(Tuple(name: "ALF", version: "FOO"))
+      }).to eq(Tuple(name: "ALF", version: "FOO"))
     end
 
   end

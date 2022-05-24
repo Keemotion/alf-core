@@ -4,13 +4,13 @@ module Alf
 
     it "should support using a keyword on Relation" do
       rel = Relation(when: "now")
-      rel.restrict(when: "now").should eq(rel)
+      expect(rel.restrict(when: "now")).to eq(rel)
     end
 
     it "should support using a keyword on Lispy" do
-      Alf.examples.query do
+      expect(Alf.examples.query do
         (restrict (extend suppliers, {:when => lambda{"notnow"}}), {:when => "now"})
-      end.should eq(Relation::DUM)
+      end).to eq(Relation::DUM)
     end
 
   end

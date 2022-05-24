@@ -18,7 +18,7 @@ module Alf
           let(:operand){ Named.new(:foo, self) }
 
           it 'returns the heading' do
-            subject.should eq(:foo_heading)
+            expect(subject).to eq(:foo_heading)
           end
         end
 
@@ -26,9 +26,9 @@ module Alf
           let(:operand){ Named.new(:bar, self) }
 
           it 'raises a TypeCheckError' do
-            lambda{
+            expect(lambda{
               subject
-            }.should raise_error(TypeCheckError, /No such relvar `bar`/)
+            }).to raise_error(TypeCheckError, /No such relvar `bar`/)
           end
         end
 

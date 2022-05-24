@@ -13,12 +13,12 @@ module Alf
         let(:expected){ Tuple(name: "Jones") }
 
         it 'returns the tuple' do
-          subject.should eq(expected)
+          expect(subject).to eq(expected)
         end
 
         it 'is aliased as tuple!' do
           rel.extend(ObjectOriented.new(rel))
-          rel.tuple!.should eq(expected)
+          expect(rel.tuple!).to eq(expected)
         end
       end
 
@@ -26,13 +26,13 @@ module Alf
         let(:rel){ [] }
 
         it 'raises a NoSuchTupleError without block' do
-          lambda{
+          expect(lambda{
             subject
-          }.should raise_error(NoSuchTupleError)
+          }).to raise_error(NoSuchTupleError)
         end
 
         it 'yields if a block' do
-          subject{ {id: 12} }.should eq(Tuple(id: 12))
+          expect(subject{ {id: 12} }).to eq(Tuple(id: 12))
         end
       end
 
@@ -40,9 +40,9 @@ module Alf
         let(:rel){ [{name: "Jones"}, {name: "Smith"}] }
 
         it 'raises a NoSuchTupleError' do
-          lambda{
+          expect(lambda{
             subject
-          }.should raise_error(NoSuchTupleError)
+          }).to raise_error(NoSuchTupleError)
         end
       end
 

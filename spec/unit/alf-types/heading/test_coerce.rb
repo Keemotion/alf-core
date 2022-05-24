@@ -32,7 +32,7 @@ module Alf
         let(:arg){ [{name: "Smith", status: "20"}] }
 
         it 'should map on it' do
-          subject.should eq([{name: "Smith", status: 20}])
+          expect(subject).to eq([{name: "Smith", status: 20}])
         end
       end
 
@@ -40,7 +40,7 @@ module Alf
         let(:arg){ {name: "Smith"} }
 
         it 'should not create them' do
-          subject.should eq(name: "Smith")
+          expect(subject).to eq(name: "Smith")
         end
       end
 
@@ -48,7 +48,7 @@ module Alf
         let(:arg){ {name: "Smith", status: "12", foo: "bar"} }
 
         it 'should not touch them' do
-          subject.should eq(name: "Smith", status: 12, foo: "bar")
+          expect(subject).to eq(name: "Smith", status: 12, foo: "bar")
         end
       end
 

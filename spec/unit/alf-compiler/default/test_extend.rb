@@ -18,15 +18,15 @@ module Alf
       it_should_behave_like "a traceable compiled"
 
       it 'has a SetAttr cog' do
-        subject.should be_a(Engine::SetAttr)
+        expect(subject).to be_kind_of(Engine::SetAttr)
       end
 
       it 'has the correct computation' do
-        subject.computation.should be(computation)
+        expect(subject.computation).to be(computation)
       end
 
       it 'has the correct sub-cog' do
-        subject.operand.should be(leaf)
+        expect(subject.operand).to be(leaf)
       end
 
     end

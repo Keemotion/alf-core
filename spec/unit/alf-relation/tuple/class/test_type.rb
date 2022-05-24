@@ -6,21 +6,21 @@ module Alf
     subject{ Tuple.type(heading) }
 
     it 'returns a subclass' do
-      subject.should be_a(Class)
-      subject.superclass.should be(Alf::Tuple)
+      expect(subject).to be_kind_of(Class)
+      expect(subject.superclass).to be(Alf::Tuple)
     end
 
     it 'coerces the heading' do
-      subject.heading.should be_a(Heading)
+      expect(subject.heading).to be_kind_of(Heading)
     end
 
     it 'sets the heading correctly' do
-      subject.heading.to_hash.should eq(heading)
+      expect(subject.heading.to_hash).to eq(heading)
     end
 
     it 'is aliased as []' do
-      Tuple[heading].should be_a(Class)
-      Tuple[heading].should eq(subject)
+      expect(Tuple[heading]).to be_kind_of(Class)
+      expect(Tuple[heading]).to eq(subject)
     end
 
   end

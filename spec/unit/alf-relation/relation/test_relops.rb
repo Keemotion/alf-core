@@ -7,67 +7,67 @@ module Alf
 
     it 'should have all relational operators installed' do
       Algebra::Operator.each do |op|
-        rel1.should respond_to(op.rubycase_name)
+        expect(rel1).to respond_to(op.rubycase_name)
       end
     end
 
     specify "project" do
-      rel1.project([]).should eq(Alf::Relation::DEE)
-      rel1.project([:sid], allbut: true).should eq(Alf::Relation::DEE)
+      expect(rel1.project([])).to eq(Alf::Relation::DEE)
+      expect(rel1.project([:sid], allbut: true)).to eq(Alf::Relation::DEE)
     end
 
     specify "allbut" do
-      rel1.allbut([:sid]).should eq(Alf::Relation::DEE)
+      expect(rel1.allbut([:sid])).to eq(Alf::Relation::DEE)
     end
 
     specify "extend" do
-      rel1.extend(x: lambda{ sid.downcase }).should == Alf::Relation([
+      expect(rel1.extend(x: lambda{ sid.downcase })).to eq(Alf::Relation([
         {sid: 'S1', x: 's1'},
         {sid: 'S2', x: 's2'},
         {sid: 'S3', x: 's3'}
-      ])
+      ]))
     end
 
     specify "union" do
-      (rel1 + rel1).should == rel1
-      (rel1 | rel1).should == rel1
-      (rel1 + rel2).should == Alf::Relation(sid: ['S1','S3','S2','S5'])
+      expect((rel1 + rel1)).to eq(rel1)
+      expect((rel1 | rel1)).to eq(rel1)
+      expect((rel1 + rel2)).to eq(Alf::Relation(sid: ['S1','S3','S2','S5']))
     end # union
 
     specify "difference" do
-      (rel1 - rel1).should == rel1.class.empty
-      (rel1 - rel2).should == Alf::Relation(sid: ['S1', 'S3'])
-      (rel2 - rel1).should == Alf::Relation(sid: 'S5')
+      expect(rel1 - rel1).to eq(rel1.class.empty)
+      expect(rel1 - rel2).to eq(Alf::Relation(sid: ['S1', 'S3']))
+      expect(rel2 - rel1).to eq(Alf::Relation(sid: 'S5'))
     end # difference
 
     specify "join" do
-      (rel1 * rel2).should == Alf::Relation(sid: 'S2')
-      (rel2 * rel1).should == Alf::Relation(sid: 'S2')
+      expect(rel1 * rel2).to eq(Alf::Relation(sid: 'S2'))
+      expect(rel2 * rel1).to eq(Alf::Relation(sid: 'S2'))
     end # join
 
     specify "intersect" do
-      (rel1 & rel2).should == Alf::Relation(sid: 'S2')
-      (rel2 & rel1).should == Alf::Relation(sid: 'S2')
+      expect((rel1 & rel2)).to eq(Alf::Relation(sid: 'S2'))
+      expect((rel2 & rel1)).to eq(Alf::Relation(sid: 'S2'))
     end # intersect
 
     specify "matching" do
-      (rel1 =~ rel2).should == Alf::Relation(sid: 'S2')
+      expect(rel1 =~ rel2).to eq(Alf::Relation(sid: 'S2'))
     end # intersect
 
     specify "not matching" do
-      (rel1 !~ rel2).should == Alf::Relation(sid: ['S1', 'S3'])
+      expect(rel1 !~ rel2).to eq(Alf::Relation(sid: ['S1', 'S3']))
     end # intersect
 
     specify "page" do
-      rel1.page([[:sid, :asc]], 1, page_size: 2).should == Alf::Relation(sid: ['S1', 'S2'])
-      rel1.page([[:sid, :asc]], -1, page_size: 2).should == Alf::Relation(sid: ['S2', 'S3'])
-      rel1.page([[:sid, :asc]], 2, page_size: 2).should == Alf::Relation(sid: ['S3'])
-      rel1.page([[:sid, :asc]], -2, page_size: 2).should == Alf::Relation(sid: ['S1'])
+      expect(rel1.page([[:sid, :asc]], 1, page_size: 2)).to eq(Alf::Relation(sid: ['S1', 'S2']))
+      expect(rel1.page([[:sid, :asc]], -1, page_size: 2)).to eq(Alf::Relation(sid: ['S2', 'S3']))
+      expect(rel1.page([[:sid, :asc]], 2, page_size: 2)).to eq(Alf::Relation(sid: ['S3']))
+      expect(rel1.page([[:sid, :asc]], -2, page_size: 2)).to eq(Alf::Relation(sid: ['S1']))
     end
 
     specify "frame" do
-      rel1.frame([[:sid, :asc]], 1, 2).should == Alf::Relation(sid: ['S2', 'S3'])
-      rel1.frame([[:sid, :asc]], 2, 12).should == Alf::Relation(sid: ['S3'])
+      expect(rel1.frame([[:sid, :asc]], 1, 2)).to eq(Alf::Relation(sid: ['S2', 'S3']))
+      expect(rel1.frame([[:sid, :asc]], 2, 12)).to eq(Alf::Relation(sid: ['S3']))
     end
 
   end

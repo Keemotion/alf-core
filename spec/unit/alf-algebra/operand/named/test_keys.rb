@@ -13,7 +13,7 @@ module Alf
         end
 
         it 'delegates to the underlying connection when bound' do
-          subject.should eq([:foo])
+          expect(subject).to eq([:foo])
         end
 
       end

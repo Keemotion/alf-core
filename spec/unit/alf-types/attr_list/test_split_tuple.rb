@@ -1,6 +1,6 @@
 require 'spec_helper'
 module Alf
-  describe AttrList, "split_tuple" do 
+  describe AttrList, "split_tuple" do
 
     let(:key){ AttrList.new [:a, :b] }
     let(:tuple){ {:a => 1, :b => 2, :c => 3} }
@@ -23,8 +23,8 @@ module Alf
     specify "the documentation example" do
       list = AttrList.new([:name])
       tuple = {:name => "Jones", :city => "London"}
-      list.split_tuple(tuple).should eq([{:name => "Jones"}, {:city => "London"}])
-      list.split_tuple(tuple, true).should eq([{:city => "London"}, {:name => "Jones"}])
+      expect(list.split_tuple(tuple)).to eq([{:name => "Jones"}, {:city => "London"}])
+      expect(list.split_tuple(tuple, true)).to eq([{:city => "London"}, {:name => "Jones"}])
     end
 
   end

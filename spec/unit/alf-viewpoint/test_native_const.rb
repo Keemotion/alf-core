@@ -7,15 +7,15 @@ module Alf
     it{ should be_a(Module) }
 
     it 'converts unknown names as named operands' do
-      subject.parse{
+      expect(subject.parse{
         suppliers
-      }.should be_a(Algebra::Operand::Named)
+      }).to be_kind_of(Algebra::Operand::Named)
     end
 
     it 'should allow being used in a Lispy' do
-      Lang::Parser::Lispy.new([subject]).parse{
+      expect(Lang::Parser::Lispy.new([subject]).parse{
         suppliers
-      }.should be_a(Algebra::Operand::Named)
+      }).to be_kind_of(Algebra::Operand::Named)
     end
 
   end

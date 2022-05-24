@@ -6,7 +6,7 @@ module Alf
       subject{ Viewpoint.parser }
 
       it 'returns an unbound Lispy' do
-        subject.connection.should be_nil
+        expect(subject.connection).to be_nil
       end
     end
 
@@ -14,7 +14,7 @@ module Alf
       subject{ Viewpoint.parser(12) }
 
       it 'returns an bound Lispy' do
-        subject.connection.should eq(12)
+        expect(subject.connection).to eq(12)
       end
     end
 

@@ -13,7 +13,7 @@ module Alf
         it { should be_a(Group) }
 
         it 'is !allbut by default' do
-          subject.allbut.should be_falsey
+          expect(subject.allbut).to be_falsey
         end
       end # --no-allbut
 
@@ -22,7 +22,7 @@ module Alf
         it { should be_a(Group) }
 
         it 'is allbut' do
-          subject.allbut.should be_truthy
+          expect(subject.allbut).to be_truthy
         end
       end # --allbut
 

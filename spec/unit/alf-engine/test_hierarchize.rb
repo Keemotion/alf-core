@@ -35,7 +35,7 @@ module Alf
 
       def are_equal(x, y)
         # same class
-        x.class.should eq(y.class)
+        expect(x.class).to eq(y.class)
 
         # take tuples
         got = x.to_a.sort{|t,u| t[:id] <=> u[:id] }
@@ -44,26 +44,26 @@ module Alf
         # compare attributes
         got.zip(exp) do |e,f|
           [:id, :parent, :name].each do |a|
-            e[a].should eq(f[a])
+            expect(e[a]).to eq(f[a])
           end
           are_equal(e[:subs], f[:subs])
-          e[:subs].to_set.should eq(f[:subs].to_set)
-          e[:subs].should eq(f[:subs])
+          expect(e[:subs].to_set).to eq(f[:subs].to_set)
+          expect(e[:subs]).to eq(f[:subs])
         end
 
         true
       end
 
       it 'has expected result type' do
-        resulting_relation.class.should eq(type)
+        expect(resulting_relation.class).to eq(type)
       end
 
       it 'has pair-wise equal tuples' do
-        are_equal(resulting_relation, expected).should be_truthy
+        expect(are_equal(resulting_relation, expected)).to be_truthy
       end
 
       it 'computes expected relation' do
-        resulting_relation.should eq(expected)
+        expect(resulting_relation).to eq(expected)
       end
 
     end

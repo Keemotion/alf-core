@@ -10,7 +10,7 @@ module Alf
       let(:attr_list){ AttrList.new([]) }
 
       it 'projects as expected' do
-        subject.should be(Relation::DUM.class)
+        expect(subject).to be(Relation::DUM.class)
       end
     end
 
@@ -18,7 +18,7 @@ module Alf
       let(:attr_list){ AttrList.new([:name]) }
 
       it 'projects as expected' do
-        subject.should eq(Relation[name: String])
+        expect(subject).to eq(Relation[name: String])
       end
     end
 
@@ -26,7 +26,7 @@ module Alf
       let(:attr_list){ AttrList.new([:name, :status]) }
 
       it 'reuses the initial instance' do
-        subject.should be(type)
+        expect(subject).to be(type)
       end
     end
 

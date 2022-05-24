@@ -10,25 +10,25 @@ module Alf
           subject{ :"to_#{name}" }
           it 'should exist' do
             meths = ObjectOriented.instance_methods.map(&:to_sym)
-            meths.should include(subject)
+            expect(meths).to include(subject)
           end
 
           it 'returns a string by default' do
-            send(subject).should be_a(String)
+            expect(send(subject)).to be_kind_of(String)
           end
 
           it 'renders the values at first glance' do
-            send(subject).should =~ /Adams/
+            expect(send(subject)).to match(/Adams/)
           end
 
           it 'returns the passed IO if any' do
             io = StringIO.new
-            send(subject, io).should eq(io)
+            expect(send(subject, io)).to eq(io)
           end
 
           it 'supports options' do
             io = StringIO.new
-            send(subject, {:sort => [:name]}, io).should eq(io)
+            expect(send(subject, {:sort => [:name]}, io)).to eq(io)
           end
         end
 

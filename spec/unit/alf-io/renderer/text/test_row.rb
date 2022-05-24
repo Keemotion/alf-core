@@ -2,15 +2,15 @@ require 'spec_helper'
 module Alf
   class Renderer::Text
     describe Row do
-     
+
       let(:row){ Row.new(values) }
 
       describe "when single values are used only" do
 
         let(:values){ [ 10/3.0, true ] }
         specify "rendering_lines" do
-          row.rendering_lines.should == ["| 3.333 | true |"]
-          row.rendering_lines([10,5]).should == ["|      3.333 | true  |"]
+          expect(row.rendering_lines).to eq(["| 3.333 | true |"])
+          expect(row.rendering_lines([10,5])).to eq(["|      3.333 | true  |"])
         end
 
       end
@@ -20,7 +20,7 @@ module Alf
         let(:values){ [ 10/3.0, [1, 2, 3] ] }
 
         specify "rendering_lines" do
-          row.rendering_lines.should == ["| 3.333 | [1, 2, 3] |"]
+          expect(row.rendering_lines).to eq(["| 3.333 | [1, 2, 3] |"])
         end
 
       end

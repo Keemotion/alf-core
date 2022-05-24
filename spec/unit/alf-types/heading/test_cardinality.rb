@@ -5,8 +5,8 @@ module Alf
     subject{ heading.cardinality }
 
     after do
-      subject.should eq(heading.count)
-      subject.should eq(heading.size)
+      expect(subject).to eq(heading.count)
+      expect(subject).to eq(heading.size)
     end
 
     context 'on an empty heading' do
@@ -21,5 +21,5 @@ module Alf
       it{ should eq(1) }
     end
 
-  end 
+  end
 end

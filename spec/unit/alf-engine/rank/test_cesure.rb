@@ -23,7 +23,7 @@ module Alf
         ]}
         it 'should rank as expected' do
           op = Engine::Rank::Cesure.new(input, AttrList[:weight], :rank)
-          op.to_a.should eq(expected.to_a)
+          expect(op.to_a).to eq(expected.to_a)
         end
       end
 
@@ -38,7 +38,7 @@ module Alf
         ]}
         it 'should rank as expected' do
           op = Engine::Rank::Cesure.new(input, AttrList[:weight, :pid], :rank)
-          op.to_a.should eq(expected.to_a)
+          expect(op.to_a).to eq(expected.to_a)
         end
       end
 

@@ -3,7 +3,7 @@ module Alf
   class Optimizer
     describe Search do
 
-      let(:search){ 
+      let(:search){
         Search.new(processor, Algebra::Project)
       }
 
@@ -35,11 +35,11 @@ module Alf
         let(:expr){ clip(project(an_operand, [:foo]), [:foo]) }
 
         specify "the top one should be a Clip" do
-          subject.should be_a(Algebra::Clip)
+          expect(subject).to be_kind_of(Algebra::Clip)
         end
 
         specify "the internal one has been seen by processor" do
-          subject.operand.should be(new_operand)
+          expect(subject.operand).to be(new_operand)
         end
       end
 

@@ -10,9 +10,9 @@ module Alf
       it{ should be(opts) }
 
       it 'should prevent further modifications' do
-        lambda{
+        expect(lambda{
           subject.schema_cache = false
-        }.should raise_error(/can't modify frozen/)
+        }).to raise_error(/can't modify frozen/)
       end
 
     end

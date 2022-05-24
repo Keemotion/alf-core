@@ -15,7 +15,7 @@ module Alf
 
       it 'is as expected' do
         subject
-        rv.value.should eq(after)
+        expect(rv.value).to eq(after)
       end
 
     end

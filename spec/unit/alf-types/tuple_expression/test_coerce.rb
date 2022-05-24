@@ -10,15 +10,15 @@ module Alf
 
     describe "with nil" do
       let(:arg){ nil }
-      specify{ lambda{ subject }.should raise_error(ArgumentError) }
+      specify{ expect(lambda{ subject }).to raise_error(ArgumentError) }
     end
 
     describe "with a Symbol" do
       let(:arg){ :status }
       it { should be_a(TupleExpression) }
       specify{
-        subject.evaluate(scope).should eql(10)
-        subject.source.should eq("t.status")
+        expect(subject.evaluate(scope)).to eql(10)
+        expect(subject.source).to eq("t.status")
       }
     end
 
@@ -26,8 +26,8 @@ module Alf
       let(:arg){ lambda{ :hello } }
       it { should be_a(TupleExpression) }
       specify{
-        subject.evaluate(scope).should eql(:hello)
-        subject.source.should be_nil
+        expect(subject.evaluate(scope)).to eql(:hello)
+        expect(subject.source).to be_nil
       }
     end
 

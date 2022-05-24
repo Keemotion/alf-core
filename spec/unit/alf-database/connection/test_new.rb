@@ -8,8 +8,8 @@ module Alf
       subject{ Connection.new(self, &connection_handler) }
 
       it 'should open the physical connection right away' do
-        subject.should_not be_closed
-        subject.adapter_connection.should eq("a connection")
+        expect(subject).to_not be_closed
+        expect(subject.adapter_connection).to eq("a connection")
       end
 
     end

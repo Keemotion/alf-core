@@ -7,8 +7,8 @@ module Alf
     describe "with full args" do
       let(:args){[ [], {:opts => true} ]}
       specify {
-        subject.input.should eq([])
-        subject.options.should eq(:opts => true)
+        expect(subject.input).to eq([])
+        expect(subject.options).to eq(:opts => true)
       }
     end
 
@@ -21,16 +21,16 @@ module Alf
       describe "without option overriding" do
         let(:args){[ [], {:opts => true} ]}
         specify {
-          subject.input.should eq([])
-          subject.options.should eq(:opts => true, :from => :subclass)
+          expect(subject.input).to eq([])
+          expect(subject.options).to eq(:opts => true, :from => :subclass)
         }
       end
 
       describe "with option overriding" do
         let(:args){[ [], {:opts => true, :from => :overrided} ]}
         specify {
-          subject.input.should eq([])
-          subject.options.should eq(:opts => true, :from => :overrided)
+          expect(subject.input).to eq([])
+          expect(subject.options).to eq(:opts => true, :from => :overrided)
         }
       end
 

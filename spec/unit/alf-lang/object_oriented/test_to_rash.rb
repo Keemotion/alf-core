@@ -12,12 +12,12 @@ module Alf
       }
 
       before do
-        subject.should be_a(Array)
-        subject.each{|t| t.should be_a(Hash)}
+        expect(subject).to be_kind_of(Array)
+        subject.each{|t| expect(t).to be_a(Hash)}
       end
 
       after do
-        Relation(subject).should eq(_self_operand)
+        expect(Relation(subject)).to eq(_self_operand)
       end
 
       context 'when an ordering is specified' do
@@ -25,7 +25,7 @@ module Alf
         let(:options){ {:sort => ordering} }
         it 'respects it' do
           expected = supplier_names.sort.reverse
-          subject.map{|t| t[:name]}.should eq(expected)
+          expect(subject.map{|t| t[:name]}).to eq(expected)
         end
       end
 

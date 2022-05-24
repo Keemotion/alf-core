@@ -9,7 +9,7 @@ module Alf
         subject{ metadata.add_members([1, 2]) }
 
         it 'sets members' do
-          subject.members.should eq([1, 2])
+          expect(subject.members).to eq([1, 2])
         end
       end
 
@@ -19,7 +19,7 @@ module Alf
         subject{ metadata.add_members([3, 4]) }
 
         it 'sets members' do
-          subject.members.should eq([1, 2, 3, 4])
+          expect(subject.members).to eq([1, 2, 3, 4])
         end
       end
 
@@ -29,7 +29,7 @@ module Alf
         subject{ metadata.add_members([1, 4]) }
 
         it 'sets members' do
-          subject.members.should eq([1, 2, 4])
+          expect(subject.members).to eq([1, 2, 4])
         end
       end
 

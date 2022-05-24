@@ -6,7 +6,7 @@ module Alf
       subject{ op.type_check }
 
       context 'when ok' do
-        let(:op){ 
+        let(:op){
           unwrap(wrap(suppliers, [:status, :city], :extra), :extra)
         }
 
@@ -14,28 +14,28 @@ module Alf
       end
 
       context 'when not a grouped attribute' do
-        let(:op){ 
+        let(:op){
           unwrap(suppliers, :sid)
         }
 
         it 'should raise an error' do
-          lambda{
+          expect(lambda{
             subject
-          }.should raise_error(TypeCheckError, /not a tuple-valued attribute `sid`/)
+          }).to raise_error(TypeCheckError, /not a tuple-valued attribute `sid`/)
         end
       end
 
       context 'when name clash resulting' do
-        let(:op){ 
+        let(:op){
           inside = wrap(suppliers, [:status, :city], :extra)
           inside = rename(inside, :sid => :city)
           unwrap(inside, :extra)
         }
 
         it 'should raise an error' do
-          lambda{
+          expect(lambda{
             subject
-          }.should raise_error(TypeCheckError, /cannot override `city`/)
+          }).to raise_error(TypeCheckError, /cannot override `city`/)
         end
       end
 

@@ -6,59 +6,59 @@ module Alf
     describe "common_super_type" do
 
       it 'works on same types' do
-        common_super_type(String, String).should eq(String)
+        expect(common_super_type(String, String)).to eq(String)
       end
 
       it 'works with related types' do
-        common_super_type(Integer, Integer).should eq(Integer)
-        common_super_type(Integer, Float).should eq(Numeric)
+        expect(common_super_type(Integer, Integer)).to eq(Integer)
+        expect(common_super_type(Integer, Float)).to eq(Numeric)
       end
 
       it 'works with true/false/boolean classes' do
-        common_super_type(TrueClass, FalseClass).should eq(Boolean)
-        common_super_type(TrueClass, Boolean).should eq(Boolean)
-        common_super_type(Boolean, TrueClass).should eq(Boolean)
-        common_super_type(Boolean, Boolean).should eq(Boolean)
+        expect(common_super_type(TrueClass, FalseClass)).to eq(Boolean)
+        expect(common_super_type(TrueClass, Boolean)).to eq(Boolean)
+        expect(common_super_type(Boolean, TrueClass)).to eq(Boolean)
+        expect(common_super_type(Boolean, Boolean)).to eq(Boolean)
       end
 
       it 'fallbacks to Object' do
-        common_super_type(Integer, String).should eq(Object)
+        expect(common_super_type(Integer, String)).to eq(Object)
       end
 
       it 'works nicely on same relation types' do
         left  = Relation[pid: String]
         right = Relation[pid: String]
-        common_super_type(left, right).should eq(left)
+        expect(common_super_type(left, right)).to eq(left)
       end
 
       it 'works nicely on compatible relation types' do
         left  = Relation[pid: Integer]
         right = Relation[pid: Integer]
-        common_super_type(left, right).should eq(right)
+        expect(common_super_type(left, right)).to eq(right)
       end
 
       it 'works nicely on same tuple types' do
         left  = Tuple[pid: String]
         right = Tuple[pid: String]
-        common_super_type(left, right).should eq(left)
+        expect(common_super_type(left, right)).to eq(left)
       end
 
       it 'works nicely on compatible relation types' do
         left  = Tuple[pid: Integer]
         right = Tuple[pid: Integer]
-        common_super_type(left, right).should eq(right)
+        expect(common_super_type(left, right)).to eq(right)
       end
 
       it 'fallbacks to Tuple when tuple types do not agree' do
         left  = Tuple[pid: String]
         right = Tuple[{}]
-        common_super_type(left, right).should eq(Tuple)
+        expect(common_super_type(left, right)).to eq(Tuple)
       end
 
       it 'fallbacks to Relation when relation types do not agree' do
         left  = Relation[pid: String]
         right = Relation[{}]
-        common_super_type(left, right).should eq(Relation)
+        expect(common_super_type(left, right)).to eq(Relation)
       end
     end
 

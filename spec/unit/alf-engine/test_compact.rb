@@ -4,7 +4,7 @@ module Alf
     describe Compact do
 
       it 'should work on an empty operand' do
-        Compact.new([]).to_a.should eq([])
+        expect(Compact.new([]).to_a).to eq([])
       end
 
       it 'should work when no duplicate is present' do
@@ -12,7 +12,7 @@ module Alf
           {:name => "Jones"},
           {:name => "Smith"}
         ]
-        Compact.new(rel).to_set.should eq(rel.to_set)
+        expect(Compact.new(rel).to_set).to eq(rel.to_set)
       end
 
       it 'should work when duplicates are present' do
@@ -25,7 +25,7 @@ module Alf
           {:name => "Jones"},
           {:name => "Smith"}
         ]
-        Compact.new(rel).to_set.should eq(exp.to_set)
+        expect(Compact.new(rel).to_set).to eq(exp.to_set)
       end
 
     end

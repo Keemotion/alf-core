@@ -26,7 +26,7 @@ module Alf
         ]
         by = AttrList[:a]
         op = Engine::Quota::Cesure.new(Leaf.new(input), by, sums)
-        op.to_a.should eq(expected)
+        expect(op.to_a).to eq(expected)
       end
 
     end

@@ -18,17 +18,17 @@ module Alf
       it_should_behave_like "a traceable compiled"
 
       it 'has a Compact cog' do
-        subject.should be_a(Engine::Compact)
+        expect(subject).to be_kind_of(Engine::Compact)
       end
 
       it 'has a Concat sub-cog' do
-        subject.operand.should be_a(Engine::Concat)
+        expect(subject.operand).to be_kind_of(Engine::Concat)
       end
 
       it 'has the correct sub-sub-cogs' do
         ops = subject.operand.operands
-        ops.first.should be(leaf)
-        ops.last.should be_a(Engine::Clip)
+        expect(ops.first).to be(leaf)
+        expect(ops.last).to be_kind_of(Engine::Clip)
       end
 
     end

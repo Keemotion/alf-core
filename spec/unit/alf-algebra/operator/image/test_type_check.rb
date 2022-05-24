@@ -6,7 +6,7 @@ module Alf
       subject{ op.type_check }
 
       context 'when ok' do
-        let(:op){ 
+        let(:op){
           image(suppliers, supplies, :supplying)
         }
 
@@ -14,14 +14,14 @@ module Alf
       end
 
       context 'when diasllowed overriding' do
-        let(:op){ 
+        let(:op){
           image(suppliers, supplies, :sid)
         }
 
         it 'should raise an error' do
-          lambda{
+          expect(lambda{
             subject
-          }.should raise_error(TypeCheckError, /cannot override `sid`/)
+          }).to raise_error(TypeCheckError, /cannot override `sid`/)
         end
       end
 

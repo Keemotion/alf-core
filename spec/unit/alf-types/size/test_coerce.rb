@@ -4,18 +4,18 @@ module Alf
     describe Size, "coerce" do
 
       it 'should coerce strings correctly' do
-        Size.coerce("0").should eq(0)
-        Size.coerce("10").should eq(10)
+        expect(Size.coerce("0")).to eq(0)
+        expect(Size.coerce("10")).to eq(10)
       end
 
       it 'should raise TypeError on negative integers' do
-        lambda{ Size.coerce("-1") }.should raise_error(TypeError)
+        expect(lambda{ Size.coerce("-1") }).to raise_error(TypeError)
       end
 
       it 'should raise on non integers' do
-        lambda{
+        expect(lambda{
           Size.coerce("hello")
-        }.should raise_error(TypeError)
+        }).to raise_error(TypeError)
       end
 
     end

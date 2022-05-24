@@ -18,18 +18,18 @@ shared_examples_for "a pass-through expression for restrict" do
   # end
 
   specify "optimized leads to the initial operator" do
-    optimized.should be_a(subject.class)
+    expect(optimized).to be_kind_of(subject.class)
   end
 
   specify "optimized signature is unchanged" do
-    optimized.signature.collect_on(subject).should eq(subject.signature.collect_on(subject))
+    expect(optimized.signature.collect_on(subject)).to eq(subject.signature.collect_on(subject))
   end
 
   specify "the restriction has been pushed with same predicate" do
     optimized.operands.each do |operand|
-      operand.should be_a(Alf::Algebra::Restrict)
+      expect(operand).to be_kind_of(Alf::Algebra::Restrict)
       repl = defined?(replaced_predicate) ? replaced_predicate : restriction.predicate
-      operand.predicate.should eq(repl)
+      expect(operand.predicate).to eq(repl)
     end
   end
 

@@ -6,7 +6,7 @@ module Alf
       subject{ op.type_check }
 
       context 'when ok' do
-        let(:op){ 
+        let(:op){
           not_matching(suppliers, suppliers)
         }
 
@@ -20,7 +20,7 @@ module Alf
         let(:left){
           an_operand.with_heading(bar: String)
         }
-        let(:op){ 
+        let(:op){
           not_matching(left, right)
         }
 
@@ -34,7 +34,7 @@ module Alf
         let(:left){
           an_operand.with_heading(sid: String)
         }
-        let(:op){ 
+        let(:op){
           not_matching(left, right)
         }
 
@@ -42,9 +42,9 @@ module Alf
           subject{ op.type_check(strict: true) }
 
           it 'should raise an error' do
-            lambda{
+            expect(lambda{
               subject
-            }.should raise_error(TypeCheckError, /heading mismatch/)
+            }).to raise_error(TypeCheckError, /heading mismatch/)
           end
         end
 
@@ -52,7 +52,7 @@ module Alf
           subject{ op.type_check }
 
           it 'should not raise an error' do
-            subject.should eq(op.heading)
+            expect(subject).to eq(op.heading)
           end
         end
       end

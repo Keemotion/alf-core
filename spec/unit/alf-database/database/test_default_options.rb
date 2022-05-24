@@ -7,7 +7,7 @@ module Alf
     it_should_behave_like "a facade on database options"
 
     it 'should allow default options to be consulted' do
-      subject.default_options.should be_a(Database::Options)
+      expect(subject.default_options).to be_kind_of(Database::Options)
     end
 
   end

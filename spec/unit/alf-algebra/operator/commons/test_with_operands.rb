@@ -18,23 +18,23 @@ module Alf
       end
 
       it "replaces the operands but keeps params unchanged" do
-        subject.operands.first.should be(operand_2)
-        subject.attributes.should eq(AttrList[:foo])
-        subject.allbut.should be_truthy
+        expect(subject.operands.first).to be(operand_2)
+        expect(subject.attributes).to eq(AttrList[:foo])
+        expect(subject.allbut).to be_truthy
       end
 
       it "keeps the original unchanged" do
-        operator.operands.first.should be(operand_1)
-        subject.attributes.should eq(AttrList[:foo])
-        subject.allbut.should be_truthy
+        expect(operator.operands.first).to be(operand_1)
+        expect(subject.attributes).to eq(AttrList[:foo])
+        expect(subject.allbut).to be_truthy
       end
 
       it 'does not keep computed heading from the original' do
-        subject.heading.should eq(Heading.coerce(:name => String))
+        expect(subject.heading).to eq(Heading.coerce(:name => String))
       end
 
       it 'does not keep computed keys from the original' do
-        subject.keys.should eq(Keys[ [:name] ])
+        expect(subject.keys).to eq(Keys[ [:name] ])
       end
 
     end

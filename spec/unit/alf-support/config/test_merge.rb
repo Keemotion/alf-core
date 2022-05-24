@@ -4,7 +4,7 @@ module Alf
     describe Config, "merge" do
 
       let(:config_class){
-        Class.new(Config){ 
+        Class.new(Config){
           option :ready, Boolean, true
           option :hello, String, "world"
         }
@@ -16,17 +16,17 @@ module Alf
       it{ should be_a(config_class) }
 
       it 'is not the original' do
-        subject.should_not be(config)
+        expect(subject).to_not be(config)
       end
 
       it 'merges the new options' do
-        subject.ready?.should eq(false)
-        subject.hello.should eq("world")
+        expect(subject.ready?).to eq(false)
+        expect(subject.hello).to eq("world")
       end
 
       it 'does not touch the original' do
-        config.ready?.should eq(true)
-        config.hello.should eq("world")
+        expect(config.ready?).to eq(true)
+        expect(config.hello).to eq("world")
       end
 
     end

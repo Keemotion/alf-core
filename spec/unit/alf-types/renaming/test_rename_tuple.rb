@@ -2,12 +2,12 @@ require 'spec_helper'
 module Alf
   describe Renaming, "rename_tuple" do
 
-    let(:r){ Renaming.coerce(["old", "new"]) } 
+    let(:r){ Renaming.coerce(["old", "new"]) }
 
     it 'should rename correctly' do
       tuple    = {:old => :a, :other => :b}
       expected = {:new => :a, :other => :b}
-      r.rename_tuple(tuple).should eq(expected)
+      expect(r.rename_tuple(tuple)).to eq(expected)
     end
 
   end # Renaming

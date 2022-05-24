@@ -18,13 +18,13 @@ shared_examples_for 'a cached connection method' do
   end
 
   it 'delegates the call to the connection' do
-    subject.should eq(expected)
+    expect(subject).to eq(expected)
   end
 
   it 'does caches the result' do
-    subject.should eq(expected)
-    subject.should eq(expected)
-    subject.should eq(expected)
+    expect(subject).to eq(expected)
+    expect(subject).to eq(expected)
+    expect(subject).to eq(expected)
   end
 
 end

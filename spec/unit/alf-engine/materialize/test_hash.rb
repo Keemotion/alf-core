@@ -11,20 +11,20 @@ module Alf
 
       it 'should act as a normal cog' do
         op = Materialize::Hash.new(operand, AttrList[:name])
-        op.to_set.should eq(operand.to_set)
+        expect(op.to_set).to eq(operand.to_set)
       end
 
       it 'should allow allbut hashing' do
         op = Materialize::Hash.new(operand, AttrList[:city], true)
-        op.to_set.should eq(operand.to_set)
+        expect(op.to_set).to eq(operand.to_set)
       end
 
       it 'should allow lazy projection attributes' do
-        op = Materialize::Hash.new(operand, lambda{|tuple| 
-          tuple.should eq({:name => "Smith", :city => "London"})
+        op = Materialize::Hash.new(operand, lambda{|tuple|
+          expect(tuple).to eq({:name => "Smith", :city => "London"})
           AttrList[:name]
          })
-        op.to_set.should eq(operand.to_set)
+        expect(op.to_set).to eq(operand.to_set)
       end
 
       it 'should have a each_pair method' do
@@ -33,7 +33,7 @@ module Alf
         op.each_pair do |k,v|
           seen << [k,v]
         end
-        seen.to_set.should eq([
+        expect(seen.to_set).to eq([
           [{:name => "Smith"}, operand.select{|t| t[:name] == "Smith"}],
           [{:name => "Jones"}, operand.select{|t| t[:name] == "Jones"}]
         ].to_set)
@@ -43,19 +43,19 @@ module Alf
 
         it 'should return the expected tuples' do
           op = Materialize::Hash.new(operand, AttrList[:name])
-          op[{:name => "Jones"}].to_a.should eq([
+          expect(op[{:name => "Jones"}].to_a).to eq([
             {:name => "Jones", :city => "Paris"},
           ])
-          op[{:name => "Smith"}].to_a.should eq([
+          expect(op[{:name => "Smith"}].to_a).to eq([
             {:name => "Smith", :city => "London"},
             {:name => "Smith", :city => "Athens"},
           ])
-          op[{:name => "NoSuchOne"}].to_a.should eq([])
+          expect(op[{:name => "NoSuchOne"}].to_a).to eq([])
         end
 
         it 'should allow late projection' do
           op = Materialize::Hash.new(operand, AttrList[:name])
-          op[{:name => "Smith", :city => "London"}, true].to_a.should eq([
+          expect(op[{:name => "Smith", :city => "London"}, true].to_a).to eq([
             {:name => "Smith", :city => "London"},
             {:name => "Smith", :city => "Athens"},
           ])
@@ -63,7 +63,7 @@ module Alf
 
         it 'late projection should work with allbut indexing' do
           op = Materialize::Hash.new(operand, AttrList[:city], true)
-          op[{:name => "Smith", :city => "London"}, true].to_a.should eq([
+          expect(op[{:name => "Smith", :city => "London"}, true].to_a).to eq([
             {:name => "Smith", :city => "London"},
             {:name => "Smith", :city => "Athens"},
           ])

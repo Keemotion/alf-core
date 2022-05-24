@@ -4,7 +4,7 @@ module Alf
     describe Aggregate do
 
       it 'should work on an empty operand' do
-        Autonum.new(Leaf.new([]), Summarization[{}]).to_a.should eq([])
+        expect(Autonum.new(Leaf.new([]), Summarization[{}]).to_a).to eq([])
       end
 
       it 'should work on a non empty operand' do
@@ -17,10 +17,10 @@ module Alf
         exp = [
           {:size => 2, :total => 22.0}
         ]
-        Aggregate.new(rel, agg).to_a.should eq(exp)
+        expect(Aggregate.new(rel, agg).to_a).to eq(exp)
       end
 
     end
   end # module Engine
-end # module Alf    
+end # module Alf
 

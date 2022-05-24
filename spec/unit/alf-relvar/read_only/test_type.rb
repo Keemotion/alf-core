@@ -9,7 +9,7 @@ module Alf
       subject{ rv.type }
 
       it 'is as expected' do
-        subject.should eq(Relation[id: Integer])
+        expect(subject).to eq(Relation[id: Integer])
       end
 
     end

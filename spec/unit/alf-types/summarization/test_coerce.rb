@@ -12,18 +12,18 @@ module Alf
     describe "from a Hash" do
       let(:arg){ { :s => Aggregator.sum{ qty }, :m => Aggregator.max{ size } } }
       it{ should be_a(Summarization) }
-      specify{ 
-        subject.to_hash.keys.to_set.should eq([:s, :m].to_set)
-        subject.to_hash.values.all?{|v| v.should be_a(Aggregator) }
+      specify{
+        expect(subject.to_hash.keys.to_set).to eq([:s, :m].to_set)
+        subject.to_hash.values.all?{|v| expect(v).to be_a(Aggregator) }
       }
     end
 
     describe "from an Array" do
       let(:arg){ ["s", Aggregator.sum{ qty }, "m", Aggregator.max{ size }] }
       it{ should be_a(Summarization) }
-      specify{ 
-        subject.to_hash.keys.to_set.should eq([:s, :m].to_set)
-        subject.to_hash.values.all?{|v| v.should be_a(Aggregator) }
+      specify{
+        expect(subject.to_hash.keys.to_set).to eq([:s, :m].to_set)
+        subject.to_hash.values.all?{|v| expect(v).to be_a(Aggregator) }
       }
     end
 

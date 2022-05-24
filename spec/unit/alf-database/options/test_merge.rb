@@ -10,15 +10,15 @@ module Alf
       it{ should be_a(Options) }
 
       it 'is not the original' do
-        subject.should_not be(opts)
+        expect(subject).to_not be(opts)
       end
 
       it 'merges the new options' do
-        subject.schema_cache?.should eq(false)
+        expect(subject.schema_cache?).to eq(false)
       end
 
       it 'does not touch the original' do
-        opts.schema_cache?.should eq(true)
+        expect(opts.schema_cache?).to eq(true)
       end
 
     end

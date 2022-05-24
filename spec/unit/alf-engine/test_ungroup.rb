@@ -20,7 +20,7 @@ module Alf
       ]}
 
       it 'should ungroup specified attribute' do
-        Ungroup.new(input, :suppliers).to_a.should eq(expected)
+        expect(Ungroup.new(input, :suppliers).to_a).to eq(expected)
       end
 
     end

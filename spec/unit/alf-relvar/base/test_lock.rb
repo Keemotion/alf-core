@@ -14,7 +14,7 @@ module Alf
 
       it 'delegates the call to the connection' do
         subject
-        @seen.should eq([:suppliers, :exclusive])
+        expect(@seen).to eq([:suppliers, :exclusive])
       end
 
     end

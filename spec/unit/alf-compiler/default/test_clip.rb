@@ -14,15 +14,15 @@ module Alf
       it_should_behave_like "a traceable compiled"
 
       it 'has a Clip cog' do
-        subject.should be_a(Engine::Clip)
+        expect(subject).to be_kind_of(Engine::Clip)
       end
 
       it 'has the correct clipping attributes' do
-        subject.attributes.should eq(AttrList[:a])
+        expect(subject.attributes).to eq(AttrList[:a])
       end
 
       it 'has the correct sub-cog' do
-        subject.operand.should be(leaf)
+        expect(subject.operand).to be(leaf)
       end
 
     end

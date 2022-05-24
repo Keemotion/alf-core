@@ -3,24 +3,24 @@ module Alf
   describe AttrName, "===" do
 
     it "should allow normal names" do
-      (AttrName === :city).should be_truthy
+      expect((AttrName === :city)).to be_truthy
     end
 
     it "should allow underscores" do
-      (AttrName === :my_city).should be_truthy
+      expect((AttrName === :my_city)).to be_truthy
     end
 
     it "should allow numbers" do
-      (AttrName === :city2).should be_truthy
+      expect((AttrName === :city2)).to be_truthy
     end
 
     it "should allow question marks and bang" do
-      (AttrName === :big?).should be_truthy
-      (AttrName === :big!).should be_truthy
+      expect((AttrName === :big?)).to be_truthy
+      expect((AttrName === :big!)).to be_truthy
     end
 
     it "should not allow strange attribute names" do
-      (AttrName === "$$$".to_sym).should be_falsey
+      expect(AttrName === "$$$".to_sym).to be_falsey
     end
 
   end

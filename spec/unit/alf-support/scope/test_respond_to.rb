@@ -14,7 +14,7 @@ module Alf
         it_behaves_like "A scope"
 
         it "responds to helpers' methods" do
-          subject.respond_to?(:world).should be_truthy
+          expect(subject.respond_to?(:world)).to be_truthy
         end
       end
 
@@ -24,7 +24,7 @@ module Alf
         it_behaves_like "A scope"
 
         it "responds to parent scope methods" do
-          subject.respond_to?(:world).should be_truthy
+          expect(subject.respond_to?(:world)).to be_truthy
         end
       end
 

@@ -18,19 +18,19 @@ module Alf
       it_should_behave_like "a traceable compiled"
 
       it 'has a Join::Hash cog' do
-        subject.should be_a(Engine::Semi::Hash)
+        expect(subject).to be_kind_of(Engine::Semi::Hash)
       end
 
       it 'has the correct left sub-cog' do
-        subject.left.should be(leaf)
+        expect(subject.left).to be(leaf)
       end
 
       it 'has the correct right sub-cog' do
-        subject.right.should be_a(Engine::Compact)
+        expect(subject.right).to be_kind_of(Engine::Compact)
       end
 
       it 'has the correct predicate' do
-        subject.predicate.should be_falsey
+        expect(subject.predicate).to be_falsey
       end
 
     end

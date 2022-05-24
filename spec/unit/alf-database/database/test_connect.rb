@@ -8,27 +8,27 @@ module Alf
       it{ should be_a(Database::Connection) }
 
       it 'should not be closed' do
-        subject.should_not be_closed
+        expect(subject).to_not be_closed
       end
     end
 
     context 'with a block' do
       subject{
-        Database.connect(Path.dir){|c| 
-          c.should be_a(Database::Connection)
-          c.should_not be_closed
+        Database.connect(Path.dir){|c|
+          expect(c).to be_kind_of(Database::Connection)
+          expect(c).to_not be_closed
           @seen = c
         }
       }
 
       it 'yields the block with a connection instance' do
         subject
-        @seen.should be_a(Database::Connection)
+        expect(@seen).to be_kind_of(Database::Connection)
       end
 
       it 'close the connection at the end' do
         subject
-        @seen.should be_closed
+        expect(@seen).to be_closed
       end
     end
 
@@ -36,7 +36,7 @@ module Alf
       subject{ Database.connect(Path.dir, schema_cache: false) }
 
       it 'overrides default options' do
-        subject.schema_cache?.should eq(false)
+        expect(subject.schema_cache?).to eq(false)
       end
     end
 

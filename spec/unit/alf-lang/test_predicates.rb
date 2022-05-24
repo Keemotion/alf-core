@@ -5,11 +5,11 @@ module Alf
       include Predicates
 
       it "eq should factor a predicate" do
-        eq(:x, 12).should be_a(Alf::Predicate)
+        expect(eq(:x, 12)).to be_kind_of(Alf::Predicate)
       end
 
       it "between should factor a predicate" do
-        between(:x, 2, 3).should be_a(Alf::Predicate)
+        expect(between(:x, 2, 3)).to be_kind_of(Alf::Predicate)
       end
 
     end

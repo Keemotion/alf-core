@@ -13,7 +13,7 @@ module Alf
       }
 
       before do
-        subject.should be_a(Sexpr)
+        expect(subject).to be_kind_of(Sexpr)
       end
 
       describe "tautology" do

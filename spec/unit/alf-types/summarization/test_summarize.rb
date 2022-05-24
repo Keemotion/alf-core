@@ -8,7 +8,7 @@ module Alf
         {:qty => 5,  :size => 5}
       ]
       sum = Summarization.coerce(["s", Aggregator.avg{ qty }, "m", Aggregator.max{ size }])
-      sum.summarize(rel).should eq({:s => 7.5, :m => 12})
+      expect(sum.summarize(rel)).to eq({:s => 7.5, :m => 12})
     end
 
   end

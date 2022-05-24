@@ -10,7 +10,7 @@ module Alf
       it{ should be_a(Proc) }
 
       it 'has arity 1' do
-        subject.arity.should eq(1)
+        expect(subject.arity).to eq(1)
       end
 
     end

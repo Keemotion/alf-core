@@ -10,15 +10,15 @@ module Alf
     ]}
 
     it "should keep track of registered aggregators" do
-      Aggregator.all.should be_a(Array)
-      Aggregator.all.should_not be_empty
+      expect(Aggregator.all).to be_kind_of(Array)
+      expect(Aggregator.all).to_not be_empty
       Aggregator.each do |agg|
-        agg.should be_a(Class)
+        expect(agg).to be_kind_of(Class)
       end
     end
 
     it "should allow specific tuple computations" do
-      Aggregator.sum{ 1.0 * a * sign }.aggregate(input).should == -3.0
+      expect(Aggregator.sum{ 1.0 * a * sign }.aggregate(input)).to eq(-3.0)
     end
 
     describe "coerce" do

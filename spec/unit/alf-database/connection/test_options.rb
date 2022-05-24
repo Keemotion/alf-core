@@ -8,7 +8,7 @@ module Alf
       it_should_behave_like "a facade on database options"
 
       it 'should allow options to be consulted' do
-        subject.options.should be_a(Database::Options)
+        expect(subject.options).to be_kind_of(Database::Options)
       end
 
     end

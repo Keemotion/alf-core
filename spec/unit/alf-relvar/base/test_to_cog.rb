@@ -14,7 +14,7 @@ module Alf
 
       it 'delegates to the connection' do
         subject
-        @seen.should eq([12, expr])
+        expect(@seen).to eq([12, expr])
       end
 
     end

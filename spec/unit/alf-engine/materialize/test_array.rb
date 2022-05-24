@@ -11,12 +11,12 @@ module Alf
 
       it 'should act as a normal cog' do
         op = Materialize::Array.new(operand)
-        op.to_a.should eq(operand)
+        expect(op.to_a).to eq(operand)
       end
 
       it 'should allow specifying an ordering' do
         op = Materialize::Array.new(operand, Ordering[[:name, :desc]])
-        op.to_a.should eq([
+        expect(op.to_a).to eq([
           {:name => "Smith",  :city => "London"},
           {:name => "Jones",  :city => "Paris"},
           {:name => "Blake",  :city => "Athens"},

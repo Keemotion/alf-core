@@ -20,7 +20,7 @@ module Alf
       it{ should be_a(Alf::Tuple) }
 
       it 'should have expected attributes' do
-        subject.to_hash.should eq(sid: "S1")
+        expect(subject.to_hash).to eq(sid: "S1")
       end
     end
 

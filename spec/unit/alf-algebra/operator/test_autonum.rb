@@ -13,7 +13,7 @@ module Alf
         it{ should be_a(Autonum) }
 
         it 'has :autonum as attribute name' do
-          subject.as.should eq(:autonum)
+          expect(subject.as).to eq(:autonum)
         end
       end # default attribute name
 
@@ -23,7 +23,7 @@ module Alf
         it{ should be_a(Autonum) }
 
         it 'has :unique as attribute name' do
-          subject.as.should eq(:unique)
+          expect(subject.as).to eq(:unique)
         end
       end # explicit attribute name
 
