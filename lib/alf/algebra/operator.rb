@@ -16,9 +16,9 @@ module Alf
         end
 
         # Installs or set the operator signature
-        def signature
+        def signature(&block)
           if block_given?
-            @signature = Signature.new(self, &Proc.new)
+            @signature = Signature.new(self, &block)
             @signature.install
           else
             @signature ||= Signature.new(self)

@@ -38,7 +38,7 @@ variables:
     - {name: myrrha,       version: "~> 3.0",       groups: [runtime      ]}
     - {name: domain,       version: "~> 1.0",       groups: [runtime      ]}
     - {name: path,         version: "~> 2.0",       groups: [runtime      ]}
-    - {name: sexpr,        version: "~> 0.6.0",     groups: [runtime      ]}
+    - {name: sexpr,        version: "~> 1.0",       groups: [runtime      ]}
     - {name: rake,         version: "~> 10.1",      groups: [test, release]}
     - {name: rspec,        version: "~> 2.14",      groups: [test, release]}
     - {name: highline,     version: "~> 1.6",       groups: [extra        ]}

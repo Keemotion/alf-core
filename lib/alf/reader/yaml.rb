@@ -12,7 +12,7 @@ module Alf
       def each
         return to_enum unless block_given?
         require 'yaml'
-        p = ::YAML.load(input_text)
+        p = ::YAML.unsafe_load(input_text)
         p = [p] if TupleLike===p
         p.each do |t|
           yield Support.symbolize_keys(t)

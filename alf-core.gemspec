@@ -24,6 +24,6 @@ Gem::Specification.new do |s|
   s.add_dependency("myrrha", "~> 3.0")
   s.add_dependency("domain", "~> 1.0")
   s.add_dependency("path", "~> 2.0")
-  s.add_dependency("sexpr", "~> 0.6.0")
+  s.add_dependency("sexpr", "~> 1.0")
 
 end

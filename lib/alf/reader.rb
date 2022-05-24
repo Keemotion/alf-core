@@ -176,8 +176,8 @@ module Alf
     # This method is an helper for files that capture one tuple on each input
     # line. It should be used in those cases, as the resulting reader will not
     # load all input in memory but serve tuples on demand.
-    def each_input_line
-      with_input_io{|io| io.each_line(&Proc.new)}
+    def each_input_line(&block)
+      with_input_io{|io| io.each_line(&block)}
     end
 
     # Converts a line previously read from the input stream to a tuple.
