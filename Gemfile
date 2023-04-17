@@ -3,7 +3,7 @@ source 'http://rubygems.org'
 group :runtime do
   gem "myrrha", "~> 3.0"
   gem "domain", "~> 1.0"
-  gem "path", "~> 2.0", git: 'https://github.com/olleolleolle/path'
+  gem "path", "~> 2.1.0"
   gem "sexpr", "~> 1.0"
 end
 
