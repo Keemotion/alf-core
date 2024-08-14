@@ -9,7 +9,7 @@ module Alf
       let(:to_cog){ [] }
 
       it "should raise a fact error" do
-        expect(lambda{ subject }).to raise_error(Alf::FactAssertionError)
+        expect{ subject }.to raise_error(Alf::FactAssertionError)
       end
     end
 
@@ -23,7 +23,7 @@ module Alf
       let(:to_cog){ [] }
 
       it "should raise a fact error" do
-        expect(lambda{ not_empty!("foo") }).to raise_error(Alf::FactAssertionError, /foo/)
+        expect{ not_empty!("foo") }.to raise_error(Alf::FactAssertionError, /foo/)
       end
     end
 

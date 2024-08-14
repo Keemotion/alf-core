@@ -26,9 +26,9 @@ module Alf
         let(:rel){ [] }
 
         it 'raises a NoSuchTupleError without block' do
-          expect(lambda{
+          expect{
             subject
-          }).to raise_error(NoSuchTupleError)
+          }.to raise_error(NoSuchTupleError)
         end
 
         it 'yields if a block' do
@@ -40,9 +40,9 @@ module Alf
         let(:rel){ [{name: "Jones"}, {name: "Smith"}] }
 
         it 'raises a NoSuchTupleError' do
-          expect(lambda{
+          expect{
             subject
-          }).to raise_error(NoSuchTupleError)
+          }.to raise_error(NoSuchTupleError)
         end
       end
 

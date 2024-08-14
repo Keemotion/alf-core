@@ -42,9 +42,9 @@ module Alf
           subject{ op.type_check(strict: true) }
 
           it 'should raise an error' do
-            expect(lambda{
+            expect{
               subject
-            }).to raise_error(TypeCheckError, /heading mismatch/)
+            }.to raise_error(TypeCheckError, /heading mismatch/)
           end
         end
 

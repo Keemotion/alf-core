@@ -26,9 +26,9 @@ module Alf
           let(:predicate){ p.in(:x, [2]) & p.native(lambda{}) }
 
           it 'raises an error' do
-            expect(lambda{
+            expect{
               subject
-            }).to raise_error(NotSupportedError)
+            }.to raise_error(NotSupportedError)
           end
         end
 

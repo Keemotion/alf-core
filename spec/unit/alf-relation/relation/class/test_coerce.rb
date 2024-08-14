@@ -42,7 +42,7 @@ module Alf
 
     context "with unrecognized arg" do
       let(:arg){ nil }
-      specify{ expect(lambda{ subject }).to raise_error(TypeError) }
+      specify{ expect{ subject }.to raise_error(TypeError) }
     end
 
     context 'with files and IOs' do

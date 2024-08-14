@@ -15,9 +15,9 @@ module Alf
     end
 
     it 'should raise a TypeError in case of error' do
-      expect(lambda{
+      expect{
         Support.coerce("abc", Integer)
-      }).to raise_error(TypeError)
+      }.to raise_error(TypeError)
     end
 
   end

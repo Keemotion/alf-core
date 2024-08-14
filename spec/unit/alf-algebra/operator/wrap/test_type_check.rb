@@ -27,9 +27,9 @@ module Alf
         }
 
         it 'should raise an error' do
-          expect(lambda{
+          expect{
             subject
-          }).to raise_error(TypeCheckError, /no such attributes `foo`,`bar`/)
+          }.to raise_error(TypeCheckError, /no such attributes `foo`,`bar`/)
         end
       end
 
@@ -39,9 +39,9 @@ module Alf
         }
 
         it 'should raise an error' do
-          expect(lambda{
+          expect{
             subject
-          }).to raise_error(TypeCheckError, /cannot override `name`/)
+          }.to raise_error(TypeCheckError, /cannot override `name`/)
         end
       end
 

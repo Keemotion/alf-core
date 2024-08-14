@@ -45,9 +45,9 @@ module Alf
         end
 
         it 'allow modifying options on the new instance' do
-          expect(lambda{
+          expect{
             subject.ready = true
-          }).to_not raise_error
+          }.to_not raise_error
           expect(subject.ready?).to be_truthy
           expect(config.ready?).to be_falsey
         end

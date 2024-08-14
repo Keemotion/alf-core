@@ -48,7 +48,7 @@ module Alf
       # @raise [ArgumentError] if `source` is not recognized or no reader can be found.
       #
       def reader(source, *args)
-        if Path.like?(source)
+        if Path.like?(source) && source != $stdin
           has_reader_for_ext!(Path(source).extname).new(source, *args)
         elsif args.empty?
           coerce(source)

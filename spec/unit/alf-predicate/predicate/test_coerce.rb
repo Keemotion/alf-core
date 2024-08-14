@@ -49,9 +49,9 @@ module Alf
         let(:arg){ "status == 10" }
 
         it 'raises an error' do
-          expect(lambda{
+          expect{
             subject
-          }).to raise_error(ArgumentError)
+          }.to raise_error(ArgumentError)
         end
       end
 

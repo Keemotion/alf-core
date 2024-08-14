@@ -19,9 +19,9 @@ module Alf
         }
 
         it 'should raise an error' do
-          expect(lambda{
+          expect{
             subject
-          }).to raise_error(TypeCheckError, /no such attribute `unknown`/)
+          }.to raise_error(TypeCheckError, /no such attribute `unknown`/)
         end
       end
 
@@ -31,9 +31,9 @@ module Alf
         }
 
         it 'should raise an error' do
-          expect(lambda{
+          expect{
             subject
-          }).to raise_error(TypeCheckError, /no such attributes `foo`,`bar`/)
+          }.to raise_error(TypeCheckError, /no such attributes `foo`,`bar`/)
         end
       end
 

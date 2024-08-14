@@ -19,9 +19,9 @@ module Alf
         }
 
         it 'should raise an error' do
-          expect(lambda{
+          expect{
             subject
-          }).to raise_error(TypeCheckError, /cannot override `sid`/)
+          }.to raise_error(TypeCheckError, /cannot override `sid`/)
         end
       end
 
@@ -31,9 +31,9 @@ module Alf
         }
 
         it 'should raise an error' do
-          expect(lambda{
+          expect{
             subject
-          }).to raise_error(TypeCheckError, /cannot override `sid`,`name`/)
+          }.to raise_error(TypeCheckError, /cannot override `sid`,`name`/)
         end
       end
 

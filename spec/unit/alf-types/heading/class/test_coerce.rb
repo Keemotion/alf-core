@@ -32,7 +32,7 @@ module Alf
       let(:arg){ true }
 
       specify{
-        expect(lambda{ subject }).to raise_error(TypeError, /Can't convert `true` into (.*?)Heading/)
+        expect{ subject }.to raise_error(TypeError, /Can't convert `true` into (.*?)Heading/)
       }
     end
 

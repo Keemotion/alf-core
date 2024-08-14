@@ -9,13 +9,13 @@ module Alf
       end
 
       it 'should raise TypeError on negative integers' do
-        expect(lambda{ Size.coerce("-1") }).to raise_error(TypeError)
+        expect{ Size.coerce("-1") }.to raise_error(TypeError)
       end
 
       it 'should raise on non integers' do
-        expect(lambda{
+        expect{
           Size.coerce("hello")
-        }).to raise_error(TypeError)
+        }.to raise_error(TypeError)
       end
 
     end

@@ -22,9 +22,9 @@ module Alf
         }
 
         it 'raises a TypeCheckError' do
-          expect(lambda{
+          expect{
             cog.to_a
-          }).to raise_error(TypeCheckError, /Jones/)
+          }.to raise_error(TypeCheckError, /Jones/)
         end
       end
 

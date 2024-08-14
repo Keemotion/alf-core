@@ -20,16 +20,16 @@ module Alf
 
       it 'should freeze the scalar options' do
         subject
-        expect(lambda{
+        expect{
           config.ready = true
-        }).to raise_error(/can't modify frozen/)
+        }.to raise_error(/can't modify frozen/)
       end
 
       it 'should freeze the non-scalar options' do
         subject
-        expect(lambda{
+        expect{
           config.preferences << "foo"
-        }).to raise_error(/can't modify frozen/)
+        }.to raise_error(/can't modify frozen/)
       end
 
     end

@@ -41,9 +41,9 @@ module Alf
             end
 
             it "should raise a NotSupportedError" do
-              expect(lambda{
+              expect{
                 subject
-              }).to raise_error(NotSupportedError)
+              }.to raise_error(NotSupportedError)
             end
           end
         end

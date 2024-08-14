@@ -10,7 +10,7 @@ module Alf
         let(:signature){ Signature.new(clazz) }
         it{ should eq({}) }
         specify{
-          expect(lambda{ subject }).to_not raise_error
+          expect{ subject }.to_not raise_error
         }
       end
 

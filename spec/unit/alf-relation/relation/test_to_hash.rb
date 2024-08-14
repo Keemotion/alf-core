@@ -18,9 +18,9 @@ module Alf
     end
 
     specify "with :city => :sid" do
-      expect(lambda{
+      expect{
         rel.to_hash(:city => :sid)
-      }).to raise_error(/Key expected for `city`, divergence found on `London`/)
+      }.to raise_error(/Key expected for `city`, divergence found on `London`/)
     end
 
     specify "with :city => :status" do

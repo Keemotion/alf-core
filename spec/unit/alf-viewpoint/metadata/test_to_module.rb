@@ -27,9 +27,9 @@ module Alf
       end
 
       it 'should have a user method' do
-        expect(lambda{
+        expect{
           subject.parser.user
-        }).to_not raise_error
+        }.to_not raise_error
       end
 
     end

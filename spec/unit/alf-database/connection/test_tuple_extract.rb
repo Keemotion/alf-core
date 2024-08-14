@@ -9,9 +9,9 @@ module Alf
         subject{ conn.tuple_extract{ suppliers } }
 
         it 'raises a NoSuchTupleError' do
-          expect(lambda{
+          expect{
             subject
-          }).to raise_error(NoSuchTupleError)
+          }.to raise_error(NoSuchTupleError)
         end
       end
 
@@ -19,9 +19,9 @@ module Alf
         subject{ conn.tuple_extract{ restrict(suppliers, ->{ false }) } }
 
         it 'raises a NoSuchTupleError' do
-          expect(lambda{
+          expect{
             subject
-          }).to raise_error(NoSuchTupleError)
+          }.to raise_error(NoSuchTupleError)
         end
       end
 
