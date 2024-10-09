@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
 
 group :runtime do
-  gem "myrrha", "~> 3.0"
+  gem "myrrha", "~> 3.0", github: 'Keemotion/myrrha', tag: 'v3.0.1'
   gem "domain", "~> 1.0"
   gem "path", "~> 2.1.0"
   gem "sexpr", "~> 1.0"

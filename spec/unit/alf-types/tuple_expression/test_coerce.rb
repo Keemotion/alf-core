@@ -10,7 +10,7 @@ module Alf
 
     describe "with nil" do
       let(:arg){ nil }
-      specify{ expect(lambda{ subject }).to raise_error(ArgumentError) }
+      specify{ expect{ subject }.to raise_error(ArgumentError) }
     end
 
     describe "with a Symbol" do

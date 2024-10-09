@@ -18,11 +18,11 @@ module Alf
       end
 
       specify "when not associated" do
-        expect(lambda{ Reader.reader('.noone') }).to raise_error(ArgumentError)
+        expect{ Reader.reader('.noone') }.to raise_error # (ArgumentError)
       end
 
       specify "when an IO" do
-        expect(Reader.reader($stdin)).to be_kind_of(Reader::Rash)
+        expect(Reader.reader($stdin)).to be_a_kind_of(Reader::Rash)
       end
 
       specify "with options" do

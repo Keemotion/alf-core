@@ -9,9 +9,9 @@ module Alf
         subject{ conn.deny!{ suppliers } }
 
         it 'raises a AssertionError' do
-          expect(lambda{
+          expect{
             subject
-          }).to raise_error(FactAssertionError)
+          }.to raise_error(FactAssertionError)
         end
       end
 
@@ -25,9 +25,9 @@ module Alf
         subject{ conn.deny!("foo"){ suppliers } }
 
         it 'raises a AssertionError' do
-          expect(lambda{
+          expect{
             subject
-          }).to raise_error(FactAssertionError, /foo/)
+          }.to raise_error(FactAssertionError, /foo/)
         end
       end
 

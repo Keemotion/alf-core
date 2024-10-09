@@ -45,7 +45,7 @@ module Alf
     describe "when passed an unrecognized argument" do
       let(:arg){ false }
       specify{
-        expect(lambda{ subject }).to raise_error(TypeError)
+        expect{ subject }.to raise_error(TypeError)
       }
     end
 

@@ -39,9 +39,9 @@ module Alf
         subject{ metadata.depends(a: [1, 3]) }
 
         it 'raises an error' do
-          expect(lambda{
+          expect{
             subject
-          }).to raise_error("Composition conflict on `a`: [1, 2] vs. [1, 3]")
+          }.to raise_error("Composition conflict on `a`: [1, 2] vs. [1, 3]")
         end
       end
 

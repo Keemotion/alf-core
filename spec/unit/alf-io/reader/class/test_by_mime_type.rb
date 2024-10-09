@@ -10,9 +10,9 @@ module Alf
       }
 
       it 'should raise an error' do
-        expect(lambda{
+        expect{
           subject
-        }).to raise_error(UnsupportedMimeTypeError, /No reader for `no\/suchone`/)
+        }.to raise_error(UnsupportedMimeTypeError, /No reader for `no\/suchone`/)
       end
     end
 

@@ -41,9 +41,9 @@ module Alf
       let(:tuple){ {name: "Jones", status: "bar"} }
 
       it 'raises an error' do
-        expect(lambda{
+        expect{
           subject
-        }).to raise_error(TypeError, /Unable to coerce `"bar"` to `Integer`/)
+        }.to raise_error(TypeError, /Unable to coerce `"bar"` to `Integer`/)
       end
     end
 
@@ -51,9 +51,9 @@ module Alf
       let(:tuple){ {name: "Jones"} }
 
       it 'raises an error' do
-        expect(lambda{
+        expect{
           subject
-        }).to raise_error(TypeError, /Missing attribute `status`/)
+        }.to raise_error(TypeError, /Missing attribute `status`/)
       end
     end
 
@@ -61,9 +61,9 @@ module Alf
       let(:tuple){ {} }
 
       it 'raises an error' do
-        expect(lambda{
+        expect{
           subject
-        }).to raise_error(TypeError, /Missing attributes `name, status`/)
+        }.to raise_error(TypeError, /Missing attributes `name, status`/)
       end
     end
 
@@ -71,9 +71,9 @@ module Alf
       let(:tuple){ {name: "Jones", status: 10, foo: "bar"} }
 
       it 'raises an error' do
-        expect(lambda{
+        expect{
           subject
-        }).to raise_error(TypeError, /Unexpected attribute `foo`/)
+        }.to raise_error(TypeError, /Unexpected attribute `foo`/)
       end
     end
 
@@ -81,9 +81,9 @@ module Alf
       let(:tuple){ {name: "Jones", status: 10, foo: "bar", foo2: "blah"} }
 
       it 'raises an error' do
-        expect(lambda{
+        expect{
           subject
-        }).to raise_error(TypeError, /Unexpected attributes `foo, foo2`/)
+        }.to raise_error(TypeError, /Unexpected attributes `foo, foo2`/)
       end
     end
 

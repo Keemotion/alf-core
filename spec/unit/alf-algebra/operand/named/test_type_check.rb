@@ -26,9 +26,9 @@ module Alf
           let(:operand){ Named.new(:bar, self) }
 
           it 'raises a TypeCheckError' do
-            expect(lambda{
+            expect{
               subject
-            }).to raise_error(TypeCheckError, /No such relvar `bar`/)
+            }.to raise_error(TypeCheckError, /No such relvar `bar`/)
           end
         end
 

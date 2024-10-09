@@ -46,9 +46,9 @@ module Alf
       let(:keys)    { Keys[]   }
 
       it 'should raise an error' do
-        expect(lambda{
+        expect{
           subject
-        }).to raise_error(NotSupportedError)
+        }.to raise_error(NotSupportedError)
       end
     end
 

@@ -12,9 +12,9 @@ module Alf
         end
 
         it 'does not confuse accessors and methods' do
-          expect(lambda{
+          expect{
             tuple.id("hello")
-          }).to raise_error(NoMethodError)
+          }.to raise_error(NoMethodError)
         end
       end
 

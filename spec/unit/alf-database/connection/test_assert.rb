@@ -15,9 +15,9 @@ module Alf
         subject{ conn.assert!{ restrict(suppliers, ->{false}) } }
 
         it 'raises a AssertionError' do
-          expect(lambda{
+          expect{
             subject
-          }).to raise_error(FactAssertionError)
+          }.to raise_error(FactAssertionError)
         end
       end
 
@@ -25,9 +25,9 @@ module Alf
         subject{ conn.assert!("foo"){ restrict(suppliers, ->{false}) } }
 
         it 'raises a AssertionError' do
-          expect(lambda{
+          expect{
             subject
-          }).to raise_error(FactAssertionError, /foo/)
+          }.to raise_error(FactAssertionError, /foo/)
         end
       end
 

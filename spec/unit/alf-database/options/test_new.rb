@@ -31,9 +31,9 @@ module Alf
         let(:h){ {nosuchone: "blah"} }
 
         it 'raises an error' do
-          expect(lambda{
+          expect{
             subject
-          }).to raise_error(ConfigError, /No such option `nosuchone`/)
+          }.to raise_error(ConfigError, /No such option `nosuchone`/)
         end
       end
 
@@ -41,9 +41,9 @@ module Alf
         let(:h){ {schema_cache: "blah"} }
 
         it 'raises an error' do
-          expect(lambda{
+          expect{
             subject
-          }).to raise_error(ConfigError, /Invalid option value `schema_cache`: `blah`/)
+          }.to raise_error(ConfigError, /Invalid option value `schema_cache`: `blah`/)
         end
       end
 
@@ -53,9 +53,9 @@ module Alf
         let(:h){ {hello_world: "blah"} }
 
         it 'raises an error' do
-          expect(lambda{
+          expect{
             subject
-          }).to raise_error(ConfigError, /No such option `hello_world`/)
+          }.to raise_error(ConfigError, /No such option `hello_world`/)
         end
       end
 

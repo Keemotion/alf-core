@@ -33,7 +33,7 @@ module Alf
       end
 
       specify "should raise ArgumentError on error" do
-        expect(lambda{ Heading[true] }).to raise_error(TypeError)
+        expect{ Heading[true] }.to raise_error(TypeError)
       end
 
     end # []

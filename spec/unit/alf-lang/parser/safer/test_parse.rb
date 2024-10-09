@@ -18,9 +18,9 @@ module Alf
           subject{ parser.parse{} }
 
           it 'raises a SecurityError' do
-            expect(lambda{
+            expect{
               subject
-            }).to raise_error(SecurityError, /Parsing of ruby blocks forbidden/)
+            }.to raise_error(SecurityError, /Parsing of ruby blocks forbidden/)
           end
         end
 
@@ -46,9 +46,9 @@ module Alf
           subject{ parser.parse(:"send(:suppliers)") }
 
           it 'fails with a security error' do
-            expect(lambda{
+            expect{
               subject
-            }).to raise_error(SecurityError, /Forbidden/)
+            }.to raise_error(SecurityError, /Forbidden/)
           end
         end
 
@@ -57,9 +57,9 @@ module Alf
             subject{ parser.parse(line.strip) }
 
             it 'succeeds' do
-              expect(lambda{
+              expect{
                 subject
-              }).to_not raise_error
+              }.to_not raise_error
             end
           end
         end
@@ -69,9 +69,9 @@ module Alf
             subject{ parser.parse(line.strip) }
 
             it 'raises a SecurityError' do
-              expect(lambda{
+              expect{
                 subject
-              }).to raise_error(SecurityError, /Forbidden/)
+              }.to raise_error(SecurityError, /Forbidden/)
             end
           end
         end

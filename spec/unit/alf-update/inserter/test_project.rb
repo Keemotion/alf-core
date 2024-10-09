@@ -4,8 +4,8 @@ module Alf
     describe Inserter, 'project' do
 
       let(:expr)     { project(suppliers, [:name]) }
-      let(:inserted) { [ {:name => "Jones"} ]   }
-      let(:expected) { [ {:name => "Jones"} ]   }
+      let(:inserted) { [ {:name => "Jones"} ] }
+      let(:expected) { [ {:name => "Jones"} ] }
 
       subject{ insert(expr, inserted) }
 

@@ -19,9 +19,9 @@ module Alf
         }
 
         it 'should raise an error' do
-          expect(lambda{
+          expect{
             subject
-          }).to raise_error(TypeCheckError, /not a tuple-valued attribute `sid`/)
+          }.to raise_error(TypeCheckError, /not a tuple-valued attribute `sid`/)
         end
       end
 
@@ -33,9 +33,9 @@ module Alf
         }
 
         it 'should raise an error' do
-          expect(lambda{
+          expect{
             subject
-          }).to raise_error(TypeCheckError, /cannot override `city`/)
+          }.to raise_error(TypeCheckError, /cannot override `city`/)
         end
       end
 

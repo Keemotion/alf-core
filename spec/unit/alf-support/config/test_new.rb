@@ -23,9 +23,9 @@ module Alf
         let(:h){ {nosuchone: "blah"} }
 
         it 'raises an error' do
-          expect(lambda{
+          expect{
             subject
-          }).to raise_error(ConfigError, /No such option `nosuchone`/)
+          }.to raise_error(ConfigError, /No such option `nosuchone`/)
         end
       end
 
@@ -33,9 +33,9 @@ module Alf
         let(:h){ {ready: "blah"} }
 
         it 'raises an error' do
-          expect(lambda{
+          expect{
             subject
-          }).to raise_error(ConfigError, /Invalid option value `ready`: `blah`/)
+          }.to raise_error(ConfigError, /Invalid option value `ready`: `blah`/)
         end
       end
 

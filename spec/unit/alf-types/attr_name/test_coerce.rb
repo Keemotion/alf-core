@@ -8,8 +8,8 @@ module Alf
     end
 
     it 'should raise ArgumentError otherwise' do
-      expect(lambda{ AttrName.coerce("!123") }).to raise_error(TypeError)
-      expect(lambda{ AttrName.coerce(:'!123') }).to raise_error(TypeError)
+      expect{ AttrName.coerce("!123") }.to raise_error(TypeError)
+      expect{ AttrName.coerce(:'!123') }.to raise_error(TypeError)
     end
 
   end

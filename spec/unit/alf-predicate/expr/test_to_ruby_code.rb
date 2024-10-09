@@ -9,9 +9,9 @@ module Alf
 
       after do
         unless expr.is_a?(Native)
-          expect(lambda{
+          expect{
             eval(subject)
-          }).to_not raise_error
+          }.to_not raise_error
         end
       end
 
@@ -121,7 +121,7 @@ module Alf
         let(:expr){ f.native(lambda{}) }
 
         specify{
-          expect(lambda{ subject }).to raise_error(NotSupportedError)
+          expect{ subject }.to raise_error(NotSupportedError)
         }
       end
 
